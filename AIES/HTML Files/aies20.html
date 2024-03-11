@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en-US" >
+
+<!-- Mirrored from www.aies-conference.com/2020/accepted-papers/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Aug 2020 16:10:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="../xmlrpc.php">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Accepted papers &#8211; Aies Conference</title>
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Aies Conference &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Aies Conference &raquo; Comments Feed" href="../comments/feed/index.html" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.10.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+	var mi_version         = '7.10.3';
+	var mi_track_user      = true;
+	var mi_no_track_reason = '';
+
+	var disableStr = 'ga-disable-UA-109685133-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+
+	if ( mi_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','http://www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-109685133-1', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.aies-conference.com\/2020\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.4"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min03ec.css?ver=5.3.4' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css'  href='../wp-content/plugins/revslider/public/assets/css/settings9009.css?ver=5.4.5.1' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='parent-style-css'  href='../wp-content/themes/the-core-parent/style03ec.css?ver=5.3.4' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../wp-content/plugins/unyson/framework/static/libs/font-awesome/css/font-awesome.min87b5.css?ver=2.7.22' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/the-core-parent/css/bootstrap936b.css?ver=1.0.42' type='text/css' media='all' />
+<link rel='stylesheet' id='fw-mmenu-css'  href='../wp-content/themes/the-core-parent/css/jquery.mmenu.all936b.css?ver=1.0.42' type='text/css' media='all' />
+<link rel='stylesheet' id='the-core-style-css'  href='../wp-content/uploads/the-core-styleb91e.css?ver=1576555827' type='text/css' media='all' />
+<link rel='stylesheet' id='fw-theme-style-css'  href='../wp-content/themes/the-core-child/style936b.css?ver=1.0.42' type='text/css' media='all' />
+<link rel='stylesheet' id='prettyPhoto-css'  href='../wp-content/themes/the-core-parent/css/prettyPhoto936b.css?ver=1.0.42' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/the-core-parent/css/animate936b.css?ver=1.0.42' type='text/css' media='all' />
+<link rel='stylesheet' id='fw-googleFonts-css'  href='https://fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700%2C100%7CQuattrocento+Sans%3Aregular%2C700%7CNTR%3Aregular%7CMetrophobic%3Aregular%7CMerriweather%3A700&amp;subset=latin%2Clatin-ext&amp;ver=5.3.4' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"https:\/\/www.aies-conference.com\/2020","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.mindbb4.js?ver=7.10.3'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery4a5f.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='../wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min9009.js?ver=5.4.5.1'></script>
+<script type='text/javascript' src='../wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min9009.js?ver=5.4.5.1'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/lib/modernizr.min936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/lib/bootstrap.min936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/jquery.touchSwipe.min936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/lib/html5shiv936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/lib/respond.min936b.js?ver=1.0.42'></script>
+<link rel='https://api.w.org/' href='../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.3.4" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='../indexe83f.html?p=782' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embedc49e.json?url=https%3A%2F%2Fwww.aies-conference.com%2F2020%2Faccepted-papers%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed1d79?url=https%3A%2F%2Fwww.aies-conference.com%2F2020%2Faccepted-papers%2F&amp;format=xml" />
+<meta property="og:title" content="Accepted papers" /><meta property="og:url" content="https://www.aies-conference.com/2020/accepted-papers/" /><meta property="og:type" content="website" /><meta property="og:description" content="" /><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><meta name="generator" content="Powered by Slider Revolution 5.4.5.1 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<script type="text/javascript">function setREVStartSize(e){
+				try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
+				}catch(d){console.log("Failure at Presize of Slider:"+d)}
+			};</script>
+</head>
+<body class="page-template-default page page-id-782 fw-full fw-website-align-center fw-section-space-sm header-3 fw-top-bar-off fw-no-absolute-header fw-top-social-right  search-in-top-bar mobile-menu-item-align-left fw-mobile-menu-position-center fw-logo-image fw-logo-no-retina fw-animation-mobile-off fw-search-filter-off" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+<div style="background: yellow"><center><strong>You are browsing the site of a past edition of the AIES conference (2020). </strong><a href="../../" hidefocus="true" style="outline: none;">Navigate to present edition <strong>here</strong></a>.</center></div>
+    				<div id="page" class="hfeed site">
+						<header class="fw-header" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+		<div class="fw-header-main">
+									<div class="fw-wrap-logo">
+									<div class="fw-container">
+
+												<a href="../index.html" class="fw-site-logo">
+								<img src="../wp-content/uploads/2017/10/aies-e1507767598500.png" alt="Aies Conference" />
+							</a>
+
+									</div>
+							</div>
+					<div class="fw-nav-wrap" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+			<div class="fw-container">
+				<a href="#mobile-menu" class="mmenu-link"><i class="fa fa-navicon"></i></a>
+				<nav id="fw-menu-primary" class="fw-site-navigation primary-navigation"><ul id="menu-main-menu" class="fw-nav-menu"><li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-icon menu-item-14"><a href="../index.html" ><i class="fa fa-home"></i>HOME</a></li>
+<li id="menu-item-721" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-has-icon menu-item-721"><a href="#" ><i class="fa fa-thumb-tack"></i>PROGRAM</a>
+<ul class="sub-menu">
+	<li id="menu-item-1230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1230"><a href="../schedule/index.html" >Schedule</a></li>
+	<li id="menu-item-1321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1321"><a target="_blank" href="https://dl.acm.org/doi/proceedings/10.1145/3375627" >Proceedings</a></li>
+	<li id="menu-item-1140" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1140"><a href="#" >Main Public Events</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142"><a href="../aies-opening-keynote/index.html" >AIES Opening Keynote</a></li>
+		<li id="menu-item-1141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1141"><a href="../main-evening-event/index.html" >Main Evening Event</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1054" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1054"><a href="../invited-talks/index.html" >Invited talks</a></li>
+	<li id="menu-item-1087" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-782 current_page_item menu-item-1087"><a href="index.html" >Accepted papers</a></li>
+	<li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-953"><a href="../important-dates/index.html" >Important Dates</a></li>
+	<li id="menu-item-1039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1039"><a href="../registration/index.html" >Registration</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1055"><a href="#" >Calls (closed)</a>
+	<ul class="sub-menu">
+		<li id="menu-item-620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-620"><a href="../call-for-papers/index.html" >Call for Papers</a></li>
+		<li id="menu-item-1015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1015"><a href="../call-for-papers-students/index.html" >Call for papers (Students)</a></li>
+		<li id="menu-item-1014" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1014"><a href="../submission-information-students/index.html" >Submission information (students)</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon menu-item-74"><a href="#" ><i class="fa fa-asl-interpreting"></i>ORGANIZATION</a>
+<ul class="sub-menu">
+	<li id="menu-item-91" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91"><a href="../steering-committee/index.html" >Steering Committee</a></li>
+	<li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92"><a href="../program-committee/index.html" >Program Committee</a></li>
+	<li id="menu-item-1005" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1005"><a href="../students-organizing-committee/index.html" >Student Track Organizing Committee</a></li>
+</ul>
+</li>
+<li id="menu-item-968" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon menu-item-968"><a href="#" ><i class="fa fa-bookmark"></i>SPONSORS</a>
+<ul class="sub-menu">
+	<li id="menu-item-967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-967"><a href="../sponsors/index.html" >Sponsors</a></li>
+</ul>
+</li>
+<li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon menu-item-75"><a href="#" ><i class="fa fa-map-o"></i>LOCAL</a>
+<ul class="sub-menu">
+	<li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><a href="../venue/index.html" >Venue, accommodations, and travel</a></li>
+</ul>
+</li>
+<li id="menu-item-344" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon menu-item-344"><a href="#" ><i class="fa fa-cubes"></i>ARCHIVE</a>
+<ul class="sub-menu">
+	<li id="menu-item-945" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-945"><a href="../../2019/index.html" >AIES 2019</a></li>
+	<li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="../../2018/index.html" >AIES 2018</a></li>
+</ul>
+</li>
+</ul></nav>							</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+			<div class="fw-wrap-search-form fw-form-search-full" role="search">
+			<form class="fw-search-form" method="get" action="https://www.aies-conference.com/2020/">
+				<input type="text" name="s" class="fw-input-search" placeholder="Search">
+				<div class="fw-submit-wrap"></div>
+			</form>
+		</div>
+	</header>
+<nav id="mobile-menu"><ul><li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-icon"><a href="../index.html">HOME</a></li><li  class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-has-icon"><a href="#">PROGRAM</a><ul class="sub-menu">	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../schedule/index.html">Schedule</a></li>	<li  class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://dl.acm.org/doi/proceedings/10.1145/3375627">Proceedings</a></li>	<li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Main Public Events</a>	<ul class="sub-menu">		<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../aies-opening-keynote/index.html">AIES Opening Keynote</a></li>		<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../main-evening-event/index.html">Main Evening Event</a></li>	</ul></li>	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../invited-talks/index.html">Invited talks</a></li>	<li  class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-782 current_page_item"><a href="index.html">Accepted papers</a></li>	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../important-dates/index.html">Important Dates</a></li>	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../registration/index.html">Registration</a></li>	<li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Calls (closed)</a>	<ul class="sub-menu">		<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../call-for-papers/index.html">Call for Papers</a></li>		<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../call-for-papers-students/index.html">Call for papers (Students)</a></li>		<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../submission-information-students/index.html">Submission information (students)</a></li>	</ul></li></ul></li><li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon"><a href="#">ORGANIZATION</a><ul class="sub-menu">	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../steering-committee/index.html">Steering Committee</a></li>	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../program-committee/index.html">Program Committee</a></li>	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../students-organizing-committee/index.html">Student Track Organizing Committee</a></li></ul></li><li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon"><a href="#">SPONSORS</a><ul class="sub-menu">	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../sponsors/index.html">Sponsors</a></li></ul></li><li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon"><a href="#">LOCAL</a><ul class="sub-menu">	<li  class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../venue/index.html">Venue, accommodations, and travel</a></li></ul></li><li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-has-icon"><a href="#">ARCHIVE</a><ul class="sub-menu">	<li  class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../2019/index.html">AIES 2019</a></li>	<li  class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../2018/index.html">AIES 2018</a></li></ul></li></ul></nav>						<div id="main" class="site-main">
+			<div class="no-header-image"></div>
+		<section class="fw-default-page fw-main-row ">
+	<div class="fw-container">
+		<div class="fw-row">
+			<div class="fw-content-area col-md-12">
+				<div class="fw-inner">
+																<article id="page-782" class="post post-details">
+							<div class="inner">
+								<header class="entry-header">
+												<h2 class="entry-title" itemprop="headline">Accepted papers</h2>
+										</header>
+
+								<div class="entry-content" itemprop="text">
+									<h3>ACCEPTED PAPERS (oral presentation)</h3>
+<p>Yishan Zhou and David Danks <strong> Different âIntelligibilityâ for Different Folks</strong><br />
+Stephen Cave <strong> The Problem with Intelligence: Its Value-Laden History and the Future of AI</strong><br />
+Melissa McCradden, Shalmali Joshi, James Anderson and Mjaye Mazwi <strong> When your only tool is a hammer: ethical limitations of computational fairness solutions in healthcare machine learning</strong><br />
+P. M. Krafft, Meg Young, Michael Katell, Karen Huang and Ghislain Bugingo <strong> Policy versus Practice: Conceptions of Artificial Intelligence</strong><br />
+Shubham Sharma, Jette Henderson and Joydeep Ghosh <strong> CERTIFAI: A common framework to provide explanations and analyse the fairness and robustness of black-box models</strong><br />
+Sina Fazelpour and Zachary Lipton <strong> Algorithmic Fairness from a Non-ideal Perspective</strong><br />
+Daniel Schiff, Justin Biddle, Jason Borenstein and Kelly Laas <strong> Whatâs Next for AI Ethics, Policy, and Governance? A Global Overview</strong><br />
+Heidi McKee and James Porter <strong> Ethics for AI Writing: The Importance of Rhetorical Context</strong><br />
+Haydn Belfield <strong> Activism by the AI Community: Analysing Recent Achievements and Future Prospects</strong><br />
+Inioluwa Raji, Timnit Gebru, Margaret Mitchell, Joy Buolamwini, Joonseok Lee and Emily Denton <strong> Saving Face: Towards an Ethically-Informed Approach to Facial Recognition Auditing</strong><br />
+Spencer Frazier, Md Sultan Al Nahian, Brent Harrison and Mark Riedl <strong> Learning Norms from Stories: A Prior for Value Aligned Agents</strong><br />
+Baobao Zhang and Allan Dafoe <strong> U.S. Public Opinion on the Governance of Artificial Intelligence</strong><br />
+Dylan Slack, Sophie Hilgard, Emily Jia, Sameer Singh and Himabindu Lakkaraju <strong> Nothing to See Here: Hiding Model Biases by Fooling Post hoc Explanation Methods</strong><br />
+Osonde Osoba <strong> Technocultural Pluralism: A âClash of Civilizationsâ in Technology?</strong><br />
+Zachary Schutzman <strong> Trade-offs in Fair Redistricting</strong><br />
+Carina Prunkl and Jess Whittlestone <strong> Beyond near and long-term: towards a clearer account of research priorities in AI ethics and society</strong><br />
+Andreia Martinho, Maarten Kroesen and Caspar Chorus <strong> An Empirical Approach to Capture Moral Uncertainty in Ethical AI</strong><br />
+Gabor Erdelyi and Olivia Johanna Erdelyi <strong> The AI Liability Puzzle and a Fund-Based Work-Around</strong><br />
+Jeanna Matthews, Graham Northup, Stephen Lorenz, Izzi Grasso, Marzieh Babaeianjelodar, Hunter Bashaw, Sumona Mondal, Abigail Matthews, Mariama Njie and Jessica Goldthwaite <strong> Incentivizing Debugging and Accountability In Critical Black-Box Software Systems</strong><br />
+Gunay Kazimzade and Milagros Miceli <strong> Biased Priorities, Biased Outcomes: Three Recommendations for Ethics-oriented Data Annotation Practices</strong><br />
+Rida Qadri <strong> Algorithmized but not Atomized? How Digital Platforms Engender New Forms of Worker Solidarity in Jakarta</strong><br />
+Vedant Nanda, Pan Xu, Karthik Abinav Sankararaman, John Dickerson and Aravind Srinivasan <strong> Balancing the Tradeoff between Profit and Fairness in Rideshare Platforms during High-Demand Hours</strong><br />
+Subhro Das, Sebastian Steffen, Wyatt Clarke, Prabhat Reddy, Erik Brynjolfsson and Martin Fleming <strong> Learning Occupational Task-Shares Dynamics for the Future of Work</strong><br />
+Alan Davoust and Michael Rovatsos <strong> Social Contracts for Non-Cooperative Games</strong><br />
+Fernando MartÃ­nez-Plumed, Jose Hernandez-Orallo, Annarosa Pesole, Enrique FernÃ¡ndez-MacÃ­as, Emilia GÃ³mez and SongÃ¼l Tolan <strong> Does AI Qualify for the Job? A Bidirectional Model Mapping Labour and AI Intensities</strong><br />
+Derek Leben <strong> Normative Principles for Evaluating Fairness in Machine Learning</strong><br />
+Toby Shevlane and Allan Dafoe <strong> The Offense-Defense Balance of Scientific Knowledge: Does Publishing AI Research Reduce Misuse</strong><br />
+Shahar Avin, Ross Gruetzemacher and James Fox <strong> Exploring AI Futures Through Role Play</strong><br />
+Debjani Saha, Candice Schumann, Duncan C. McElfresh, John P. Dickerson, Michelle L. Mazurek and Michael Carl Tschantz <strong> Human Comprehension of Fairness in Machine Learning</strong><br />
+Joy Lu, Dokyun Lee, Tae Wan Kim and David Danks <strong> Good Explanation for Algorithmic Transparency</strong><br />
+Jongbin Jung, Ravi Shroff, Avi Feller and Sharad Goel <strong> Bayesian Sensitivity Analysis for Offline Policy Evaluation</strong><br />
+William Cai, Johann Gaebler, Nikhil Garg and Sharad Goel <strong> Fair Allocation through Selective Information Acquisition</strong><br />
+Margaret Mitchell, Emily Denton, Nyalleng Moorosi, Ben Hutchinson, Alex Hanna, Jamie Morgenstern, Dylan Baker and Timnit Gebru <strong> Diversity and Inclusion Metrics in Subset Selection</strong><br />
+Himabindu Lakkaraju and Osbert Bastani <strong> âHow do I fool you?â: Manipulating User Trust via Misleading Black Box Explanations</strong></p>
+<h3>ACCEPTED PAPERS (poster)</h3>
+<p>Han Yu, Zelei Liu, Yang Liu, Tianjian Chen, Mingshu Cong, Xi Weng, Dusit Niyato and Qiang Yang. <strong> A Fairness-aware Incentive Scheme for Federated Learning</strong><br />
+Desmond Patton, William Frey, Kyle McGregor, Fei-Tzin Lee, Kathy McKeown and Emanuel Moss. <strong> Contextual Analysis of Social Media: The Promise and Challenge of Eliciting Context in Social Media Posts with Natural Language Processing</strong><br />
+Cullen O&#8217;Keefe, Peter Cihon, Carrick Flynn, Ben Garfinkel, Jade Leung and Allan Dafoe. <strong> The Windfall Clause: Distributing the Benefits of AI for the Common Good</strong><br />
+Sandhya Saisubramanian, Sainyam Galhotra and Shlomo Zilberstein. <strong> Balancing the Tradeoff Between Clustering Value and Interpretability</strong><br />
+Violet Chen and John Hooker. <strong> A Just Approach Balancing Rawlsian Leximax Fairness and Utilitarianism</strong><br />
+Suvradip Maitra. <strong> Artificial Intelligent and Indigenous Perspectives: Protecting and Empowering Intelligent Human Beings</strong><br />
+Arisa Ema, Katsue Nagakura and Takanori Fujita. <strong> Proposal for Type Classification for Building Trust in Medical Artificial Intelligence Systems</strong><br />
+Pedro M. Fernandes, Francisco C. Santos and Manuel Lopes. <strong> Adoption Dynamics and Societal Impact of AI Systems in Complex Networks</strong><br />
+Lingxiao Huang, Julia Wei and L. Elisa Celis. <strong> Towards Just, Fair and Interpretable Methods for Judicial Subset Selection</strong><br />
+Bingquan Zhu, Hao Fang, Yanan Sui and Luming Li. <strong> Deepfakes for Medical Video De-Identification: Privacy Protection and Diagnostic Information Preservation</strong><br />
+Rafael Poyiadzi, Kacper Sokol, Raul Santos-Rodriguez, Tijl De Bie and Peter Flach. <strong> FACE: Feasible and Actionable Counterfactual Explanations</strong><br />
+Alexander Turner, Dylan Hadfield-Menell and Prasad Tadepalli. <strong> Conservative Agency via Attainable Utility Preservation</strong><br />
+Gemma Galdon Clavell, Mariano MartÃ­n Zamorano, Carlos Castillo, Oliver Smith and Aleksandar Matic. <strong>Auditing Algorithms: On Lessons Learned and the Risks of Data Minimization</strong><br />
+Veljko Dubljevic. <strong> Toward Implementing the ADC Model of Moral Judgment in Autonomous Vehicles</strong><br />
+Jonathan Herington. <strong> Measuring Fairness in an Unfair World</strong><br />
+Abeba Birhane and Jelle van Dijk. <strong> Robot Rights? Letâs talk about human welfare instead</strong><br />
+Tongyu Zhou, Haoyu Sheng and Iris Howley. <strong> Assessing Post-hoc Explainability of the BKT Algorithm</strong><br />
+Peter Cihon, Matthijs Maas and Luke Kemp. <strong> Should Artificial Intelligence Governance be Centralised? Design Lessons from History</strong><br />
+Julian Zucker and Myraeka d&#8217;Leeuwen. <strong> Arbiter: A Domain-Specific Language for Ethical Machine Learning</strong><br />
+Amba Kak. <strong> âThe Global South is everywhere but also always somewhereâ : National policy narratives and AI justice</strong><br />
+EfrÃ©n Cruz CortÃ©s and Debashis Ghosh. <strong> An invitation to system-wide algorithmic fairness</strong><br />
+Roel Dobbe, Thomas Gilbert and Yonatan Mintz. <strong> Hard Choices in Artificial Intelligence: Addressing Normative Uncertainty through Sociotechnical Commitments</strong><br />
+Yunfeng Zhang, Rachel Bellamy and Kush Varshney. <strong> Joint Optimization of AI Fairness and Utility: A Human-Centered Approach</strong><br />
+Aaron Tucker, Markus Anderljung and Allan Dafoe. <strong> Social and Governance Implications of Improved Data Efficiency</strong><br />
+Yuzi He, Keith Burghardt and Kristina Lerman. <strong> A Geometric Solution to Fair Representations</strong><br />
+Shubham Sharma, Yunfeng Zhang, Jesus Rios, Djallel Bouneffouf, Vinod Muthusamy and Kush Varshney. <strong> Data Augmentation for Discrimination Prevention and Bias Disambiguation</strong><br />
+Andrew Smart, Larry James, Ben Hutchinson, Simone Wu and Shannon Vallor. <strong> Why Reliabilism Is not Enough: Epistemic and Moral Justification in Machine Learning</strong><br />
+Ava Wright. <strong> A Deontic Logic for Programming Rightful Machines</strong><br />
+Natalie Garrett, Casey Fiesler and Nathan Beard. <strong> More Than &#8220;If Time Allows&#8221;: The Role of Ethics in AI Education</strong><br />
+Andi Peng and Malina Simard-Halm. <strong> The Perils of Objectivity: Towards a Normative Framework for Fair Judicial Decision-Making</strong><br />
+Lok Chan, Kenzie Doyle, Duncan McElfresh, Vincent Conitzer, John P. Dickerson, Jana Schaich Borg and Walter Sinnott-Armstrong. <strong> Artificial Artificial Intelligence: Measuring Influence of AI &#8220;Assessments&#8221; on Moral Decision-Making</strong><br />
+Aj Alvero, Noah Arthurs, Anthony Antonio, Ben Domingue, Ben Gebre-Medhin, Sonia Giebel and Mitchell Stevens. <strong> AI and Holistic Review: Informing Human Reading in College Admissions</strong><br />
+Osonde Osoba, Benjamin Boudreaux and Douglas Yeung. <strong> Steps Towards Value-Aligned Systems</strong><br />
+Seyyed Ahmad Javadi, Richard Cloete, Jennifer Cobbe, Michelle Lee and Jatinder Singh. <strong>Monitoring Misuse for Accountable âArtificial Intelligence as a Serviceâ</strong><br />
+Daniel Karpati, Amro Najjar and Agustin Ambrossio. <strong> Ethics of Food Recommender Applications</strong><br />
+Chris Dulhanty and Alexander Wong. <strong> Investigating the Impact of Inclusion in Face Recognition Training Data on Individual Face Identification</strong><br />
+Eyal Shulman and Lior Wolf. <strong> Meta Decision Trees for Explainable Recommendation Systems</strong></p>
+								</div><!-- /.entry-content -->
+							</div><!-- /.inner -->
+						</article><!-- /#page-## -->
+															</div><!-- /.inner -->
+			</div><!-- /.content-area -->
+
+					</div><!-- /.row -->
+	</div><!-- /.container -->
+</section>
+
+
+		</div><!-- /.site-main -->
+
+				<!-- Footer -->
+		<footer id="colophon" class="site-footer fw-footer " itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+						<div class="fw-footer-widgets footer-cols-4">
+				<div class="fw-inner">
+			<div class="fw-container">
+				<div class="fw-row">
+											<div class="fw-col-md-3 fw-col-sm-6">
+							<aside id="text-2" class="widget widget_text"><h2 class="widget-title"><span>Organizing Institutions:</span></h2>			<div class="textwidget"></div>
+		</aside>						</div>
+											<div class="fw-col-md-3 fw-col-sm-6">
+							<aside id="media_image-2" class="widget widget_media_image"><img width="75" height="75" src="../wp-content/uploads/2017/10/s150_aaai-1.png" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto;" /></aside><aside id="text-3" class="widget widget_text">			<div class="textwidget"><div style="text-align:center">Association for the </br>Advancement of Artificial Intelligence</div>
+</div>
+		</aside>						</div>
+											<div class="fw-col-md-3 fw-col-sm-6">
+							<aside id="media_image-3" class="widget widget_media_image"><img width="75" height="75" src="../wp-content/uploads/2017/10/s150_acm.png" class="image wp-image-62 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto;" /></aside><aside id="text-5" class="widget widget_text">			<div class="textwidget"><div style="text-align:center">Association for  </br>Computing Machinery</div>
+</div>
+		</aside>						</div>
+											<div class="fw-col-md-3 fw-col-sm-6">
+							<aside id="media_image-4" class="widget widget_media_image"><img width="75" height="75" src="../wp-content/uploads/2017/10/s150_sigai.png" class="image wp-image-61 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto;" /></aside><aside id="text-4" class="widget widget_text">			<div class="textwidget"><div style="text-align:center">ACM Special Interest group on </br>Artificial Intelligence</div>
+</div>
+		</aside>						</div>
+									</div>
+				<div class="fw-row">
+					&nbsp;
+				</div>
+
+				<div class="fw-row">
+					<div class="fw-col-md-3 fw-col-sm-6">
+
+							<aside id="text-2" class="widget widget_text">
+							<h2 class="widget-title">
+								<span>Sponsors:</span>
+							</h2>
+							<div class="textwidget"></div>
+							</aside>
+					</div>
+
+
+					<div class="fw-col-md-5 fw-col-sm-6">
+
+							<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../../2019/wp-content/uploads/2018/01/DeepMindLogo_t.png" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: 75px;"  height="75"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">DeepMind Ethics &amp; Society</div>
+							</div>
+							</aside>
+					</div>
+
+
+
+					<div class="fw-col-md-4 fw-col-sm-6">
+                    		<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../wp-content/uploads/2019/11/SiliconValleyCFr1.png" class="image " alt="" style="max-width: 100%; height: auto; margin-top:10px; margin-bottom:10px;" width="150" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">Survival and Flourishing Fund<br/>Silicon Valley community foundation</div>
+							</div>
+							</aside>
+                    </div>
+
+
+				</div>
+
+
+
+				<div class="fw-row">
+                     <div class="fw-col-md-3 fw-col-sm-6">
+                        <aside id="text-2" class="widget widget_text">
+                        <h2 class="widget-title">
+                                <span>&nbsp;</span>
+                        </h2>
+                        <div class="textwidget"></div>
+                        </aside>
+                    </div>
+
+					<div class="fw-col-md-5 fw-col-sm-6">
+
+							<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../wp-content/uploads/2019/12/foundersplege-s.png" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto; margin-top: 25px; margin-bottom: 25px;" width="100" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">Founders Pledge</div>
+							</div>
+							</aside>
+					</div>
+					<div class="fw-col-md-4 fw-col-sm-6">
+
+							<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../wp-content/uploads/2019/12/nyu.png" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto; margin-top: 25px; margin-bottom: 25px;" width="100" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">New York University</div>
+							</div>
+							</aside>
+					</div>
+
+
+
+				</div>
+
+                <div class="fw-row">
+                     <div class="fw-col-md-3 fw-col-sm-6">
+                        <aside id="text-2" class="widget widget_text">
+                        <h2 class="widget-title">
+                                <span>&nbsp;</span>
+                        </h2>
+                        <div class="textwidget"></div>
+                        </aside>
+                    </div>
+
+					<div class="fw-col-md-3 fw-col-sm-6">
+
+							<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../wp-content/uploads/2020/01/Amazon-logo.png" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto; margin-top: 25px; margin-bottom: 25px;" width="100" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">Amazon</div>
+							</div>
+							</aside>
+					</div>
+
+					<div class="fw-col-md-3 fw-col-sm-6">
+
+							<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../wp-content/uploads/2020/01/ds-logo.jpg" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto; margin-top: 25px; margin-bottom: 25px;" width="100" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">Data & Society</div>
+							</div>
+							</aside>
+					</div>
+					<div class="fw-col-md-3 fw-col-sm-6">
+							<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../../2019/wp-content/uploads/2018/11/facebook.png" class="image wp-image-63 logo-footer attachment-75x75 size-75x75" alt="" style="max-width: 100%; height: auto; margin-top: 25px; margin-bottom: 25px;" width="100" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">Facebook</div>
+							</div>
+							</aside>
+                    </div>
+
+
+
+				</div>
+				<div class="fw-row">
+                     <div class="fw-col-md-3 fw-col-sm-6">
+                        <aside id="text-2" class="widget widget_text">
+                        <h2 class="widget-title">
+                                <span>&nbsp;</span>
+                        </h2>
+                        <div class="textwidget"></div>
+                        </aside>
+                    </div>
+					<div class="fw-col-md-2 fw-col-sm-6">
+
+
+					</div>
+                    <div class="fw-col-md-9 fw-col-sm-6">
+                    		<aside id="media_image-2" class="widget widget_media_image">
+							<img src="../../2019/wp-content/uploads/2019/01/partnership-on-ai43.png" class="image " alt="" style="max-width: 100%; height: auto; margin-top:20px; margin-bottom:10px;" width="160" height="100"></aside>
+							<aside id="text-3" class="widget widget_text">
+							<div class="textwidget"><div style="text-align:center">Partnership on AI</div>
+							</div>
+							</aside>
+                    </div>
+
+				</div>
+                <div class="fw-row">
+                    &nbsp;
+                </div>
+
+
+                <div class="fw-row">
+                    &nbsp;
+                </div>
+
+			</div>
+		</div>
+	</div>
+
+
+			<div class="fw-footer-middle  ">
+				<div class="fw-container">
+								</div>
+	</div>
+
+		<div class="fw-footer-bar fw-copyright-center">
+			<div class="fw-container">
+												<div class="fw-copyright"><p>Copyright Â©2019 AAAI/ACM</p></div>
+			</div>
+		</div>
+			</footer>
+
+	</div><!-- /#page -->
+    <!-- FOOTER SCRIPT INJECTION -->
+
+    <!-- END FOOTER SCRIPT INJECTION -->
+<script type='text/javascript' src='../wp-includes/js/imagesloaded.min55a0.js?ver=3.2.0'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/jquery.carouFredSel-6.2.1-packed936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/jquery.prettyPhoto936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/jquery.customInput936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/scrollTo.min936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/jquery.mmenu.min.all936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/selectize.min936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/jquery.parallax936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/ui/effect.mine899.js?ver=1.11.4'></script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/lazysizes.min936b.js?ver=1.0.42'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FwPhpVars = {"disable_anchor_id":"false","mmenu_title":"Menu","back":"Back","lang":"en","ajax_url":"https:\/\/www.aies-conference.com\/2020\/wp-admin\/admin-ajax.php","template_directory":"https:\/\/www.aies-conference.com\/2020\/wp-content\/themes\/the-core-parent","previous":"Previous","next":"Next","fail_form_error":"Sorry you are an error in ajax, please contact the administrator of the website","smartphone_animations":"no","mobile_menu_position":"left","mobile_menu_page_dim":"page-dim-none","mobile_menu_border_style":"indent","header_5_position":"left","header_6_position":"left","mobile_menu_screen":"1199","effect_panels":"mm-effect-panels-left-right","effect_listitems_slide":"effect-listitems-slide","sticky_resolution":"767","sticky_logo":"","socials":null};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/the-core-parent/js/general936b.js?ver=1.0.42'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min03ec.js?ver=5.3.4'></script>
+</body>
+
+<!-- Mirrored from www.aies-conference.com/2020/accepted-papers/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Aug 2020 16:10:53 GMT -->
+</html>
