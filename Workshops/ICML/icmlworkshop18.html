@@ -1,0 +1,3929 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-padding-top: 70px;"> 
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/virtual/js/virtual.js"></script>
+    <meta name="google-site-verification" content="0jwPnVXIAk4FvFdT37dwMmd-kjHF86e5DKwvqlStUW0">
+
+    <title>ICML 2018</title>
+    
+    <link rel="stylesheet" href="/static/core/css/core.css" type="text/css">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css" type="text/css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/core/css/custom.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      "tex2jax": {
+        "inlineMath": [["$","$"], ["\\(","\\)"]],
+        "displayMath": [["\\[","\\]"]],
+        "processEscapes": true
+      }
+    }
+    );
+    </script>
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!--This script keeps local links inside the web app rather than opening them
+in Safari, and has nothing to do with editing or Aloha.-->
+
+<script type="text/javascript">
+	(function(document,navigator,standalone) {
+		// prevents links from apps from opening in mobile safari
+		// this javascript must be the first script in your <head>
+		if ((standalone in navigator) && navigator[standalone]) {
+			var curnode, location=document.location, stop=/^(a|html)$/i;
+			document.addEventListener('click', function(e) {
+				curnode=e.target;
+				while (!(stop).test(curnode.nodeName)) {
+					curnode=curnode.parentNode;
+				}
+				// Conditions to do this only on links to your own app
+				// if you want all links, use if('href' in curnode) instead.
+				if(
+					'href' in curnode && // is a link
+					(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+					(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+						chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+				) {
+					e.preventDefault();
+					location.href = curnode.href;
+				}
+			},false);
+		}
+	})(document,window.navigator,'standalone');
+</script>        
+
+<!-- This style sets the minimum size of a blurb to 260 px unless there is a
+template context variable blurb_min_height that sets it otherwise. If blurbs
+aren't all about the same size, they don't flow well when the window is
+resized.-->
+
+
+<style>
+/*This is here rather that in a .css file for a reason.*/
+    @media screen and (min-width: 767px) {
+        .blurb {
+            min-height:260px;
+        }
+    }
+</style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</script>
+
+<script>
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "/static/core/js/jquery-3.6.1.min.js";
+        document.head.appendChild(script);
+    }
+</script>
+
+
+    <script>
+        var $ = jQuery;
+        /*Store a pointer to jquery2, so I can reference it later.  Aloha loads jquery 1.7 and much
+        of bootstrap 3 is not compatible. This comment is deprecated. */
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/be44b7e05d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Exo;}
+    </style>
+
+
+
+
+
+
+
+     
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js" integrity="sha512-lEb9Vp/rkl9g2E/LdHIMFTqz21+LA79f84gqP75fbimHqVTu6483JG1AwJlWLLQ8ezTehty78fObKupq3HSHPQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="/static/virtual/js/virtual.js"></script>
+    
+
+    <title>ICML 2018</title>
+    
+
+    <title>ICML 2018 Workshops</title>
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="noprint">
+    
+        
+<!--Navbar start-->
+<nav id="id_navbar" class="navbar navbar-expand-sm navbar-dark" style="background-color:#212529">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="/"><img src="/static/core/img/icml-navbar-logo.svg" height="40px"></a></div>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ICML
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/FAQ">
+                    <span >
+                        Help/FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Downloads">
+                    <span >
+                        Downloads
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/CodeOfConduct">
+                    <span >
+                        Code of Conduct
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/JournalToConference">
+                    <span >
+                        Journal To Conference Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Profile/create">
+                    <span >
+                        Create Profile
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/PrivacyPolicy">
+                    <span >
+                        Privacy Policy
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2024/Press">
+                    <span >
+                        Press
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/careers">
+                    <span >
+                        Careers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Help/Contact">
+                    <span >
+                        Contact ICML
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/MyStuff">
+                    <span >
+                        My Stuff
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+
+                <form class="d-flex" role="search" action="/search">
+                    <div class="input-group" role="search">
+                        <input type="text" class="form-control" placeholder="Search" name="q"
+                               value=""
+                               aria-label="Search" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn-primary" id="btnGroupAddon">
+                            <button style="border: none; background-color: transparent; padding: 0;" type="submit">
+                                <i class="fa-solid fa-magnifying-glass" ></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                &nbsp;
+                
+                    <a href="/accounts/login?nextp=/Conferences/2018/ScheduleMultitrack2 " class="navbar-brand"><span
+                            class="fa-solid fa-right-to-bracket"></span> Login</a>
+                
+
+            </div>
+        </div>
+    </nav>
+<!--Navbar end-->
+    
+</div><!--noprint div-->
+
+
+<!--This holds the whole page including the navbar-->
+
+<main id="main">
+    <div class="container-fluid">
+        <!--Navbar start-->
+
+<div class="dropdown">
+    <nav class="align-middle navbar navbar-expand-md mx-4 border border-3 border-top-0 rounded-bottom"
+         style="min-height: 57px; background-color: #F6f6f6;">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1146" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1146">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle border-3  btn btn-primary text-white p-1" style= "background-color: #070bff; font-size: 1.2 em;"
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Year: (2018)
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2024">2024
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2023">2023
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2022">2022
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2021/index.html">2021
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2020/">2020
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2019/">2019
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2018">2018
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2017">2017
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2016">2016
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2015">2015
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2014">2014
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2013">2013
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2012">2012
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2011">2011
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2010">2010
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2009">2009
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2008
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2007
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2007">2006
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2005">2005
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2005">2004
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2002">2002
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/1996">1996
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="http://www.machinelearning.org/archive.html">IMLS Archives
+                </a>
+            </li>
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Dates">
+                    <span >
+                        Dates
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Schedule
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Schedule">
+                    <span >
+                        Full Schedule
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Overview">
+                    <span >
+                        Schedule Overview
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Schedule?type=Invited+Talk">
+                    <span >
+                        Invited Speakers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Schedule?type=Tutorial">
+                    <span >
+                        Tutorials
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://media.nips.cc/Conferences/NIPS2018/ICML-2018-Conference-Book.pdf">
+                    <span >
+                        Conference Program PDF
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://media.icml.cc/Conferences/ICML2018/Workshop-Program-ICML-2018.pdf">
+                    <span >
+                        Workshop Book PDF
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Calls
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/CallForPapers">
+                    <span >
+                        Call for Papers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/StyleAuthorInstructions">
+                    <span style="font-size: .8em;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Style and Author Instructions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/CallForTutorials">
+                    <span >
+                        Call for Tutorials
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/CallForWorkshops">
+                    <span >
+                        Call for Workshops
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Attend
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://book.passkey.com/event/49566506/owner/49181/home">
+                    <span >
+                        Hotels in Discounted Room Block (sold out)
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://app.groupize.com/e/program-name-federated-ai-conference-stockholm-sweden">
+                    <span >
+                        All Hotels
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://www.jotform.com/KiddieCorp/icmlkids">
+                    <span >
+                        Child Care
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Students
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/TravelApplication">
+                    <span >
+                        Travel Application
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Volunteers/volunteerapplication">
+                    <span >
+                        Volunteer Application
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Organization
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Board">
+                    <span >
+                        ICML Board
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Committees">
+                    <span >
+                        Committees
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/AreaChairs">
+                    <span >
+                        Area Chairs
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2018/Reviewers">
+                    <span >
+                        Reviewers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/About">
+                    <span >
+                        IMLS
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    <!--Navbar end-->
+    </div>
+    <br><br>
+    
+<div class="container-fluid">
+
+    
+
+    
+
+    <br>
+
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="title-centered" style="text-align:center">Workshops</div>
+            
+        </div>
+
+
+    
+
+        
+
+        <div class="row">  
+            <div class="col-sm-12">
+
+                
+                    <div style="max-width: 1500px; margin:auto; border">
+                        <div class="grid-displaycards">
+
+                                
+                                    <div class="displaycards touchup-date" id="event-3298">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3298">Fairness, Interpretability, and Explainability Federation of Workshops (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3298"></div>
+
+
+    <p style="font-size:.9em;">[ K2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3298">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3284">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3284">Computer Games Workshop</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3284"></div>
+
+
+    <p style="font-size:.9em;">[ T4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3284">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3289">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3289">Linguistic and Cognitive Approaches To Dialog Agents (LaCATODA 2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3289"></div>
+
+
+    <p style="font-size:.9em;">[ B9 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3289">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3287">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3287">Joint Workshop on AI in Health (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3287"></div>
+
+
+    <p style="font-size:.9em;">[ B2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3287">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3292">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3292">Tenth International Workshop Modelling and Reasoning in Context (MRC)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3292"></div>
+
+
+    <p style="font-size:.9em;">[ K22 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3292">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3286">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3286">FCA4AI 2018</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3286"></div>
+
+
+    <p style="font-size:.9em;">[ K12 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3286">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3294">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3294">The 3rd International Workshop on Knowledge Discovery in Healthcare Data</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3294"></div>
+
+
+    <p style="font-size:.9em;">[ B5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3294">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3293">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3293">The 3rd International workshop on biomedical informatics with optimization and machine learning (BOOM)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3293"></div>
+
+
+    <p style="font-size:.9em;">[ B3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3293">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3317">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3317">Autonomy in Teams -- Joint Workshop on Sharing Autonomy in Human-Robot Interaction</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3317"></div>
+
+
+    <p style="font-size:.9em;">[ K16 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3317">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3280">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3280">31st International Workshop on Qualitative Reasoning (QR 2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3280"></div>
+
+
+    <p style="font-size:.9em;">[ K23 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3280">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3295">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3295">Towards learning with limited labels: Equivariance, Invariance, and Beyond</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3295"></div>
+
+
+    <p style="font-size:.9em;">[ T3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3295">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3281">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3281">6th Goal Reasoning Workshop</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3281"></div>
+
+
+    <p style="font-size:.9em;">[ K24 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3281">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3296">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3296">Learning and Reasoning: Principles &amp; Applications to Everyday Spatial and Temporal Knowledge (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3296"></div>
+
+
+    <p style="font-size:.9em;">[ K22 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3296">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3299">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3299">Fairness, Interpretability, and Explainability Federation of Workshops (day 2-3) (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3299"></div>
+
+
+    <p style="font-size:.9em;">[ A3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3299">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3347">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3347">Theoretical Foundations and Applications of Deep Generative Models (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3347"></div>
+
+
+    <p style="font-size:.9em;">[ A5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3347">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3343">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3343">The 2018 Joint Workshop on Machine Learning for Music</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3343"></div>
+
+
+    <p style="font-size:.9em;">[ C7 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3343">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3337">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3337">Lifelong Learning: A Reinforcement Learning Approach</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3337"></div>
+
+
+    <p style="font-size:.9em;">[ A4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3337">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3334">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3334">International Workshop on Optimization in Multi-Agent Systems (OptMAS)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3334"></div>
+
+
+    <p style="font-size:.9em;">[ K13 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3334">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3322">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3322">Engineering Multi-Agent Systems (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3322"></div>
+
+
+    <p style="font-size:.9em;">[ K12 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3322">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3320">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3320">Eighth International Workshop on Statistical Relational AI</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3320"></div>
+
+
+    <p style="font-size:.9em;">[ C3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3320">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3321">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3321">Enabling Reproducibility in Machine Learning MLTrain@RML</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3321"></div>
+
+
+    <p style="font-size:.9em;">[ C2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3321">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3316">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3316">AutoML 2018</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3316"></div>
+
+
+    <p style="font-size:.9em;">[ K1 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3316">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3311">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3311">AI-MHRI (AI for Multimodal Human-Robot Interaction) (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3311"></div>
+
+
+    <p style="font-size:.9em;">[ K24 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3311">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3308">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3308">AI and Computational Psychology: Theories, Algorithms and Applications (CompPsy)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3308"></div>
+
+
+    <p style="font-size:.9em;">[ T1 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3308">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3301">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3301">10th International Workshop on Agents in Traffic and Transportation (ATT 2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3301"></div>
+
+
+    <p style="font-size:.9em;">[ B10 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3301">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3297">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3297">Learning and Reasoning: Principles &amp; Applications to Everyday Spatial and Temporal Knowledge (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3297"></div>
+
+
+    <p style="font-size:.9em;">[ K22 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3297">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3349">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3349">Theory of Deep Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3349"></div>
+
+
+    <p style="font-size:.9em;">[ Victoria ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3349">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3351">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3351">TRUST Workshop</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3351"></div>
+
+
+    <p style="font-size:.9em;">[ K16 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3351">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3344">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3344">The AAMAS-IJCAI Workshop on Agents and Incentives in Artificial Intelligence (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3344"></div>
+
+
+    <p style="font-size:.9em;">[ K2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3344">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3335">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3335">Joint ICML and IJCAI Workshop on Computational Biology 2018</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3335"></div>
+
+
+    <p style="font-size:.9em;">[ C8 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3335">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3328">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3328">Game-Theoretic Mechanisms for Data and Information</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3328"></div>
+
+
+    <p style="font-size:.9em;">[ K15 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3328">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3330">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3330">Goal Specifications for Reinforcement Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3330"></div>
+
+
+    <p style="font-size:.9em;">[ A7 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3330">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3326">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3326">First international workshop on socio-cognitive systems</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3326"></div>
+
+
+    <p style="font-size:.9em;">[ T3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3326">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3332">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3332">International Workshop on Automated Negotiation (ACAN)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3332"></div>
+
+
+    <p style="font-size:.9em;">[ B9 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3332">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3319">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3319">Data Science meets Optimization</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3319"></div>
+
+
+    <p style="font-size:.9em;">[ T4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3319">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3313">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3313">ALAW - Agents Living in Augmented Worlds</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3313"></div>
+
+
+    <p style="font-size:.9em;">[ K14 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3313">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3306">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3306">Adaptive and Learning Agents 2018 (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3306"></div>
+
+
+    <p style="font-size:.9em;">[ B4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3306">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3288">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3288">Joint Workshop on AI in Health (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3288"></div>
+
+
+    <p style="font-size:.9em;">[ B2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3288">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3283">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3283">Cognitive Vision: Integrated Vision and AI for Embodied Perception and Interaction</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3283"></div>
+
+
+    <p style="font-size:.9em;">[ B3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3283">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3302">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3302">19th International Workshop on Multi-Agent-Based Simulation (MABS 2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3302"></div>
+
+
+    <p style="font-size:.9em;">[ K23 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3302">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3340">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3340">Modern Trends in Nonconvex Optimization for Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3340"></div>
+
+
+    <p style="font-size:.9em;">[ A6 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3340">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3318">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3318">Bridging the Gap between Human and Automated Reasoning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3318"></div>
+
+
+    <p style="font-size:.9em;">[ B5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3318">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3353">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3353">Workshop on Efficient Credit Assignment in Deep Learning and Deep Reinforcement Learning (ECA) (day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3353"></div>
+
+
+    <p style="font-size:.9em;">[ A7 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3353">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3285">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3285">Domain Adaptation for Visual Understanding</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3285"></div>
+
+
+    <p style="font-size:.9em;">[ B3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3285">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3333">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3333">International Workshop on Massively Multi-Agent Systems</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3333"></div>
+
+
+    <p style="font-size:.9em;">[ B2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3333">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3325">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3325">Federated AI for Robotics Workshop (F-Rob-2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3325"></div>
+
+
+    <p style="font-size:.9em;">[ C3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3325">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3354">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3354">Workshop on Efficient Credit Assignment in Deep Learning and Deep Reinforcement Learning (ECA) (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3354"></div>
+
+
+    <p style="font-size:.9em;">[ A7 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3354">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3290">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3290">Prediction and Generative Modeling in Reinforcement Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3290"></div>
+
+
+    <p style="font-size:.9em;">[ B2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3290">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3341">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3341">Neural Abstract Machines &amp; Program Induction Workshop v2.0 (NAMPI_v2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3341"></div>
+
+
+    <p style="font-size:.9em;">[ K1 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3341">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3324">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3324">Exploration in Reinforcement Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3324"></div>
+
+
+    <p style="font-size:.9em;">[ T1 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3324">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3339">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3339">Machine Learning: The Debates</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3339"></div>
+
+
+    <p style="font-size:.9em;">[ Victoria ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3339">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3305">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3305">ABMUS-18 - Agent-Based Modelling of Urban Systems</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3305"></div>
+
+
+    <p style="font-size:.9em;">[ K13 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3305">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3300">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3300">Fairness, Interpretability, and Explainability Federation of Workshops (day 2-3) (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3300"></div>
+
+
+    <p style="font-size:.9em;">[ A3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3300">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3303">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3303">International Workshop on Real Time compliant Multi-Agent Systems (RTcMAS)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3303"></div>
+
+
+    <p style="font-size:.9em;">[ B5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3303">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3329">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3329">Geometry in Machine Learning (GiMLi)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3329"></div>
+
+
+    <p style="font-size:.9em;">[ A4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3329">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3307">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3307">Adaptive and Learning Agents 2018 (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3307"></div>
+
+
+    <p style="font-size:.9em;">[ B4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3307">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3304">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3304">2nd International Joint Conference on Artificial Intelligence (IJCAI) Workshop on Artificial Intelligence in Affective Computing</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3304"></div>
+
+
+    <p style="font-size:.9em;">[ B3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3304">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3336">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3336">Joint Workshop on Multimedia for Cooking and Eating Activities and Multimedia Assisted Dietary Management (CEA/MADiMa2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3336"></div>
+
+
+    <p style="font-size:.9em;">[ B9 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3336">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3345">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3345">The AAMAS-IJCAI Workshop on Agents and Incentives in Artificial Intelligence (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3345"></div>
+
+
+    <p style="font-size:.9em;">[ K2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3345">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3338">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3338">Machine learning for Causal Inference, Counterfactual Prediction, and Autonomous Action (CausalML)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3338"></div>
+
+
+    <p style="font-size:.9em;">[ A6 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3338">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3309">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3309">AI for Aging, Rehabilitation and Independent Assisted Living (ARIAL) and Intelligent Conversation Agents in Home and Geriatric Care Applications</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3309"></div>
+
+
+    <p style="font-size:.9em;">[ K14 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3309">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3312">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3312">AI-MHRI (AI for Multimodal Human-Robot Interaction) (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3312"></div>
+
+
+    <p style="font-size:.9em;">[ K24 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3312">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3310">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3310">AI for Synthetic Biology 2</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3310"></div>
+
+
+    <p style="font-size:.9em;">[ K23 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3310">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3314">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3314">Architectures and Evaluation for Generality, Autonomy and Progress in AI (AEGAP)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3314"></div>
+
+
+    <p style="font-size:.9em;">[ C8 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3314">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3350">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3350">Tractable Probabilistic Models</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3350"></div>
+
+
+    <p style="font-size:.9em;">[ B10 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3350">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3323">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3323">Engineering Multi-Agent Systems (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3323"></div>
+
+
+    <p style="font-size:.9em;">[ K12 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3323">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3282">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3282">Artificial Intelligence for Knowledge Management</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3282"></div>
+
+
+    <p style="font-size:.9em;">[ K22 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3282">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3331">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3331">Humanizing AI (HAI)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3331"></div>
+
+
+    <p style="font-size:.9em;">[ T3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3331">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3342">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3342">Planning and Learning (PAL-18)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3342"></div>
+
+
+    <p style="font-size:.9em;">[ C7 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3342">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3327">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3327">First Workshop on Deep Learning for Safety-Critical in Engineering Systems</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3327"></div>
+
+
+    <p style="font-size:.9em;">[ T4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3327">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3346">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3346">The Joint International Workshop on Social Influence Analysis and Mining Actionable Insights from Social Networks (SocInf+MAISoN 2018)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3346"></div>
+
+
+    <p style="font-size:.9em;">[ K16 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3346">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3348">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3348">Theoretical Foundations and Applications of Deep Generative Models (day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3348"></div>
+
+
+    <p style="font-size:.9em;">[ A5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3348">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3291">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3291">Privacy in Machine Learning and Artificial Intelligence (PiMLAI)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3291"></div>
+
+
+    <p style="font-size:.9em;">[ C2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3291">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3315">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3315">Artificial Intelligence for Wildlife Conservation (AIWC) Workshop</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3315"></div>
+
+
+    <p style="font-size:.9em;">[ B3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3315">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3352">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2018/workshop/3352">Workshop on AI for Internet of Things</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str"></div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3352"></div>
+
+
+    <p style="font-size:.9em;">[ A5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3352">
+    <div class="abstract-display">
+        
+    </div>
+</div>
+
+                                    </div>
+                                
+                        </div>
+                    </div>
+                
+            </div>
+
+
+        
+        <script>
+            function listmode(){
+                $(".cards_img").hide();
+                $(".pp-card").addClass("pp-mode-list").removeClass("pp-mode-compact");
+            }
+            function compactmode(){
+                $(".cards_img").show();
+                $(".pp-card").removeClass("pp-mode-list").addClass("pp-mode-compact");
+            }
+        </script>
+
+
+    
+
+<script>
+
+
+    $(document).ready(function() {
+        $(".abstract-link").on('click', function(e){
+            var target = $(e.target).find("i")
+            target.toggleClass("fa-caret-right");
+            target.toggleClass("fa-caret-up");
+        })
+        touchup();
+        /* touchup events currently adds dates to cached virtualcards for events */
+    })
+
+</script>
+
+
+    
+        </div>
+    
+
+</main>
+<!--END BLOCK CONTENT-->
+
+
+<!--Footer for the edit button-->
+
+
+<script>
+
+    $(function () {
+        if ($(".editable").length == 0) {
+            $("#editFooter").hide();
+        }
+    })
+</script>
+
+<script src="/static/core/js/fastclick.min.js" type="text/javascript"></script>
+
+<!--We don't know if there are editable tags on the page until after the django template engine has rendered the page. So,
+test in javascript for "editable" tags and if present, load the ckeditor engine dynamically. -->
+
+<script>
+  if (document.getElementsByClassName('editable').length > 0) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "/static/core/ckeditor/4.18/ckeditor.js";    // use this for linked script
+    script.text = "alert('voila!');"               // use this for inline script
+    document.body.appendChild(script);
+  }
+
+</script>
+
+
+<script>
+  function fetchContent() {
+    $(".editable").each(function (index) {
+    var myself = this;
+    var docvID = this.getAttribute('documentversion');
+    var blurbtext = this.getAttribute("blurbtext");
+    $.ajax({
+       url: "/Admin/RetrieveDocumentVersion",
+       type:"POST",
+       data:{
+           docvID : docvID,
+           blurbtext : blurbtext,
+           csrfmiddlewaretoken: csrftoken,
+       },
+       success: function(data, textStatus, jqXHR) {
+           myself.setAttribute("contenteditable", "true");
+           myself.innerHTML = data;
+           CKEDITOR.inline(myself.id);
+       },
+    });
+  })
+}
+
+$("#nopageedit").hide();
+function start_edit(){
+
+  $(".editable").addClass("warning-ring");
+
+  //At the beginning of an edit, we need to replace the content of the
+  //editable div with it's databased content in order to preserve the
+  //template tags. We want the tag, not the rendered tag.
+
+  /* You must remove any countdown.js timers on the page before replacing the page with it's
+  document version otherwise, Javascript will throw an exception.  */
+
+
+  $("[class$='-countdown']").parent().remove();
+  fetchContent();
+  $(".editable").attr("onblur", "ckeditorsave(this)");
+  window.status.bold();
+  window.status = "Click outside the editable area to save. Changes are LIVE!! Refresh page to discard changes.";
+  $("#editpage").hide();
+  $("#noeditpage").show();
+}
+
+
+  function stop_edit() {
+    ckeditorsave();
+    $("#noeditpage").hide();
+    $("#editpage").show();
+    window.location.reload();
+}
+function ckeditorsave(event){
+  for (var name in CKEDITOR.instances){
+    if ( CKEDITOR.instances[name].checkDirty() ){
+      editor = CKEDITOR.instances[name];
+      saveEditable(editor);
+    }
+  }
+}
+
+function saveEditable(editor){
+  var content = editor.getData();
+  var contentId = editor.name;
+  var pageId = window.location.pathname;
+  var originalContent = "N/A";
+  var documentversion = editor.container.getAttribute("documentversion");
+  var blurbtext = editor.container.getAttribute("blurbtext");
+  if ( contentId.match(/-aloha$/gi) ) {
+    contentId = contentId.replace( /-aloha/gi, '' );
+  }  /*I'm not sure what this does but it seems like it would matter*/
+  var request = jQuery.ajax({
+    url: "/Admin/SaveDocument",
+    type: "POST",
+    async: false,
+    data: {
+      content : content,
+      originalContent: originalContent,
+      contentId : contentId,
+      pageId : pageId,
+      documentversion:documentversion,
+      blurbtext : blurbtext,
+      csrfmiddlewaretoken: csrftoken
+    },
+    success: function(data){
+        if (data['message']){
+            alert(data['message']);
+        }
+    },
+    error: function(xqXHR, textStatus){
+        window.status = textStatus;
+        debugger;
+    }
+
+  });
+
+};
+
+
+
+
+</script>
+
+<script type="text/javascript">
+       jQuery(document).ajaxSend(function(event, xhr, settings) {
+           function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                   var cookies = document.cookie.split(';');
+                   for (var i = 0; i < cookies.length; i++) {
+                       var cookie = jQuery.trim(cookies[i]);
+                       // Does this cookie string begin with the name we want?
+                       if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                       }
+                   }
+               }
+               return cookieValue;
+           }
+           function sameOrigin(url) {
+               // url could be relative or scheme relative or absolute
+               var host = document.location.host; // host + port
+               var protocol = document.location.protocol;
+               var sr_origin = '//' + host;
+               var origin = protocol + sr_origin;
+               // Allow absolute or scheme relative URLs to same origin
+               return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                   (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                   // or any other URL that isn't scheme relative or absolute i.e relative.
+                   !(/^(\/\/|http:|https:).*/.test(url));
+           }
+           function safeMethod(method) {
+               return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+           }
+
+           if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+               xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+           }
+       });
+</script>
+
+
+
+
+
+<div id="successful-page-load" class='hidden'>Successful Page Load</div>
+
+
+
+
+
+    
+        <link href="/static/conf_gdpr/css/conf_gdpr.css" rel="stylesheet">
+        <div id="cookie-bar" style="z-index: 8">
+            <table class="gdpr-statement">
+                <col>
+                <col style="width:120px">
+                <tr>
+                    <td style="padding:5px">
+                        ICML uses cookies to remember that you are logged in. By using our websites, you agree
+                        to the placement of cookies. <a href="/public/PrivacyPolicy">
+                        Our Privacy Policy &raquo;&nbsp;</a>
+                    </td>
+                    <td>
+                        <button float-end class="btn btn-light btn-sm btn btn-outline-dark" onClick="accept_cookies();">Accept
+                            Cookies
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function accept_cookies() {
+
+                $.ajax({
+                    method: "POST",
+                    url: "/conf_gdpr/accept",
+                    data: {
+                        csrfmiddlewaretoken: csrftoken,
+                    },
+                }).done(function (data) {
+                    console.log(data);
+                    $("#cookie-bar").fadeOut();
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
+                });
+            }
+        </script>
+
+    
+
+
+
+
+
+
+<br>
+<footer id="bootstrap-footer" class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-1 border-top border-dark">
+    </div>
+    <!-- Section: Links  -->
+    <section class="pt-1">
+        <div class="container text-center text-md-start mt-3">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <img src="/static/core/img/ICML-logo.svg" alt="ICML logo" height='30px'>
+                    </h6>
+                    <p>
+                        The ICML Logo above may be used on presentations. Right-click and choose
+                        download. It is a vector graphic and may be used at any scale.
+                    </p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4" style="max-width: 300px;">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 text-center">
+                        Useful links
+                    </h6>
+                    <div></div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    
+                        <p>
+                            <i class="fas fa-home me-3"></i> 1269 Law Street, San Diego CA 92109
+                        </p>
+                    
+                    <p>
+                        <i class="fas fa-envelope me-3"></i> <a href="/Help/Contact">Email</a>
+                    </p>
+                    
+                    
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div></div>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Footer -->
+
+</body>
+</html>

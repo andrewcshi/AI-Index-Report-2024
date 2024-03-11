@@ -1,0 +1,2807 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-padding-top: 70px;"> 
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/virtual/js/virtual.js"></script>
+    <meta name="google-site-verification" content="0jwPnVXIAk4FvFdT37dwMmd-kjHF86e5DKwvqlStUW0">
+
+    <title>ICML 2023</title>
+    
+    <link rel="stylesheet" href="/static/core/css/core.css" type="text/css">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css" type="text/css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/core/css/custom.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      "tex2jax": {
+        "inlineMath": [["$","$"], ["\\(","\\)"]],
+        "displayMath": [["\\[","\\]"]],
+        "processEscapes": true
+      }
+    }
+    );
+    </script>
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!--This script keeps local links inside the web app rather than opening them
+in Safari, and has nothing to do with editing or Aloha.-->
+
+<script type="text/javascript">
+	(function(document,navigator,standalone) {
+		// prevents links from apps from opening in mobile safari
+		// this javascript must be the first script in your <head>
+		if ((standalone in navigator) && navigator[standalone]) {
+			var curnode, location=document.location, stop=/^(a|html)$/i;
+			document.addEventListener('click', function(e) {
+				curnode=e.target;
+				while (!(stop).test(curnode.nodeName)) {
+					curnode=curnode.parentNode;
+				}
+				// Conditions to do this only on links to your own app
+				// if you want all links, use if('href' in curnode) instead.
+				if(
+					'href' in curnode && // is a link
+					(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+					(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+						chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+				) {
+					e.preventDefault();
+					location.href = curnode.href;
+				}
+			},false);
+		}
+	})(document,window.navigator,'standalone');
+</script>        
+
+<!-- This style sets the minimum size of a blurb to 260 px unless there is a
+template context variable blurb_min_height that sets it otherwise. If blurbs
+aren't all about the same size, they don't flow well when the window is
+resized.-->
+
+
+<style>
+/*This is here rather that in a .css file for a reason.*/
+    @media screen and (min-width: 767px) {
+        .blurb {
+            min-height:260px;
+        }
+    }
+</style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</script>
+
+<script>
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "/static/core/js/jquery-3.6.1.min.js";
+        document.head.appendChild(script);
+    }
+</script>
+
+
+    <script>
+        var $ = jQuery;
+        /*Store a pointer to jquery2, so I can reference it later.  Aloha loads jquery 1.7 and much
+        of bootstrap 3 is not compatible. This comment is deprecated. */
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/be44b7e05d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Exo;}
+    </style>
+
+
+
+
+
+
+
+     
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js" integrity="sha512-lEb9Vp/rkl9g2E/LdHIMFTqz21+LA79f84gqP75fbimHqVTu6483JG1AwJlWLLQ8ezTehty78fObKupq3HSHPQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="/static/virtual/js/virtual.js"></script>
+    
+
+    <title>ICML 2023</title>
+    
+
+    <title>ICML 2023 Workshops</title>
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="noprint">
+    
+        
+<!--Navbar start-->
+<nav id="id_navbar" class="navbar navbar-expand-sm navbar-dark" style="background-color:#212529">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="/"><img src="/static/core/img/icml-navbar-logo.svg" height="40px"></a></div>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ICML
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/FAQ">
+                    <span >
+                        Help/FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Downloads">
+                    <span >
+                        Downloads
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/CodeOfConduct">
+                    <span >
+                        Code of Conduct
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/JournalToConference">
+                    <span >
+                        Journal To Conference Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Profile/create">
+                    <span >
+                        Create Profile
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/PrivacyPolicy">
+                    <span >
+                        Privacy Policy
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2024/Press">
+                    <span >
+                        Press
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/careers">
+                    <span >
+                        Careers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Help/Contact">
+                    <span >
+                        Contact ICML
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/MyStuff">
+                    <span >
+                        My Stuff
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+
+                <form class="d-flex" role="search" action="/search">
+                    <div class="input-group" role="search">
+                        <input type="text" class="form-control" placeholder="Search" name="q"
+                               value=""
+                               aria-label="Search" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn-primary" id="btnGroupAddon">
+                            <button style="border: none; background-color: transparent; padding: 0;" type="submit">
+                                <i class="fa-solid fa-magnifying-glass" ></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                &nbsp;
+                
+                    <a href="/accounts/login?nextp=/virtual/2023/28425 " class="navbar-brand"><span
+                            class="fa-solid fa-right-to-bracket"></span> Login</a>
+                
+
+            </div>
+        </div>
+    </nav>
+<!--Navbar end-->
+    
+</div><!--noprint div-->
+
+
+<!--This holds the whole page including the navbar-->
+
+<main id="main">
+    <div class="container-fluid">
+        <!--Navbar start-->
+
+<div class="dropdown">
+    <nav class="align-middle navbar navbar-expand-lg  rounded-bottom"
+         style="min-height: 57px; background-image: url(/static/virtual/img/navbackground.png); background-repeat: repeat-x;">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler201" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler201">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle border-3  btn btn-primary text-white p-1" style= "background-color: #070bff; font-size: 1.2 em;"
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Year: (2023)
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2024">2024
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2023">2023
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2022">2022
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2021/index.html">2021
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2020/">2020
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2019/">2019
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2018">2018
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2017">2017
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2016">2016
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2015">2015
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2014">2014
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2013">2013
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2012">2012
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2011">2011
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2010">2010
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2009">2009
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2008
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2007
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2007">2006
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2005">2005
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2005">2004
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2002">2002
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/1996">1996
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="http://www.machinelearning.org/archive.html">IMLS Archives
+                </a>
+            </li>
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/index.html">
+                    <span >
+                        Getting Started
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/calendar">
+                    <span >
+                        Schedule
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/tutorial">
+                    <span >
+                        Tutorials
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Main Conference
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/eventlistwithbios/invited%20talk">
+                    <span >
+                        Invited Talks
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/oral">
+                    <span >
+                        Orals
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/awards_detail">
+                    <span >
+                        Awards
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/test-of-time-award">
+                    <span >
+                        Test of Time Award
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/papers.html">
+                    <span >
+                        Papers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/workshop">
+                    <span >
+                        Workshops
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Community
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/affinity_events">
+                    <span >
+                        Affinity Events
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/community?show=socials">
+                    <span >
+                        Socials
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/community?show=mentorship">
+                    <span >
+                        Mentorship
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/town-hall/25600">
+                    <span >
+                        Town Hall / Business Meeting
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/sponsor_list">
+                    <span >
+                        Sponsors
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/organizers">
+                    <span >
+                        Organizers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/search">
+                    <span >
+                        <i class="fas fa-search"></i>
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Help
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/faq">
+                    <span >
+                        FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://wiki.eventhosts.cc/en/reference/presenter-instructions">
+                    <span >
+                        Presenters Instructions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://wiki.eventhosts.cc/en/reference/moderator-instructions">
+                    <span >
+                        Moderators Instructions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://chat.icml.cc/channel/HelpDesk">
+                    <span >
+                        RocketChat Help
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://rocket.chat/install/">
+                    <span >
+                        RocketChat Desktop Client
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    <!--Navbar end-->
+    </div>
+    <br><br>
+    
+<div class="container-fluid">
+
+    
+
+    
+
+    <br>
+
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="title-centered" style="text-align:center">Workshops</div>
+            
+        </div>
+
+
+    
+
+        
+
+        <div class="row">  
+            <div class="col-sm-12">
+
+                
+                    <div style="max-width: 1500px; margin:auto; border">
+                        <div class="grid-displaycards">
+
+                                
+                                    <div class="displaycards touchup-date" id="event-21487">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21487">2nd ICML Workshop on New Frontiers in Adversarial Machine Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Sijia Liu &middot; Pin-Yu Chen &middot; Dongxiao Zhu &middot; Eric Wong &middot; Kathrin Grosse &middot; Baharan Mirzasoleiman &middot; Sanmi Koyejo</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21487"></div>
+
+
+    <p style="font-size:.9em;">[ Ballroom A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21487" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21487" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21487">
+                Abstract <i id="caret-21487" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21487">
+    <div class="abstract-display">
+        <p>Given the success of AdvML-inspired research, we propose a new edition from our workshop at ICML’22 (AdvML-Frontiers’22), ‘The 2nd Workshop on New Frontiers in AdvML’ (AdvML-Frontiers’23). We target a high-quality international workshop, coupled with new scientific activities, networking opportunities, and enjoyable social events. Scientifically, we aim to identify the challenges and limitations of current AdvML methods and explore new prospective and constructive views for next-generation AdvML across the full theory/algorithm/application stack. As the sequel to AdvML-Frontiers’22, we will continue exploring the new frontiers of AdvML in theoretical understanding, scalable algorithm and system designs, and scientific development that transcends traditional disciplinary boundaries.  We will also add new features and programs in 2023. First, we will expand existing research themes, particularly considering the popularity of large foundational models (e.g., DALL-E 2, Stable Diffusion, and ChatGPT). Examples of topics include AdvML for prompt learning, counteracting AI-synthesized fake images and texts, debugging ML from unified data-model perspectives, and ‘green’ AdvML towards environmental sustainability. Second, we will organize a new section, AI Trust in Industry, by inviting industry experts to introduce the practical trend of AdvML, technological innovations, products, and societal impacts (e.g., AI’s responsibility). Third, we will host a Show-and-Tell Demos in the poster …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21489">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21489">Workshop on Theory of Mind in Communicating Agents</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Hao Zhu &middot; Jennifer Hu &middot; Hyunwoo Kim &middot; Alane Suhr &middot; Saujas Vaduguru &middot; Chenghao Yang &middot; Pei Zhou &middot; Xuhui Zhou</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21489"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 317 A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21489" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21489" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21489">
+                Abstract <i id="caret-21489" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21489">
+    <div class="abstract-display">
+        <p>Theory of Mind (ToM) is the ability to reason about the minds of other agents. The main theme of our workshop is the computational modeling of ToM, with a special focus on the role of natural language in such modeling. Specifically, ToM 2023 pays attention to cognitive foundations and theories of ToM, the acquisition and relationship between language and ToM, leveraging ToM to improve and explain NLP and ML models, and using ToM for positive social impact. This workshop intends to promote the community of researchers that are interested in improving the ability of intelligent agents to reason about others' mental states. Our proposed program provides a space to discuss pathways for understanding and applying ToM in psycholinguistics, pragmatics, human value alignment, social good, model explainability, and many other areas of NLP. ToM 2023 will be a full-day hybrid in-person/virtual workshop with several keynote speeches, and oral/poster/spotlight presentations, followed by a breakout discussion, panel discussion, and best paper award announcement. We also intend to host a mentoring program to broaden participation from a diverse set of researchers.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21480">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21480">2nd Annual Workshop on Topology, Algebra, and Geometry in Machine Learning (TAG-ML)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Tegan Emerson &middot; Henry Kvinge &middot; Tim Doster &middot; Bastian Rieck &middot; Sophia Sanborn &middot; Nina Miolane &middot; Mathilde Papillon</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21480"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 317 B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21480" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21480" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21480">
+                Abstract <i id="caret-21480" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21480">
+    <div class="abstract-display">
+        <p>Much of the data that is fueling current rapid advances in machine learning is high dimensional, structurally complex, and strongly nonlinear. This poses challenges for researcher intuition when they ask (i) how and why current algorithms work and (ii) what tools will lead to the next big break-though. Mathematicians working in topology, algebra, and geometry have more than a hundred years worth of finely-developed machinery whose purpose is to give structure to, help build intuition about, and generally better understand spaces and structures beyond those that we can naturally understand. Following on the success of the first TAG-ML workshop in 2022, this workshop will showcase work which brings methods from topology, algebra, and geometry and uses them to help answer challenging questions in machine learning. Topics include mathematical machine learning, explainability, training schemes, novel algorithms, performance metrics, and performance guarantees. All accepted papers will be included in an associated PMLR volume.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21478">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21478">PAC-Bayes Meets Interactive Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Hamish Flynn &middot; Maxime Heuillet &middot; Audrey Durand &middot; Melih Kandemir &middot; Benjamin Guedj</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21478"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 314 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21478" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21478" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21478">
+                Abstract <i id="caret-21478" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21478">
+    <div class="abstract-display">
+        <p>Interactive learning encompasses online learning, continual learning, active learning, bandits, reinforcement learning, and other settings where an algorithm must learn while interacting with a continual stream of data. Such problems often involve exploration-exploitation dilemmas, which can be elegantly handled with probabilistic and Bayesian methods. Deep interactive learning methods leveraging neural networks are typically used when the setting involves rich observations, such as images. As a result, both probabilistic and deep interactive learning methods are growing in popularity. However, acquiring observations in an interactive fashion with the environment can be costly. There is therefore great interest in understanding when sample-efficient learning with probabilistic and deep interactive learning can be expected or guaranteed. Within statistical learning theory, PAC-Bayesian theory is designed for the analysis of probabilistic learning methods. It has recently been shown to be well-suited for the analysis of deep learning methods. This workshop aims to bring together researchers from the broad Bayesian and interactive learning communities in order to foster the emergence of new ideas that could contribute to both theoretical and empirical advancement of PAC-Bayesian theory in interactive learning settings.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21473">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21473">Federated Learning and Analytics in Practice: Algorithms, Systems, Applications, and Opportunities</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Zheng Xu &middot; Peter Kairouz &middot; Bo Li &middot; Tian Li &middot; John Nguyen &middot; Jianyu Wang &middot; Shiqiang Wang &middot; Ayfer Ozgur</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21473"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 311 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21473" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21473" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21473">
+                Abstract <i id="caret-21473" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21473">
+    <div class="abstract-display">
+        <p>Proposed around 2016 as privacy preserving techniques, federated learning and analytics (FL &amp; FA) made remarkable progress in theory and practice in recent years. However, there is a growing disconnect between theoretical research and practical applications of federated learning. This workshop aims to bring academics and practitioners closer together to exchange ideas: discuss actual systems and practical applications to inspire researchers to work on theoretical and practical research questions that lead to real-world impact; understand the current development and highlight future directions. To achieve this goal, we aim to have a set of keynote talks and panelists by industry researchers focused on deploying federated learning and analytics in practice, and academic research leaders who are interested in bridging the gap between the theory and practice. 
+<br>
+<br>For more details, please visit the workshop webpage at <a href="https://fl-icml2023.github.io">https://fl-icml2023.github.io</a></p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21476">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21476">The Synergy of Scientific and Machine Learning Modelling (SynS &amp; ML) Workshop</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Antoine Wehenkel &middot; Jörn Jacobsen &middot; Emily Fox &middot; Anuj Karpatne &middot; Victoriya Kashtanova &middot; Xuan Di &middot; Emmanuel de Bézenac &middot; Naoya Takeishi &middot; Gilles Louppe</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21476"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 320 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21476" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21476" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21476">
+                Abstract <i id="caret-21476" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21476">
+    <div class="abstract-display">
+        <p>The Synergy of Scientific and Machine Learning Modeling Workshop (“SynS &amp; ML”) is an interdisciplinary forum for researchers and practitioners interested in the challenges of combining scientific and machine-learning models. The goal of the workshop is to gather together machine learning researchers eager to include scientific models into their pipelines, domain experts working on augmenting their scientific models with machine learning, and researchers looking for opportunities to incorporate ML in widely-used scientific models.<br><br>The power of machine learning (ML), its ability to build models by leveraging real-world data is also a big limitation; the quality and quantity of training data bound the validity domain of ML models. On the other hand, expert models are designed from first principles or experiences and labelled scientific if validated on curated real-world data, often even harvested for this specific purpose, as advised by the scientific method since Galileo. Expert models only describe idealized versions of the world which may hinder their deployment for important tasks such as accurate forecasting or parameter inference. This workshop focuses on the combination of two modelling paradigms: scientific and ML modelling. Sometimes called hybrid learning or grey-box modelling, this combination should 1) unlock new applications for expert models, and …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21488">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21488">Differentiable Almost Everything: Differentiable Relaxations, Algorithms, Operators, and Simulators</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Felix Petersen &middot; Marco Cuturi &middot; Mathias Niepert &middot; Hilde Kuehne &middot; Michael Kagan &middot; Willie Neiswanger &middot; Stefano Ermon</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21488"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 310 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21488" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21488" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21488">
+                Abstract <i id="caret-21488" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21488">
+    <div class="abstract-display">
+        <p>Gradients and derivatives are integral to machine learning, as they enable gradient-based optimization. In many real applications, however, models rest on algorithmic components that implement discrete decisions, or rely on discrete intermediate representations and structures. These discrete steps are intrinsically non-differentiable and accordingly break the flow of gradients. To use gradient-based approaches to learn the parameters of such models requires turning these non-differentiable components differentiable. This can be done with careful considerations, notably, using smoothing or relaxations to propose differentiable proxies for these components. With the advent of modular deep learning frameworks, these ideas have become more popular than ever in many fields of machine learning, generating in a short time-span a multitude of "differentiable everything", impacting topics as varied as rendering, sorting and ranking, convex optimizers, shortest-paths, dynamic programming, physics simulations, NN architecture search, top-k, graph algorithms, weakly- and self-supervised learning, and many more.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21471">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21471">2nd Workshop on Formal Verification of Machine Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Mark Müller &middot; Brendon G. Anderson &middot; Leslie Rice &middot; Zhouxing Shi &middot; Shubham Ugare &middot; Huan Zhang &middot; Martin Vechev &middot; Zico Kolter &middot; Somayeh Sojoudi &middot; Cho-Jui Hsieh</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21471"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 312 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21471" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21471" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21471">
+                Abstract <i id="caret-21471" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21471">
+    <div class="abstract-display">
+        <p>As machine learning-based systems are increasingly deployed in safety-critical applications, providing formal guarantees on their trustworthiness becomes ever more important. To facilitate the investigation of this challenging problem, we propose the 2nd Workshop on Formal Verification of Machine Learning (WFVML). WFVML will raise awareness for the importance of the formal verification of machine learning systems, bring together researchers from diverse backgrounds with interest in the topic, and enable the discussion of open problems as well as promising avenues in this emerging research area. Building on the success of last year, WFVML features a diverse panel of 8 confirmed invited speakers who made foundational contributions to the young field and an experienced and diverse multi-institutional organizing team of 10, including pioneering proponents of machine learning verification. A schedule combining invited talks, contributed talks, poster sessions, and a panel will provide opportunities and input for open discussions, with remote participation enabled via Zoom. Please see our website ml-verification.com for more details.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21481">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21481">Challenges in Deployable Generative AI</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Swami Sankaranarayanan &middot; Thomas Hartvigsen &middot; Camille Bilodeau &middot; Ryutaro Tanno &middot; Cheng Zhang &middot; Florian Tramer &middot; Phillip Isola</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21481"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 313 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21481" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21481" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21481">
+                Abstract <i id="caret-21481" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21481">
+    <div class="abstract-display">
+        <p>Generative modeling has recently gained massive attention given high-profile successes in natural language processing and computer vision. However, there remain major challenges in deploying generative models for real-world impact in domains like healthcare and biology. This is a challenging agenda that requires collaboration across multiple research fields and industry stakeholders. This workshop aims to advance such interdisciplinary conversations around challenges in deploying generative models – the lessons learned by deploying large language models could be impactful for high stakes domains like medicine and biology. Specifically, we will solicit contributions that prioritize (1) Multimodal capabilities in generative modeling, (2) Deployment-critical features in generative models such as Safety, Interpretability, Robustness, Ethics, Fairness and Privacy, and (3) Human facing evaluation of generative models. The topic of generative modeling is extremely relevant to the core audience of ICML. Modern generative models impact several fields outside machine learning and hence responsible deployment of such powerful algorithms has become a major concern of researchers in academia and industry alike. ICML, being the flagship conference of Machine learning, is the perfect place to facilitate this cross disciplinary sharing of knowledge.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21470">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21470">New Frontiers in Learning, Control, and Dynamical Systems</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Valentin De Bortoli &middot; Charlotte Bunne &middot; Guan-Horng Liu &middot; Tianrong Chen &middot; Maxim Raginsky &middot; Pratik Chaudhari &middot; Melanie Zeilinger &middot; Animashree Anandkumar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21470"></div>
+
+
+    <p style="font-size:.9em;">[ Ballroom B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21470" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21470" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21470">
+                Abstract <i id="caret-21470" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21470">
+    <div class="abstract-display">
+        <p>Recent advances in algorithmic design and principled, theory-driven deep learning architectures have sparked a growing interest in control and dynamical system theory. Complementary, machine learning plays an important role in enhancing existing control theory algorithms in terms of performance and scalability. The boundaries between both disciplines are blurring even further with the rise of modern reinforcement learning, a field at the crossroad of data-driven control theory and machine learning. This workshop aims to unravel the mutual relationship between learning, control, and dynamical systems and to shed light on recent parallel developments in different communities. Strengthening the connection between learning and control will open new possibilities for interdisciplinary research areas.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21475">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21475">HiLD: High-dimensional Learning Dynamics Workshop</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Courtney Paquette &middot; Zhenyu Liao &middot; Mihai Nica &middot; Elliot Paquette &middot; Andrew Saxe &middot; Rene Vidal</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21475"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 315 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21475" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21475" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21475">
+                Abstract <i id="caret-21475" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21475">
+    <div class="abstract-display">
+        <p>Modern applications of machine learning seek to extract insights from high-dimensional datasets. The goal of the High-dimensional Learning Dynamics (HiLD) Workshop is to predict and analyze the dynamics of learning algorithms when the number of samples and parameters are large. This workshop seeks to spur research and collaboration around:
+<br>
+<br>1. Developing analyzable models and dynamics to explain observed deep neural network phenomena;
+<br>2. Creating mathematical frameworks for scaling limits of neural network dynamics as width and depth grow, which often defy low-dimensional geometric intuitions;
+<br>3. The role of overparameterization and how this leads to conserved quantities in the dynamics and the emergence of geometric invariants, with links to Noether's theorem, etc;
+<br>4. Provable impacts of the choice of optimization algorithm, hyper-parameters, and neural network architectures on training/test dynamics.
+<br>
+<br>HiLD Workshop aims to bring together experts from classical random matrix theory, optimization, high-dimensional statistics/probability, and statistical physics to share their perspectives while leveraging crossover experts in ML. It seeks to create synergies between these two groups which often do not interact. Through a series of talks, poster sessions, and panel discussions, the workshop will tackle questions on dynamics of learning algorithms at the interface of random matrix theory, high-dimensional statistics, SDEs, …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21498">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21498">Knowledge and Logical Reasoning in the Era of Data-driven Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Nezihe Merve Gürel &middot; Bo Li &middot; Theodoros Rekatsinas &middot; Beliz Gunel &middot; Alberto Sngiovanni Vincentelli &middot; Paroma Varma</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21498"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 301 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21498" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21498" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21498">
+                Abstract <i id="caret-21498" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21498">
+    <div class="abstract-display">
+        <p>Thinking fast and automatic vs. slow and deliberate (respectively System I and II) is a popular analogy when comparing data-driven learning to the good old-fashion symbolic reasoning approaches. Underlying this analogy lies the different capabilities of both systems, or lack thereof. While data-driven learning (System I) has striking performance advantages over symbolic reasoning (System II), it lacks abilities such as abstraction, comprehensibility and contextual awareness. Symbolic reasoning, on the other hand, tackles those issues but tends to lag behind data-driven learning when it comes to speedy, efficient and automated decision-making. In the current state of matters to combat issues on both sides, there is an increasing consensus among the machine learning and artificial intelligence communities to draw out the best of both worlds and unify data-driven approaches with rule-based, symbolic, logical and commonsense reasoning. This workshop aims to discuss emerging advances and challenges on this topic, in particular at the intersection of data-driven paradigms and knowledge and logical reasoning. We focus on both directions of this intersection:
+<br>Knowledge and Logical Reasoning for Data-driven Learning: In this direction, we will investigate the role of rule-based, knowledge and logical reasoning to enable more deliberate and trustworthy data-driven learning.
+<br>Data-driven Learning for Knowledge …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21495">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21495">The Many Facets of Preference-Based Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Aadirupa Saha &middot; Mohammad Ghavamzadeh &middot; Robert Busa-Fekete &middot; Branislav Kveton &middot; Viktor Bengs</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21495"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 316 AB ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21495" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21495" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21495">
+                Abstract <i id="caret-21495" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21495">
+    <div class="abstract-display">
+        <p>Learning from human preferences or preference-based learning has been critical to major advancements in AI and machine learning. Since human beings are naturally more reliable at providing feedback on a relative scale compared to numerical values, collecting preference feedback is more budget-friendly and involves less bias. The broad objective of this workshop is twofold:1) Bring together different communities where preference-based learning has played a major role. This includes dueling bandits, multi-agent games, econometrics, social choice theory, reinforcement learning, optimization, robotics and many more, for which we aim to create a suitable forum to exchange techniques, ideas, learn from each other and potentially create new and innovative research questions. 2) Connect theory to practice by identifying real-world systems which can benefit from incorporating preference feedback, such as marketing, revenue management, search engine optimization, recommender systems, healthcare, language modeling, interactive chatbots, text summarization, robotics, and so on.We will consider our workshop a success if it inspires researchers to embark on novel insights in the general area of preference-based learning: Bringing attention from different communities to foster dissemination, cross-fertilization and discussion at scale. Especially, building bridges between experimental researchers and theorists towards developing better models and practical algorithms, and encouraging participants to propose, …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21469">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21469">Structured Probabilistic Inference and Generative Modeling</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Dinghuai Zhang &middot; Yuanqi Du &middot; Chenlin Meng &middot; Shawn Tan &middot; Yingzhen Li &middot; Max Welling &middot; Yoshua Bengio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21469"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 323 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21469" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21469" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21469">
+                Abstract <i id="caret-21469" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21469">
+    <div class="abstract-display">
+        <p>The workshop focuses on theory, methodology, and application of structured probabilistic inference and generative modeling, both of which are important topics in machine learning.Specifically, probabilistic inference addresses the problem of amortization,sampling, and integration of complex quantities from graphical models, while generative modeling captures the underlying probability distributions of a dataset. Apart from applications in computer vision, natural language processing, and speech recognition, probabilistic inference and generative modeling approaches have also been widely used in natural science domains, including physics, chemistry, molecular biology, and medicine. Despite the promising results, probabilistic methods face challenges when applied to highly structured data, which are ubiquitous in real-world settings, limiting the applications of such methods. This workshop aims to bring experts from diverse backgrounds and related domains together to discuss the applications and challenges of probabilistic methods. The workshop will emphasize challenges in encoding domain knowledge when learning representations, performing inference and generations. By bringing together experts from academia and industry, the workshop will provide a platform for researchers to share their latest results and ideas, fostering collaboration and discussion in the field of probabilistic methods.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21486">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21486">3rd Workshop on Interpretable Machine Learning in Healthcare (IMLH)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Weina Jin &middot; Ramin Zabih &middot; S. Kevin Zhou &middot; Yuyin Zhou &middot; Xiaoxiao Li &middot; Yifan Peng &middot; Zongwei Zhou &middot; Yucheng Tang &middot; Yuzhe Yang &middot; Agni Kumar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21486"></div>
+
+
+    <p style="font-size:.9em;">[ Ballroom C ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21486" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21486" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21486">
+                Abstract <i id="caret-21486" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21486">
+    <div class="abstract-display">
+        <p>Applying machine learning (ML) in healthcare is gaining momentum rapidly. However, the black-box characteristics of the existing ML approach inevitably lead to less interpretability and verifiability in making clinical predictions. To enhance the interpretability of medical intelligence, it becomes critical to develop methodologies to explain predictions as these systems are pervasively being introduced to the healthcare domain, which requires a higher level of safety and security. Such methodologies would make medical decisions more trustworthy and reliable for physicians, which could ultimately facilitate the deployment. In addition, it is essential to develop more interpretable and transparent ML systems. For instance, by exploiting structured knowledge or prior clinical information, one can design models to learn aspects more aligned with clinical reasoning. Also, it may help mitigate biases in the learning process, or identify more relevant variables for making medical decisions.In this workshop, we aim to bring together researchers in ML, computer vision, healthcare, medicine, NLP, public health, computational biology, biomedical informatics, and clinical fields to facilitate discussions including related challenges, definition, formalisms, and evaluation protocols regarding interpretable medical machine intelligence. Our workshop will be in a large-attendance talk format. The expected number of attendees is about 150. The workshop appeals to ICML …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21493">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21493">The Second Workshop on Spurious Correlations, Invariance and Stability</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Yoav Wald &middot; Claudia Shi &middot; Aahlad Puli &middot; Amir Feder &middot; Limor Gultchin &middot; Mark Goldstein &middot; Maggie Makar &middot; Victor Veitch &middot; Uri Shalit</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21493"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 316 AB ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21493" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21493" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21493">
+                Abstract <i id="caret-21493" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21493">
+    <div class="abstract-display">
+        <p>As machine learning models are introduced into every aspect of our lives, and potential benefits become abundant, so do possible catastrophic failures. One of the most common failure scenarios when deploying machine learning models in the wild, which could possibly lead to dire consequences in extreme cases, is the reliance of models on apparently unnatural or irrelevant features. 
+<br>The issue comes up in a variety of applications: from the reliance of detection models for X-rays on scanner types and marks made by technicians in the hospital, through visual question answering models being sensitive to linguistic variations in the questions, the list of examples for such undesirable behaviors keeps growing.In examples like these, the undesirable behavior stems from the model exploiting a spurious correlation. 
+<br>
+<br>Following last year's workshop on Spurious Correlations, Invariance and Stability (SCIS), it is apparent that work on spurious correlations is a long-term effort that spans communities such as fairness, causality-inspired ML, and domains such as NLP, healthcare and many others. Hence we hope that this year's workshop, the second edition of SCIS, will help facilitate this long term effort across communities. The workshop will feature talks by top experts doing methodological work on dealing with spurious correlations, …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21479">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21479">ES-FoMo: Efficient Systems for Foundation Models</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Julien Launay &middot; Daniel Y Fu &middot; Tri Dao &middot; Daniel Hesslow &middot; Beidi Chen &middot; Azalia Mirhoseini &middot; Percy Liang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21479"></div>
+
+
+    <p style="font-size:.9em;">[ Ballroom A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21479" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21479" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21479">
+                Abstract <i id="caret-21479" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21479">
+    <div class="abstract-display">
+        <p>As models increase in size and training budget, they not only systematically improve in upstream quality, but also exhibit novel emergent capabilities. This increase in scale raises proportionate difficulties for practitioners: foundation model training and inference lie at a unique interdisciplinary crossroad, combining open problems in algorithms, system design, and software engineering.
+<br>
+<br>Machine learning practitioners are key stakeholders here: on the one hand, researchers may contribute algorithmic insights and novel methods to improving training and inference of large models; on the other hand, novel research findings may be best demonstrated at scale—which may require training models as efficiently as possible to make the best use of available resources.
+<br>
+<br>The goal of this workshop is to <strong>bring together interdisciplinary experts working on the emerging research questions and challenges associated with foundation model training and inference</strong>. We welcome submissions around training and inference systems/algorithms for foundation models, focusing on scaling-up or on reducing compute, time, memory, bandwidth, and energy requirements. Notably, we encourage submissions concerning the entire spectrum of foundation models: from BERT-sized Transformers, to large models with 100B+ parameters. Topics include but are not limited to:
+<br>
+<br>* <strong>Training and inference systems</strong>, either distributed at large scale or in resource-constrained …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21482">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21482">“Could it have been different?” Counterfactuals in Minds and Machines</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Nina Corvelo Benz &middot; Ricardo Dominguez-Olmedo &middot; Manuel Gomez-Rodriguez &middot; Thorsten Joachims &middot; Amir-Hossein Karimi &middot; Stratis Tsirtsis &middot; Isabel Valera &middot; Sarah A Wu</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21482"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 301 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21482" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21482" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21482">
+                Abstract <i id="caret-21482" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21482">
+    <div class="abstract-display">
+        <p>Had I left 5 minutes earlier, I would have caught the bus. Had I been driving slower, I would have avoided the accident. Counterfactual thoughts—“what if?” scenarios about outcomes contradicting what actually happened—play a key role in everyday human reasoning and decision-making. In conjunction with rapid advancements in the mathematical study of causality, there has been an increasing interest in the development of machine learning methods that support elements of counterfactual reasoning, i.e., they make predictions about outcomes that "could have been different". Such methods find applications in a wide variety of domains ranging from personalized healthcare and explainability to AI safety and offline reinforcement learning. Although the research at the intersection of causal inference and machine learning is blooming, there has been no venue so far explicitly focusing on methods involving counterfactuals. In this workshop, we aim to fill that space by facilitating interdisciplinary interactions that will shed light onto the three following questions: (i) What insights can causal machine learning take from the latest advances in cognitive science? (ii) In what use cases is each causal modeling framework most appropriate for modeling counterfactuals? (iii) What barriers need to be lifted for the wider adoption of counterfactual-based machine learning …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21484">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21484">Localized Learning: Decentralized Model Updates via Non-Global Objectives</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">David I. Inouye &middot; Mengye Ren &middot; Mateusz Malinowski &middot; Michael Eickenberg &middot; Gao Huang &middot; Eugene Belilovsky</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21484"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 310 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21484" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21484" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21484">
+                Abstract <i id="caret-21484" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21484">
+    <div class="abstract-display">
+        <p>Despite being widely used, global end-to-end learning has several key limitations. It requires centralized computation, making it feasible only on a single device or a carefully synchronized cluster. This restricts its use on unreliable or resource-constrained devices, such as commodity hardware clusters or edge computing networks. As the model size increases, synchronized training across devices will impact all types of parallelism. Global learning also requires a large memory footprint, which is costly and limits the learning capability of single devices. Moreover, end-to-end learning updates have high latency, which may prevent their use in real-time applications such as learning on streaming video. Finally, global backpropagation is thought to be biologically implausible, as biological synapses update in a local and asynchronous manner. To overcome these limitations, this workshop will delve into the fundamentals of <em>localized learning</em>, which is broadly defined as any training method that updates model parts through non-global objectives.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21496">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21496">Duality Principles for Modern Machine Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Thomas Moellenhoff &middot; Zelda Mariet &middot; Mathieu Blondel &middot; Khan Emtiyaz</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21496"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 320 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21496" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21496" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21496">
+                Abstract <i id="caret-21496" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21496">
+    <div class="abstract-display">
+        <p>Duality is a pervasive and important principle in mathematics. Not only has it fascinated researchers in many different fields but it has also been used extensively in optimization, statistics, and machine-learning (ML), giving rise to powerful tools such as Fenchel duality in convex optimization, representer theorems in kernel methods and Bayesian nonparametrics, and dually-flat spaces in information geometry. Such applications have played an important role in the past, but lately we do not see much work on duality principles, especially in deep learning. For example, Lagrange duality can be useful for model explanation because it allows us to measure sensitivity of certain perturbations, but this is not yet fully exploited. This slowdown is perhaps due to a growing focus on nonconvex and nonlinear problems where duality does not seem to be directly applicable. There have not been any workshops on duality in recent years. With this workshop, we aim to revive the interest of the ML community in duality principles.The goal of the workshop is to bring together researchers working on various duality concepts from many different fields, and discuss new applications for modern machine learning, especially focusing on topics such as model understanding, explanation, and adaptation in deep learning …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21474">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21474">Machine Learning for Multimodal Healthcare Data</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Julia Schnabel &middot; Andreas Maier &middot; Pallavi Tiwari &middot; Oliver Stegle</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21474"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 323 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21474" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21474" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21474">
+                Abstract <i id="caret-21474" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21474">
+    <div class="abstract-display">
+        <p>This new workshop will bring together interdisciplinary scientists and practitioners working at the intersections of machine learning (ML) to medicine, pathology and biology, for presenting new methods and solutions for healthcare challenges across the full range of multimodal, and often highly heterogeneous and complex patient data, to the wider ICML community.  Topics of interest include, but are not limited to: Multimodal fusion and learning in medical imaging, digital pathology, computational biology, genetics, electronic healthcare records; Multimodal biomarkers for early prediction of disease onset, therapeutic response or disease recurrence; Benchmarking, domain shifts, and generalization of ML in multimodal healthcare data; ML for dealing with inherent sparsity, incompleteness and complexity of multimodal healthcare data; ML for ensuring fairness and reducing bias in healthcare applications; ML for privacy preservation in healthcare data; Co-creation and human-in-the-loop for ML in healthcare.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21483">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21483">ICML 2023 Workshop on Computational Biology</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Yubin Xie &middot; Cassandra Burdziak &middot; Dana Pe&#x27;er &middot; Debora Marks &middot; Alexander Anderson &middot; Elham Azizi &middot; Abdoulaye Baniré Diallo &middot; Wesley Tansey &middot; Bianca Dumitrascu &middot; Sandhya Prabhakaran &middot; Maria Brbic &middot; Mafalda Dias &middot; Cameron Park &middot; Pascal Notin &middot; Joy Fan &middot; Ruben Weizman &middot; Lingting Shi &middot; Siyu He &middot; Yinuo Jin</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21483"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 314 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21483" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21483" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21483">
+                Abstract <i id="caret-21483" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21483">
+    <div class="abstract-display">
+        <p>Each year, machine learning (ML) advances are successfully translated to develop systems we now use regularly, such as speech recognition platforms or translation software. The COVID-19 pandemic has highlighted the urgency for translating these advances to the domain of biomedicine. Biological data has unique properties (high dimensionality, degree of noise and variability), and therefore poses new challenges and opportunities for methods development. To facilitate progress toward long-term therapeutic strategies or basic biological discovery, it is critical to bring together practitioners at the intersection of computation, ML, and biology.The ICML Workshop on Computational Biology (WCB) will highlight how ML approaches can be tailored to making both translational and basic scientific discoveries with biological data, such as genetic sequences, cellular features or protein structures and imaging datasets, among others. This workshop thus aims to bring together interdisciplinary ML researchers working in areas such as computational genomics; neuroscience; metabolomics; proteomics; bioinformatics; cheminformatics; pathology; radiology; evolutionary biology; population genomics; phenomics; ecology, cancer biology; causality; representation learning and disentanglement to present recent advances and open questions to the machine learning community. We especially encourage interdisciplinary submissions that might not neatly fit into one of these categories.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21485">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21485">Neural Conversational AI Workshop - What’s left to TEACH (Trustworthy, Enhanced, Adaptable, Capable and Human-centric) chatbots?</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Hyundong Cho &middot; Nayeon Lee &middot; Ninareh Mehrabi &middot; Hsuan Su &middot; Jonathan May &middot; Hung-yi Lee &middot; Ahmad Beirami</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21485"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 313 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21485" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21485" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21485">
+                Abstract <i id="caret-21485" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21485">
+    <div class="abstract-display">
+        <p>The recent breathtaking progress made in generative natural language processing (NLP) has been propelled by large language models and innovative learning methods that intersects machine learning (ML) and NLP such as Reinforcement Learning with Human Feedback (RLHF), leading to the creation of impressive chatbots like ChatGPT. However their lack of groundedness, factuality, and interoperability with tools and custom APIs limits them to mostly creative endeavors due to low fidelity and reliability. On the contrary, digital assistants in the real world such as Siri, Alexa, and Google Assistant can interface with proprietary APIs, but they still cover a relatively narrow set of use cases that are mostly simple single-turn interactions. Through the combination of each of their strengths, the goal of deploying truly conversational and capable digital assistants that are also trustworthy seems tantalizingly close. What are the remaining challenges for this goal, and how can the ML and NLP communities come together to overcome them?  The goal of this workshop is to bring together machine learning researchers and dialogue researchers from academia and industry to encourage knowledge transfer and collaboration on these central questions to discover ideas that can further expand the use cases of conversational AI. The ideal outcome …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21494">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21494">Sampling and Optimization in Discrete Space</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Haoran Sun &middot; Hanjun Dai &middot; Priyank Jaini &middot; Ruqi Zhang &middot; Ellen Vitercik</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21494"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 312 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21494" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21494" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21494">
+                Abstract <i id="caret-21494" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21494">
+    <div class="abstract-display">
+        <p>There have recently been new research trends in efficient discrete sampling and optimization. We are organizing this workshop with the goals of 1) syncing up on the latest research progress in discrete sampling and optimization, 2) discussing the limitations of current methods and brainstorming new algorithm paradigms, and 3) connecting to applications in domains such as language/protein modeling, physics simulation, and bio/chemical engineering---where improved techniques for sampling/optimization in discrete space could help---and exploring the gaps between the application's needs and the capabilities of existing methods. We hope this workshop will be an excellent opportunity for presenting and discussing new algorithms and applications with researchers and practitioners within or outside the domain of discrete sampling/optimization.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21477">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21477">Interactive Learning with Implicit Human Feedback</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Andi Peng &middot; Akanksha Saran &middot; Andreea Bobu &middot; Tengyang Xie &middot; Pierre-Yves Oudeyer &middot; Anca Dragan &middot; John Langford</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21477"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 315 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21477" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21477" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21477">
+                Abstract <i id="caret-21477" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21477">
+    <div class="abstract-display">
+        <p>Systems that can learn interactively from their end-users are quickly becoming widespread in real-world applications. Typically humans provide tagged rewards or scalar feedback for such interactive learning systems.  However, humans offer a wealth of implicit information (such as multimodal cues in the form of natural language, speech, eye movements, facial expressions, gestures etc.) which interactive learning algorithms can leverage during the process of human-machine interaction to create a grounding for human intent, and thereby better assist end-users. A closed-loop sequential decision-making domain offers unique challenges when learning from humans -– (1) the data distribution may be influenced by the choices of the algorithm itself, and thus interactive ML algorithms need to adaptively learn from human feedback, (2) the nature of the environment itself changes rapidly, (3) humans may express their intent in various forms of feedback amenable to naturalistic real-world settings, going beyond tagged rewards or demonstrations.  By organizing this workshop, we attempt to bring together interdisciplinary experts in interactive machine learning, reinforcement learning, human-computer interaction, cognitive science, and robotics to explore and foster discussions on such challenges. We envision that this exchange of ideas within and across disciplines can build new bridges, address some of the most valuable challenges …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21491">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21491">Artificial Intelligence &amp; Human Computer Interaction</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Yang Li &middot; Ranjay Krishna &middot; Helena Vasconcelos &middot; Bryan Wang &middot; Forrest Huang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21491"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 311 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21491" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21491" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21491">
+                Abstract <i id="caret-21491" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21491">
+    <div class="abstract-display">
+        <p>Artificial intelligence (AI) and Human Computer Interaction (HCI) share common roots: early work on conversational agents has laid the foundation for both fields. However, economic and political influences have driven these fields to remain separate in subsequent decades. The recent rise of data-centric methods in machine learning has propelled few-shot emergent AI capabilities, resulting in a raft of practical tools. In particular, modern AI techniques now power new ways for machines and humans to interact. Recently, a wave of HCI tasks have been proposed to the machine learning community, which direct AI research by contributing new datasets and benchmarks, and challenging existing modeling techniques, learning methodologies, and evaluation protocols. This workshop offers a forum for researchers to discuss these new research directions, identifying important challenges, showcasing new computational and scientific ideas that can be applied, sharing datasets/tools that are already available, or proposing those that should be further developed.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21490">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21490">Generative AI and Law (GenLaw)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Katherine Lee &middot; A. Feder Cooper &middot; FatemehSadat Mireshghallah &middot; Madiha Zahrah &middot; James Grimmelmann &middot; David Mimno &middot; Deep Ganguli &middot; Ludwig Schubert</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21490"></div>
+
+
+    <p style="font-size:.9em;">[ Ballroom B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21490" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21490" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21490">
+                Abstract <i id="caret-21490" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21490">
+    <div class="abstract-display">
+        <p>Progress in generative AI depends not only on better model architectures, but on terabytes of scraped Flickr images, Wikipedia pages, Stack Overflow answers, and websites. But generative models ingest vast quantities of intellectual property (IP), which they can memorize and regurgitate verbatim. Several recently-filed lawsuits relate such memorization to copyright infringement. These lawsuits will lead to policies and legal rulings that define our ability, as ML researchers and practitioners, to acquire training data, and our responsibilities towards data owners and curators.<br><br>AI researchers will increasingly operate in a legal environment that is keenly interested in their work — an environment that may require future research into model architectures that conform to legal requirements. Understanding the law and contributing to its development will enable us to create safer, better, and practically useful models. <br><br>We’re excited to share a series of tutorials from renowned experts in both ML and law and panel discussions, where researchers in both disciplines can engage in semi-moderated conversation.<br><br>Our workshop will begin to build a comprehensive and precise synthesis of the legal issues at play. Beyond IP, the workshop will also address privacy and liability for dangerous, discriminatory, or misleading and manipulative outputs. It will take place …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21499">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21499">Neural Compression: From Information Theory to Applications</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Berivan Isik &middot; Yibo Yang &middot; Daniel Severo &middot; Karen Ullrich &middot; Robert Bamler &middot; Stephan Mandt</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21499"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 317 A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21499" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21499" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21499">
+                Abstract <i id="caret-21499" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21499">
+    <div class="abstract-display">
+        <p>This workshop aims to address fundamental problems in the young but potentially highly-impactful field of machine-learning-based methods for data compression and communication. We invite participates to exchange ideas on fundamental issues in neural compression such as the role of quantization and stochasticity in communication, characterization and estimation of information measures, and more resource-efficient models/methods. We aim to address these fundamental issues by bringing together researchers from various fields including machine learning, information theory, statistics, and computer vision.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21492">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21492">DMLR Workshop: Data-centric Machine Learning Research</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Ce Zhang &middot; Praveen Paritosh &middot; Newsha Ardalani &middot; Nezihe Merve Gürel &middot; William Gaviria Rojas &middot; Yang Liu &middot; Rotem Dror &middot; Manil Maskey &middot; Lilith Bat-Leah &middot; Tzu-Sheng Kuo &middot; Luis Oala &middot; Max Bartolo &middot; Ludwig Schmidt &middot; Alicia Parrish &middot; Daniel Kondermann &middot; Najoung Kim</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21492"></div>
+
+
+    <p style="font-size:.9em;">[ Ballroom C ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21492" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21492" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21492">
+                Abstract <i id="caret-21492" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21492">
+    <div class="abstract-display">
+        <p>This is the third edition of highly successful workshops focused on data-centric AI, following the success of the Data-Centric AI workshop at NeurIPS 2021 and DataPerf workshop at ICML 2022. Data, and operations over data (e.g., cleaning, debugging, curation) have been continually fueling the success of machine learning for decades. While historically the ML community has focused primarily on model development, recently the importance of data quality has attracted intensive interest from the community, including the creation of the NeurIPS dataset and benchmark track, several data-centric AI benchmarks (e.g., DataPerf), and the flourishing of data consortiums such as LAION, the community’s attention has been directed to the quality of data used for ML training and evaluation. The goal of this workshop is to facilitate these important topics in what we call Data-centric Machine Learning Research, which includes not only datasets and benchmarks, but tooling and governance, as well as fundamental research on topics such as data quality and data acquisition for dataset creation and optimization.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-21497">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2023/workshop/21497">2nd ICML Workshop on Machine Learning for Astrophysics</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Francois Lanusse &middot; Marc Huertas-Company &middot; Brice Menard &middot; Laurence Perreault-Levasseur &middot; J. Xavier Prochaska &middot; Uros Seljak &middot; Francisco Villaescusa-Navarro &middot; Ashley Villar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-21497"></div>
+
+
+    <p style="font-size:.9em;">[ Meeting Room 317 B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-21497" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-21497" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-21497">
+                Abstract <i id="caret-21497" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-21497">
+    <div class="abstract-display">
+        <p>As modern astrophysical surveys deliver an unprecedented amount of data, from the imaging of hundreds of millions of distant galaxies to the mapping of cosmic radiation fields at ultra-high resolution, conventional data analysis methods are reaching their limits in both computational complexity and optimality. Deep Learning has rapidly been adopted by the astronomical community as a promising way of exploiting these forthcoming big-data datasets and of extracting the physical principles that underlie these complex observations. This has led to an unprecedented exponential growth of publications combining Machine Learning and astrophysics. Yet, many of these works remain at an exploratory level and have not been translated into real scientific breakthroughs.Following a successful initial iteration of this workshop at ICML 2022, our continued goal for this workshop series is to bring together Machine Learning researchers and domain experts in the field of Astrophysics to discuss the key open issues which hamper the use of Deep Learning for scientific discovery.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                        </div>
+                    </div>
+                
+            </div>
+
+
+        
+        <script>
+            function listmode(){
+                $(".cards_img").hide();
+                $(".pp-card").addClass("pp-mode-list").removeClass("pp-mode-compact");
+            }
+            function compactmode(){
+                $(".cards_img").show();
+                $(".pp-card").removeClass("pp-mode-list").addClass("pp-mode-compact");
+            }
+        </script>
+
+
+    
+
+<script>
+
+
+    $(document).ready(function() {
+        $(".abstract-link").on('click', function(e){
+            var target = $(e.target).find("i")
+            target.toggleClass("fa-caret-right");
+            target.toggleClass("fa-caret-up");
+        })
+        touchup();
+        /* touchup events currently adds dates to cached virtualcards for events */
+    })
+
+</script>
+
+
+    
+        </div>
+    
+
+</main>
+<!--END BLOCK CONTENT-->
+
+
+<!--Footer for the edit button-->
+
+
+<script>
+
+    $(function () {
+        if ($(".editable").length == 0) {
+            $("#editFooter").hide();
+        }
+    })
+</script>
+
+<script src="/static/core/js/fastclick.min.js" type="text/javascript"></script>
+
+<!--We don't know if there are editable tags on the page until after the django template engine has rendered the page. So,
+test in javascript for "editable" tags and if present, load the ckeditor engine dynamically. -->
+
+<script>
+  if (document.getElementsByClassName('editable').length > 0) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "/static/core/ckeditor/4.18/ckeditor.js";    // use this for linked script
+    script.text = "alert('voila!');"               // use this for inline script
+    document.body.appendChild(script);
+  }
+
+</script>
+
+
+<script>
+  function fetchContent() {
+    $(".editable").each(function (index) {
+    var myself = this;
+    var docvID = this.getAttribute('documentversion');
+    var blurbtext = this.getAttribute("blurbtext");
+    $.ajax({
+       url: "/Admin/RetrieveDocumentVersion",
+       type:"POST",
+       data:{
+           docvID : docvID,
+           blurbtext : blurbtext,
+           csrfmiddlewaretoken: csrftoken,
+       },
+       success: function(data, textStatus, jqXHR) {
+           myself.setAttribute("contenteditable", "true");
+           myself.innerHTML = data;
+           CKEDITOR.inline(myself.id);
+       },
+    });
+  })
+}
+
+$("#nopageedit").hide();
+function start_edit(){
+
+  $(".editable").addClass("warning-ring");
+
+  //At the beginning of an edit, we need to replace the content of the
+  //editable div with it's databased content in order to preserve the
+  //template tags. We want the tag, not the rendered tag.
+
+  /* You must remove any countdown.js timers on the page before replacing the page with it's
+  document version otherwise, Javascript will throw an exception.  */
+
+
+  $("[class$='-countdown']").parent().remove();
+  fetchContent();
+  $(".editable").attr("onblur", "ckeditorsave(this)");
+  window.status.bold();
+  window.status = "Click outside the editable area to save. Changes are LIVE!! Refresh page to discard changes.";
+  $("#editpage").hide();
+  $("#noeditpage").show();
+}
+
+
+  function stop_edit() {
+    ckeditorsave();
+    $("#noeditpage").hide();
+    $("#editpage").show();
+    window.location.reload();
+}
+function ckeditorsave(event){
+  for (var name in CKEDITOR.instances){
+    if ( CKEDITOR.instances[name].checkDirty() ){
+      editor = CKEDITOR.instances[name];
+      saveEditable(editor);
+    }
+  }
+}
+
+function saveEditable(editor){
+  var content = editor.getData();
+  var contentId = editor.name;
+  var pageId = window.location.pathname;
+  var originalContent = "N/A";
+  var documentversion = editor.container.getAttribute("documentversion");
+  var blurbtext = editor.container.getAttribute("blurbtext");
+  if ( contentId.match(/-aloha$/gi) ) {
+    contentId = contentId.replace( /-aloha/gi, '' );
+  }  /*I'm not sure what this does but it seems like it would matter*/
+  var request = jQuery.ajax({
+    url: "/Admin/SaveDocument",
+    type: "POST",
+    async: false,
+    data: {
+      content : content,
+      originalContent: originalContent,
+      contentId : contentId,
+      pageId : pageId,
+      documentversion:documentversion,
+      blurbtext : blurbtext,
+      csrfmiddlewaretoken: csrftoken
+    },
+    success: function(data){
+        if (data['message']){
+            alert(data['message']);
+        }
+    },
+    error: function(xqXHR, textStatus){
+        window.status = textStatus;
+        debugger;
+    }
+
+  });
+
+};
+
+
+
+
+</script>
+
+<script type="text/javascript">
+       jQuery(document).ajaxSend(function(event, xhr, settings) {
+           function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                   var cookies = document.cookie.split(';');
+                   for (var i = 0; i < cookies.length; i++) {
+                       var cookie = jQuery.trim(cookies[i]);
+                       // Does this cookie string begin with the name we want?
+                       if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                       }
+                   }
+               }
+               return cookieValue;
+           }
+           function sameOrigin(url) {
+               // url could be relative or scheme relative or absolute
+               var host = document.location.host; // host + port
+               var protocol = document.location.protocol;
+               var sr_origin = '//' + host;
+               var origin = protocol + sr_origin;
+               // Allow absolute or scheme relative URLs to same origin
+               return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                   (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                   // or any other URL that isn't scheme relative or absolute i.e relative.
+                   !(/^(\/\/|http:|https:).*/.test(url));
+           }
+           function safeMethod(method) {
+               return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+           }
+
+           if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+               xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+           }
+       });
+</script>
+
+
+
+
+
+<div id="successful-page-load" class='hidden'>Successful Page Load</div>
+
+
+
+
+
+    
+        <link href="/static/conf_gdpr/css/conf_gdpr.css" rel="stylesheet">
+        <div id="cookie-bar" style="z-index: 8">
+            <table class="gdpr-statement">
+                <col>
+                <col style="width:120px">
+                <tr>
+                    <td style="padding:5px">
+                        ICML uses cookies to remember that you are logged in. By using our websites, you agree
+                        to the placement of cookies. <a href="/public/PrivacyPolicy">
+                        Our Privacy Policy &raquo;&nbsp;</a>
+                    </td>
+                    <td>
+                        <button float-end class="btn btn-light btn-sm btn btn-outline-dark" onClick="accept_cookies();">Accept
+                            Cookies
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function accept_cookies() {
+
+                $.ajax({
+                    method: "POST",
+                    url: "/conf_gdpr/accept",
+                    data: {
+                        csrfmiddlewaretoken: csrftoken,
+                    },
+                }).done(function (data) {
+                    console.log(data);
+                    $("#cookie-bar").fadeOut();
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
+                });
+            }
+        </script>
+
+    
+
+
+
+
+
+
+<br>
+<footer id="bootstrap-footer" class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-1 border-top border-dark">
+    </div>
+    <!-- Section: Links  -->
+    <section class="pt-1">
+        <div class="container text-center text-md-start mt-3">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <img src="/static/core/img/ICML-logo.svg" alt="ICML logo" height='30px'>
+                    </h6>
+                    <p>
+                        The ICML Logo above may be used on presentations. Right-click and choose
+                        download. It is a vector graphic and may be used at any scale.
+                    </p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4" style="max-width: 300px;">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 text-center">
+                        Useful links
+                    </h6>
+                    <div></div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    
+                        <p>
+                            <i class="fas fa-home me-3"></i> 1269 Law Street, San Diego CA 92109
+                        </p>
+                    
+                    <p>
+                        <i class="fas fa-envelope me-3"></i> <a href="/Help/Contact">Email</a>
+                    </p>
+                    
+                    
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div></div>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Footer -->
+
+</body>
+</html>

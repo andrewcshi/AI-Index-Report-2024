@@ -1,0 +1,1929 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-padding-top: 70px;"> 
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/virtual/js/virtual.js"></script>
+    <meta name="google-site-verification" content="0jwPnVXIAk4FvFdT37dwMmd-kjHF86e5DKwvqlStUW0">
+
+    <title>ICLR 2020</title>
+    
+    <link rel="stylesheet" href="/static/core/css/core.css" type="text/css">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css" type="text/css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/core/css/custom.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      "tex2jax": {
+        "inlineMath": [["$","$"], ["\\(","\\)"]],
+        "displayMath": [["\\[","\\]"]],
+        "processEscapes": true
+      }
+    }
+    );
+    </script>
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!--This script keeps local links inside the web app rather than opening them
+in Safari, and has nothing to do with editing or Aloha.-->
+
+<script type="text/javascript">
+	(function(document,navigator,standalone) {
+		// prevents links from apps from opening in mobile safari
+		// this javascript must be the first script in your <head>
+		if ((standalone in navigator) && navigator[standalone]) {
+			var curnode, location=document.location, stop=/^(a|html)$/i;
+			document.addEventListener('click', function(e) {
+				curnode=e.target;
+				while (!(stop).test(curnode.nodeName)) {
+					curnode=curnode.parentNode;
+				}
+				// Conditions to do this only on links to your own app
+				// if you want all links, use if('href' in curnode) instead.
+				if(
+					'href' in curnode && // is a link
+					(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+					(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+						chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+				) {
+					e.preventDefault();
+					location.href = curnode.href;
+				}
+			},false);
+		}
+	})(document,window.navigator,'standalone');
+</script>        
+
+<!-- This style sets the minimum size of a blurb to 260 px unless there is a
+template context variable blurb_min_height that sets it otherwise. If blurbs
+aren't all about the same size, they don't flow well when the window is
+resized.-->
+
+
+<style>
+/*This is here rather that in a .css file for a reason.*/
+    @media screen and (min-width: 767px) {
+        .blurb {
+            min-height:260px;
+        }
+    }
+</style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</script>
+
+<script>
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "/static/core/js/jquery-3.6.1.min.js";
+        document.head.appendChild(script);
+    }
+</script>
+
+
+    <script>
+        var $ = jQuery;
+        /*Store a pointer to jquery2, so I can reference it later.  Aloha loads jquery 1.7 and much
+        of bootstrap 3 is not compatible. This comment is deprecated. */
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/be44b7e05d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Exo;}
+    </style>
+
+
+
+
+
+
+
+     
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js" integrity="sha512-lEb9Vp/rkl9g2E/LdHIMFTqz21+LA79f84gqP75fbimHqVTu6483JG1AwJlWLLQ8ezTehty78fObKupq3HSHPQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="/static/virtual/js/virtual.js"></script>
+    
+
+    <title>ICLR 2020</title>
+    
+
+    <title>ICLR 2020 Workshops</title>
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="noprint">
+    
+        
+<!--Navbar start-->
+<nav id="id_navbar" class="navbar navbar-expand-sm navbar-dark" style="background-color:#212529">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="/"><img src="/static/core/img/iclr-navbar-logo.svg" height="40px"></a></div>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ICLR
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/FAQ">
+                    <span >
+                        Help/FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Help/Contact">
+                    <span >
+                        Contact ICLR
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Downloads">
+                    <span >
+                        Downloads
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://blog.iclr.cc/">
+                    <span >
+                        ICLR Blog
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/CodeOfConduct">
+                    <span >
+                        Code of Conduct
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/PrivacyPolicy">
+                    <span >
+                        Privacy Policy
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Profile/create">
+                    <span >
+                        Create Profile
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/JournalToConference">
+                    <span >
+                        Journal To Conference Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/DiversityInclusion">
+                    <span >
+                        Diversity &amp; Inclusion
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://openreview.net/group?id=ICLR.cc">
+                    <span >
+                        Proceedings at OpenReview
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/FutureMeetings">
+                    <span >
+                        Future Meetings
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2024/Press?showtab=pass">
+                    <span >
+                        Press
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Sponsors/sponsorinfo">
+                    <span >
+                        Exhibitor Information
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://twitter.com/iclr_conf?ref_src=twsrc%5Etfw">
+                    <span >
+                        ICLR Twitter
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/About">
+                    <span >
+                        About ICLR
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/MyStuff">
+                    <span >
+                        My Stuff
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+
+                <form class="d-flex" role="search" action="/search">
+                    <div class="input-group" role="search">
+                        <input type="text" class="form-control" placeholder="Search" name="q"
+                               value=""
+                               aria-label="Search" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn-primary" id="btnGroupAddon">
+                            <button style="border: none; background-color: transparent; padding: 0;" type="submit">
+                                <i class="fa-solid fa-magnifying-glass" ></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                &nbsp;
+                
+                    <a href="/accounts/login?nextp=/virtual/2020/poster/1431 " class="navbar-brand"><span
+                            class="fa-solid fa-right-to-bracket"></span> Login</a>
+                
+
+            </div>
+        </div>
+    </nav>
+<!--Navbar end-->
+    
+</div><!--noprint div-->
+
+
+<!--This holds the whole page including the navbar-->
+
+<main id="main">
+    <div class="container-fluid">
+        <!--Navbar start-->
+
+<div class="dropdown">
+    <nav class="align-middle navbar navbar-expand-lg  rounded-bottom"
+         style="min-height: 57px; background-image: url(/static/virtual/img/navbackground.png); background-repeat: repeat-x;">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1058" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1058">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle border-3  btn btn-primary text-white p-1" style= "background-color: #070bff; font-size: 1.2 em;"
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Year: (2020)
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2024">2024
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2023">2023
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2022">2022
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2021">2021
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2020">2020
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2019">2019
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2018">2018
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/archive/www/2017.html">2017
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/archive/www/2016.html">2016
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/archive/www/2015.html">2015
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/archive/2014/">2014
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/archive/2013/">2013
+                </a>
+            </li>
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/calendar.html">
+                    <span >
+                        Schedule
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/events/workshop">
+                    <span >
+                        Workshops
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Community
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/community?show=socials">
+                    <span >
+                        Socials
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/town-hall/8364">
+                    <span >
+                        Town Hall
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/community?show=mentorship">
+                    <span >
+                        Mentorship
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Expo/Conferences/2020/SponsorHall">
+                    <span >
+                        Sponsor Hall
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Main Conference
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/events/invited%20talk">
+                    <span >
+                        Invited Talks
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/papers.html">
+                    <span >
+                        Papers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/awards_detail">
+                    <span >
+                        Awards
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/town-hall/8364">
+                    <span >
+                        Town Hall
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/organizers">
+                    <span >
+                        Organizers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2020/search">
+                    <span >
+                        <i class="fas fa-search"></i>
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    <!--Navbar end-->
+    </div>
+    <br><br>
+    
+<div class="container-fluid">
+
+    
+
+    
+
+    <br>
+
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="title-centered" style="text-align:center">Workshops</div>
+            
+        </div>
+
+
+    
+
+        
+
+        <div class="row">  
+            <div class="col-sm-12">
+
+                
+                    <div style="max-width: 1500px; margin:auto; border">
+                        <div class="grid-displaycards">
+
+                                
+                                    <div class="displaycards touchup-date" id="event-1300">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1300">Bridging AI and Cognitive Science (BAICS)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Aida Nematzadeh &middot; Jessica Hamrick &middot; Kaylee Burns &middot; Joshua B Tenenbaum &middot; Alison Gopnik &middot; Emmanuel Dupoux</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1300"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1300" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1300" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1300">
+                Abstract <i id="caret-1300" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1300">
+    <div class="abstract-display">
+        <p>Cognitive science and artificial intelligence (AI) have a long-standing shared history. Early research in AI was inspired by human intelligence and shaped by cognitive scientists (e.g., Elman, 1990; Rumelhart and McClelland, 1986). At the same time, efforts in understanding human learning and processing used methods and data borrowed from AI to build cognitive models that mimicked human cognition (e.g., Anderson, 1975; Tenenbaum et al., 2006; Lieder &amp; Griffiths, 2017; Dupoux, 2018). In the last five years the field of AI has grown rapidly due to the success of large-scale deep learning models in a variety of applications (such as speech recognition and image classification). Interestingly, algorithms and architectures in these models are often loosely inspired by natural forms of cognition (such as convolutional architectures and experience replay; e.g. Hassabis et al., 2017). In turn, the improvement of these algorithms and architectures enabled more advanced models of human cognition that can replicate, and therefore enlighten our understanding of, human behavior (Yamins &amp; DiCarlo, 2016; Fan et al., 2018; Banino et al., 2018; Bourgin et al., 2019). Empirical data from cognitive psychology has also recently played an important role in measuring how current AI systems differ from humans and in identifying their …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1307">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1307">Neural Architecture Search</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Frank Hutter &middot; Arber Zela &middot; Aaron Klein &middot; Jan Hendrik Metzen &middot; Liam Li</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1307"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1307" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1307" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1307">
+                Abstract <i id="caret-1307" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1307">
+    <div class="abstract-display">
+        <p>Neural Architecture Search (NAS) can be seen as the logical next step in automating the learning of representations. It follows upon the recent transition from manual feature engineering to automatically learning features (using a fixed neural architecture) by replacing manual architecture engineering with automated architecture design. NAS can be seen as a subfield of automated machine learning and has significant overlap with hyperparameter optimization and meta-learning. NAS methods have already outperformed manually designed architectures on several tasks, such as image classification, object detection or semantic segmentation. They have also already found architectures that yield a better trade-off between resource consumption on target hardware and predictive performance. The goal of this workshop is to bring together researchers from industry and academia that focus on NAS. NAS is an extremely hot topic of large commercial interest, and as such has a bit of a history of closed source and competition. It is therefore particularly important to build a community behind this research topic, with collaborating researchers that share insights, code, data, benchmarks, training pipelines, etc, and together aim to advance the science behind NAS.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1306">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1306">Integration of Deep Neural Models and Differential Equations</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Tan M Nguyen &middot; Richard Baraniuk &middot; Animesh Garg &middot; Stanley J Osher &middot; Anima Anandkumar &middot; Bao Wang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1306"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1306" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1306" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1306">
+                Abstract <i id="caret-1306" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1306">
+    <div class="abstract-display">
+        <p>Differential equations and neural networks are not only closely related to each other but also offer complementary strengths: the modelling power and interpretability of differential equations, and the approximation and generalization power of deep neural networks. The great leap forward in machine learning empowered by deep neural networks has been primarily relying on the increasing amounts of data coupled with modern abstractions of distributed computing. When the models and problems grow larger and more complex, the need for ever larger datasets becomes a bottleneck. 
+<br>
+<br>Differential equations have been the principled way to encode prior structural assumptions into nonlinear models such as deep neural networks, reducing their need for data while maintaining the modelling power. These advantages allow the models to scale up to bigger problems with better robustness and safety guarantee in practical settings.
+<br>
+<br>While progress has been made on combining differential equations and deep neural networks, most existing work has been disjointed, and a coherent picture has yet to emerge. Substantive progress will require a principled approach that integrates ideas from the disparate lens, including differential equations, machine learning, numerical analysis, optimization, and physics.
+<br>
+<br>The goal of this workshop is to provide a forum where theoretical and experimental researchers …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1305">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1305">ML-IRL: Machine Learning in Real Life</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Samantha Kleinberg &middot; Rumi Chunara</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1305"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1305" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1305" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1305">
+                Abstract <i id="caret-1305" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1305">
+    <div class="abstract-display">
+        <p>ML-IRL will focus on the challenges of real-world use of machine learning and the gap between what ML can do in theory and what is needed in practice. Given the tremendous recent advances in methodology from causal inference to deep learning, the strong interest in applications (in health, climate and beyond), and discovery of problematic implications (e.g. issues of fairness and explainability) now is an ideal time to examine how we develop, evaluate and deploy ML and how we can do it better. We envision a workshop that is focused on productive solutions, not mere identification of problems or demonstration of failures. 
+<br>
+<br>Overall, we aim to examine how real-world applications can and should influence every stage of ML, from how we develop algorithms to how we evaluate them. These topics are fundamental for the successful real-world use of ML, but are rarely prioritized. We believe that a workshop focusing on these issues in a domain independent way is a necessary starting point for building more useful and usable ML. We will have speakers and participants representing all core topics (developing novel algorithms that work in the real world, specific applications and how we can learn from them, human factors and …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1304">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1304">Tackling Climate Change with ML</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Priya Donti &middot; David Rolnick &middot; Lynn Kaack &middot; Alexandra Luccioni &middot; Kris Sankaran &middot; Sharon Zhou &middot; Moustapha Cisse &middot; Carla Gomes &middot; Andrew Ng &middot; Yoshua Bengio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1304"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1304" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1304" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1304">
+                Abstract <i id="caret-1304" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1304">
+    <div class="abstract-display">
+        <p>Climate change is one of the greatest problems society has ever faced, with increasingly severe consequences for humanity as natural disasters multiply, sea levels rise, and ecosystems falter. Since climate change is a complex issue, action takes many forms, from designing smart electric grids to tracking greenhouse gas emissions through satellite imagery. While no silver bullet, machine learning can be an invaluable tool in fighting climate change via a wide array of applications and techniques. These applications require algorithmic innovations in machine learning and close collaboration with diverse fields and practitioners. This workshop is intended as a forum for those in the machine learning community who wish to help tackle climate change.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1303">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1303">Towards Trustworthy ML: Rethinking Security and Privacy for ML</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Nicolas Papernot &middot; Carmela Troncoso &middot; Nicholas Carlini &middot; Florian Tramer &middot; Shibani Santurkar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1303"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1303" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1303" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1303">
+                Abstract <i id="caret-1303" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1303">
+    <div class="abstract-display">
+        <p>As ML systems are pervasively deployed, security and privacy challenges became central to their design. The community has produced a vast amount of work to address these challenges and increase trust in ML. Yet, much of the work concentrates on well-defined problems that enable nice tractability from a mathematical perspective but are hard to translate to the threats that target real-world systems.
+<br>
+<br>This workshop calls for novel research that addresses the security and privacy risks arising from the deployment of ML, from malicious exploitation of vulnerabilities (e.g., adversarial examples or data poisoning) to concerns on fair, ethical and privacy-preserving uses of data. We aim to provide a home to new ideas “outside the box”, even if proposed preliminary solutions do not match the performance guarantees of known techniques. We believe that such ideas could prove invaluable to more effectively spur new lines of research that make ML more trustworthy.
+<br>
+<br>We aim to bring together experts from a variety of communities (machine learning, computer security, data privacy, fairness &amp; ethics) in an effort to synthesize promising ideas and research directions, as well as foster and strengthen cross-community collaborations. Indeed, many fundamental problems studied in these diverse areas can be broadly recast …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1302">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1302">Workshop on Causal Learning For Decision Making</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Nan Rosemary Ke &middot; Anirudh Goyal &middot; Jane Wang &middot; Silvia Chiappa &middot; Jovana Mitrovic &middot; Theophane Weber &middot; Danilo Jimenez Rezende &middot; Stefan Bauer</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1302"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1302" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1302" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1302">
+                Abstract <i id="caret-1302" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1302">
+    <div class="abstract-display">
+        <p>Machine learning has enabled significant improvements in many areas. Most of these ML methods are based on inferring statistical correlations, they can become unreliable where spurious correlations present in the training data do not hold in the testing setting. One way of tackling this problem is to learn the causal structure of the data generating processing (causal models). The general problem of causal discovery requires performing all interventions on the model. However, this may be too expensive and/or infeasible in real environments: understanding how to most efficiently intervene in the environment in order to uncover the most amount of information is therefore a necessary requirement to be able to uncover causal information in real-world applications. In this workshop, we investigate a few key questions or topics.<br>- What is the role of an underlying causal model in decision making? <br>- What is the difference between a prediction that is made with a causal model and one made with a non‐causal model?<br>- What is the role of causal models in decision-making in real-world settings, for example in relation to fairness, transparency, and safety?<br>- The way current RL agents explore environments appears less intelligent than the way human learners explore. …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1301">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1301">Computer Vision for Agriculture (CV4A)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Yannis Kalantidis &middot; Laura Sevilla &middot; Ernest Mwebaze &middot; David Guerena &middot; Hamed Alemohammad &middot; Dina Machuve</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1301"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1301" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1301" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1301">
+                Abstract <i id="caret-1301" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1301">
+    <div class="abstract-display">
+        <p>Artificial intelligence has invaded the agriculture field during the last few years. From automatic crop monitoring via drones, smart agricultural equipment, food security and camera-powered apps assisting farmers to satellite image based global crop disease prediction and tracking, computer vision has been a ubiquitous tool. This workshop aims to expose the fascinating progress and unsolved problems of computational agriculture to the AI research community. It is jointly organized by AI and computational agriculture researchers and has the support of CGIAR, a global partnership that unites international organizations engaged in agricultural research. The workshop, will feature invited talks, panels and discussions on gender and agriculture in the digital era and AI for food security. It will also host and fund two open, large-scale competitions with prizes as well as a prototyping session.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1299">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1299">Beyond “tabula rasa” in reinforcement learning: agents that remember, adapt, and generalize</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Louis Kirsch &middot; Ignasi Clavera &middot; Kate Rakelly &middot; Chelsea Finn &middot; Jane Wang &middot; Jeff Clune</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1299"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1299" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1299" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1299">
+                Abstract <i id="caret-1299" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1299">
+    <div class="abstract-display">
+        <p>Recent work has demonstrated that current reinforcement learning methods are able to master complex tasks given enough resources. However, these successes have mainly been confined to single and unchanging environments. By contrast, the real world is both complex and dynamic, rendering it impossible to anticipate each new scenario. Many standard learning approaches require tremendous resources in data and compute to re-train. However, learning also offers the potential to develop versatile agents that adapt and continue to learn across environment changes and shifting goals and feedback.  To achieve this, agents must be able to apply knowledge gained in past experience to the situation at hand. We aim to bring together areas of research that provide different perspectives on how to extract and apply this knowledge. 
+<br>The BeTR-RL workshop aims to bring together researchers from different backgrounds with a common interest in how to extend current reinforcement learning algorithms to operate in changing environments and tasks. Specifically, we are interested in the following lines of work: leveraging previous experience to learn representations or learning algorithms that transfer to new tasks (transfer and meta-learning), generalizing to new scenarios without any explicit adaptation (multi-task and goal-conditioned RL), and learning new capabilities while retaining the …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1297">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1297">AI for Earth Sciences</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Surya Karthik Mukkavilli &middot; Kelly Kochanski &middot; Johanna Hansen &middot; Trooper Sanders &middot; Pierre Gentine &middot; Mary C Hill &middot; Gregory Dudek &middot; Aaron Courville &middot; Vipin Kumar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1297"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1297" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1297" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1297">
+                Abstract <i id="caret-1297" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1297">
+    <div class="abstract-display">
+        <p>Earth sciences or geosciences encompasses understanding the physical characteristics of our planet, including its lithosphere, hydrosphere, atmosphere and biosphere, applying all fields of natural and computational sciences. As Earth sciences enters the era of increasing volumes and variety of geoscientific data from sensors, as well as high performance computing simulations, machine learning methods are poised to augment and in some cases replace traditional methods. Interest in the application of machine learning, deep learning, reinforcement learning, computer vision and robotics to the geosciences is growing rapidly at major Earth science and machine learning conferences. 
+<br>
+<br>Our workshop proposal AI for Earth sciences seeks to bring cutting edge geoscientific and planetary challenges to the fore for the machine learning and deep learning communities. We seek machine learning interest from major areas encompassed by Earth sciences which include, atmospheric physics, hydrologic sciences, cryosphere science, oceanography, geology, planetary sciences, space weather, geo-health (i.e. water, land and air pollution), volcanism, seismology and biogeosciences. We call for papers demonstrating novel machine learning techniques in remote sensing for meteorology and geosciences, generative Earth system modeling, and transfer learning from geophysics and numerical simulations and uncertainty in Earth science learning representations. We also seek theoretical developments in interpretable machine …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1296">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1296">AI for Affordable Healthcare</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Alison O&#x27;Neil &middot; Aneta Lisowska &middot; Tewodros Bekele &middot; Ashenafi Gutema &middot; Emanuele Trucco</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1296"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1296" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1296" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1296">
+                Abstract <i id="caret-1296" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1296">
+    <div class="abstract-display">
+        <p>Healthcare is under significant pressure: costs are rising, populations are aging, lifestyles are becoming more sedentary, and critically we lack experts to meet the rising demand. In addition, in under-developed countries healthcare quality remains limited. Meanwhile, AI has shown great promise for healthcare applications, and the digitisation of data and use of electronic health records is becoming more widespread. AI could play a key role in enabling, democratising and upholding high standards of healthcare worldwide, assisting health professionals to make decisions faster, more accurately and more consistently.
+<br>
+<br>However, so far, the adoption of AI in real-world healthcare applications has been slow relative to that in domains such as autonomous driving. In this workshop, we aim to highlight recent advances and the potential opportunities, via a series of talks and panel discussion. We are supported by local institutes in Ethiopia, which besides being the ICLR host country, is a prime example of a country that potentially stands to gain much from the application of AI to healthcare. We invite technical papers and white papers addressing challenges which are important to the real-world deployment of AI in healthcare.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1295">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1295">AfricaNLP - Unlocking Local Languages</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Kathleen Siminyu &middot; Laura Martinus &middot; Vukosi Marivate &middot; Davor Orlic</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1295"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1295" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1295" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1295">
+                Abstract <i id="caret-1295" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1295">
+    <div class="abstract-display">
+        <p>The rise in ML community efforts on the African continent has led to a growing interest in Natural Language Processing, particularly for African languages which are typically low resource languages. This interest is manifesting in the form of national, regional, continental and even global collaborative efforts to build corpora, as well as the application of the aggregated corpora to various NLP tasks. 
+<br>
+<br>This workshop therefore has several aims; 
+<br>1) to showcase this work being done by the African NLP community and provide a platform to share this expertise with a global audience interested in NLP techniques for low resource languages
+<br>2) to provide a platform for the groups involved with the various projects to meet, interact, share and forge closer collaboration 
+<br>3) to provide a platform for junior researchers to present papers, solutions, and begin interacting with the wider NLP community
+<br>4) to present an opportunity for more experienced researchers to further publicize their work and inspire younger researchers through keynotes and invited talks</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1298">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1298">AI for Overcoming Global Disparities in Cancer Care</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Thomas Fuchs &middot; Gabriele Campanella &middot; Dig Vijay Kumar Yarlagadda &middot; Christina Virgo &middot; Hassan Muhammad &middot; Johan Lundin &middot; Peter Kingham &middot; Olusegun Alatise</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1298"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1298" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1298" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1298">
+                Abstract <i id="caret-1298" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1298">
+    <div class="abstract-display">
+        <p>According to the World Health Organization (WHO), cancer is the second leading cause of death globally, and was responsible for an estimated 9.6 million deaths in 2018. Approximately 70% of deaths from cancer occur in low- and middle-income countries (LMIC), in large part due to lack of proper access to screening, diagnosis and treatment services. As the economic impact of cancer increases, disparities in diagnosis and treatment options prevail. Recent advances in the field of machine learning have bolstered excitement for the application of assistive technologies in the medical domain, with the promise of improved care for patients. Unfortunately, cancer care in LMIC faces a very different set of challenges, unless focused efforts are made to overcome these challenges, cancer care in these countries will be largely unaffected. The purpose of this workshop is to bring together experts in machine learning and clinical cancer care to facilitate discussions regarding challenges in cancer care and opportunities for AI to make an impact. In particular, there is an immense potential for novel representation learning approaches to learn from different data modalities such as pathology, genomics, and radiology. Studying these approaches have the potential to significantly improve survival outcomes and improve the lives …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1309">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1309">Practical ML for Developing Countries: learning under limited/low resource scenarios</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Esube Bekele &middot; Ioana Baldini &middot; Nyalleng Moorosi &middot; Vukosi Marivate &middot; VICTOR Dibia &middot; Amanuel Mersha &middot; Tewodros Gebreselassie &middot; Meareg Hailemariam &middot; Michael Melese &middot; Timnit Gebru &middot; Red Abebe &middot; Waheeda Saib</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1309"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1309" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1309" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1309">
+                Abstract <i id="caret-1309" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1309">
+    <div class="abstract-display">
+        <p>The constant progress being made in artificial intelligence needs to extend across borders if we are to democratize AI in developing countries. Adapting the state-of-the-art (SOTA) methods to resource constrained environments such as developing countries is challenging in practice. Recent breakthroughs in natural language processing (NLP), for instance, rely on increasingly complex and large models (e.g. most models based on transformers such as BERT, VilBERT, ALBERT, and GPT-2) that are pre-trained in on large corpus of unlabeled data. In most developing countries, low/limited resources means hard path towards adoption of these breakthroughs.  Methods such as transfer learning will not fully solve the problem either due to bias in pre-training datasets that do not reflect real test cases in developing countries as well as the prohibitive cost of fine-tuning these large models. Recent progress with focus given to ML for social good has the potential to alleviate the problem in part. However, the themes in such workshops are usually application driven such as ML for healthcare and for education, and less attention is given to practical aspects as it relates to developing countries in implementing these solutions in low or limited resource scenarios. This, in turn, hinders the democratization of AI …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-1308">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2020/workshop/1308">Fundamental Science in the era of AI</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Richard Armstrong &middot; Bruce Bassett &middot; Michelle Lochner &middot; Nadeem Oozeer</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-1308"></div>
+
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-1308" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-1308" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-1308">
+                Abstract <i id="caret-1308" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-1308">
+    <div class="abstract-display">
+        <p>In this ICLR workshop, we will explore the intersection of big science and AI and the changing nature of good fundamental research in the era of pervasive AI. The workshop will also examine how AI can enhance the social good of Big Science, relevant for the African continent given that the Square Kilometre Array (SKA), which will be one of the largest astronomical endeavors ever undertaken, will be majority hosted in Africa. In addition this workshop aims to stimulate discussion across astronomy, cosmology and particle physics.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                        </div>
+                    </div>
+                
+            </div>
+
+
+        
+        <script>
+            function listmode(){
+                $(".cards_img").hide();
+                $(".pp-card").addClass("pp-mode-list").removeClass("pp-mode-compact");
+            }
+            function compactmode(){
+                $(".cards_img").show();
+                $(".pp-card").removeClass("pp-mode-list").addClass("pp-mode-compact");
+            }
+        </script>
+
+
+    
+
+<script>
+
+
+    $(document).ready(function() {
+        $(".abstract-link").on('click', function(e){
+            var target = $(e.target).find("i")
+            target.toggleClass("fa-caret-right");
+            target.toggleClass("fa-caret-up");
+        })
+        touchup();
+        /* touchup events currently adds dates to cached virtualcards for events */
+    })
+
+</script>
+
+
+    
+        </div>
+    
+
+</main>
+<!--END BLOCK CONTENT-->
+
+
+<!--Footer for the edit button-->
+
+
+<script>
+
+    $(function () {
+        if ($(".editable").length == 0) {
+            $("#editFooter").hide();
+        }
+    })
+</script>
+
+<script src="/static/core/js/fastclick.min.js" type="text/javascript"></script>
+
+<!--We don't know if there are editable tags on the page until after the django template engine has rendered the page. So,
+test in javascript for "editable" tags and if present, load the ckeditor engine dynamically. -->
+
+<script>
+  if (document.getElementsByClassName('editable').length > 0) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "/static/core/ckeditor/4.18/ckeditor.js";    // use this for linked script
+    script.text = "alert('voila!');"               // use this for inline script
+    document.body.appendChild(script);
+  }
+
+</script>
+
+
+<script>
+  function fetchContent() {
+    $(".editable").each(function (index) {
+    var myself = this;
+    var docvID = this.getAttribute('documentversion');
+    var blurbtext = this.getAttribute("blurbtext");
+    $.ajax({
+       url: "/Admin/RetrieveDocumentVersion",
+       type:"POST",
+       data:{
+           docvID : docvID,
+           blurbtext : blurbtext,
+           csrfmiddlewaretoken: csrftoken,
+       },
+       success: function(data, textStatus, jqXHR) {
+           myself.setAttribute("contenteditable", "true");
+           myself.innerHTML = data;
+           CKEDITOR.inline(myself.id);
+       },
+    });
+  })
+}
+
+$("#nopageedit").hide();
+function start_edit(){
+
+  $(".editable").addClass("warning-ring");
+
+  //At the beginning of an edit, we need to replace the content of the
+  //editable div with it's databased content in order to preserve the
+  //template tags. We want the tag, not the rendered tag.
+
+  /* You must remove any countdown.js timers on the page before replacing the page with it's
+  document version otherwise, Javascript will throw an exception.  */
+
+
+  $("[class$='-countdown']").parent().remove();
+  fetchContent();
+  $(".editable").attr("onblur", "ckeditorsave(this)");
+  window.status.bold();
+  window.status = "Click outside the editable area to save. Changes are LIVE!! Refresh page to discard changes.";
+  $("#editpage").hide();
+  $("#noeditpage").show();
+}
+
+
+  function stop_edit() {
+    ckeditorsave();
+    $("#noeditpage").hide();
+    $("#editpage").show();
+    window.location.reload();
+}
+function ckeditorsave(event){
+  for (var name in CKEDITOR.instances){
+    if ( CKEDITOR.instances[name].checkDirty() ){
+      editor = CKEDITOR.instances[name];
+      saveEditable(editor);
+    }
+  }
+}
+
+function saveEditable(editor){
+  var content = editor.getData();
+  var contentId = editor.name;
+  var pageId = window.location.pathname;
+  var originalContent = "N/A";
+  var documentversion = editor.container.getAttribute("documentversion");
+  var blurbtext = editor.container.getAttribute("blurbtext");
+  if ( contentId.match(/-aloha$/gi) ) {
+    contentId = contentId.replace( /-aloha/gi, '' );
+  }  /*I'm not sure what this does but it seems like it would matter*/
+  var request = jQuery.ajax({
+    url: "/Admin/SaveDocument",
+    type: "POST",
+    async: false,
+    data: {
+      content : content,
+      originalContent: originalContent,
+      contentId : contentId,
+      pageId : pageId,
+      documentversion:documentversion,
+      blurbtext : blurbtext,
+      csrfmiddlewaretoken: csrftoken
+    },
+    success: function(data){
+        if (data['message']){
+            alert(data['message']);
+        }
+    },
+    error: function(xqXHR, textStatus){
+        window.status = textStatus;
+        debugger;
+    }
+
+  });
+
+};
+
+
+
+
+</script>
+
+<script type="text/javascript">
+       jQuery(document).ajaxSend(function(event, xhr, settings) {
+           function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                   var cookies = document.cookie.split(';');
+                   for (var i = 0; i < cookies.length; i++) {
+                       var cookie = jQuery.trim(cookies[i]);
+                       // Does this cookie string begin with the name we want?
+                       if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                       }
+                   }
+               }
+               return cookieValue;
+           }
+           function sameOrigin(url) {
+               // url could be relative or scheme relative or absolute
+               var host = document.location.host; // host + port
+               var protocol = document.location.protocol;
+               var sr_origin = '//' + host;
+               var origin = protocol + sr_origin;
+               // Allow absolute or scheme relative URLs to same origin
+               return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                   (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                   // or any other URL that isn't scheme relative or absolute i.e relative.
+                   !(/^(\/\/|http:|https:).*/.test(url));
+           }
+           function safeMethod(method) {
+               return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+           }
+
+           if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+               xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+           }
+       });
+</script>
+
+
+
+
+
+<div id="successful-page-load" class='hidden'>Successful Page Load</div>
+
+
+
+
+
+    
+        <link href="/static/conf_gdpr/css/conf_gdpr.css" rel="stylesheet">
+        <div id="cookie-bar" style="z-index: 8">
+            <table class="gdpr-statement">
+                <col>
+                <col style="width:120px">
+                <tr>
+                    <td style="padding:5px">
+                        ICLR uses cookies to remember that you are logged in. By using our websites, you agree
+                        to the placement of cookies. <a href="/public/PrivacyPolicy">
+                        Our Privacy Policy &raquo;&nbsp;</a>
+                    </td>
+                    <td>
+                        <button float-end class="btn btn-light btn-sm btn btn-outline-dark" onClick="accept_cookies();">Accept
+                            Cookies
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function accept_cookies() {
+
+                $.ajax({
+                    method: "POST",
+                    url: "/conf_gdpr/accept",
+                    data: {
+                        csrfmiddlewaretoken: csrftoken,
+                    },
+                }).done(function (data) {
+                    console.log(data);
+                    $("#cookie-bar").fadeOut();
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
+                });
+            }
+        </script>
+
+    
+
+
+
+
+
+
+<br>
+<footer id="bootstrap-footer" class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-1 border-top border-dark">
+    </div>
+    <!-- Section: Links  -->
+    <section class="pt-1">
+        <div class="container text-center text-md-start mt-3">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <img src="/static/core/img/ICLR-logo.svg" alt="ICLR logo" height='30px'>
+                    </h6>
+                    <p>
+                        The ICLR Logo above may be used on presentations. Right-click and choose
+                        download. It is a vector graphic and may be used at any scale.
+                    </p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4" style="max-width: 300px;">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 text-center">
+                        Useful links
+                    </h6>
+                    <div></div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    
+                        <p>
+                            <i class="fas fa-home me-3"></i> 2710 E Corridor Dr, Appleton WI 54913
+                        </p>
+                    
+                    <p>
+                        <i class="fas fa-envelope me-3"></i> <a href="/Help/Contact">Email</a>
+                    </p>
+                    
+                        <p><i class="fas fa-phone me-3"></i> Phone: +1-714-214-1616</p>
+                    
+                    
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div></div>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Footer -->
+
+</body>
+</html>

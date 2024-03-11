@@ -1,0 +1,3073 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-padding-top: 70px;"> 
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/virtual/js/virtual.js"></script>
+    <meta name="google-site-verification" content="0jwPnVXIAk4FvFdT37dwMmd-kjHF86e5DKwvqlStUW0">
+
+    <title>NIPS 2013</title>
+    
+    <link rel="stylesheet" href="/static/core/css/core.css" type="text/css">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css" type="text/css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/core/css/custom.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      "tex2jax": {
+        "inlineMath": [["$","$"], ["\\(","\\)"]],
+        "displayMath": [["\\[","\\]"]],
+        "processEscapes": true
+      }
+    }
+    );
+    </script>
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!--This script keeps local links inside the web app rather than opening them
+in Safari, and has nothing to do with editing or Aloha.-->
+
+<script type="text/javascript">
+	(function(document,navigator,standalone) {
+		// prevents links from apps from opening in mobile safari
+		// this javascript must be the first script in your <head>
+		if ((standalone in navigator) && navigator[standalone]) {
+			var curnode, location=document.location, stop=/^(a|html)$/i;
+			document.addEventListener('click', function(e) {
+				curnode=e.target;
+				while (!(stop).test(curnode.nodeName)) {
+					curnode=curnode.parentNode;
+				}
+				// Conditions to do this only on links to your own app
+				// if you want all links, use if('href' in curnode) instead.
+				if(
+					'href' in curnode && // is a link
+					(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+					(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+						chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+				) {
+					e.preventDefault();
+					location.href = curnode.href;
+				}
+			},false);
+		}
+	})(document,window.navigator,'standalone');
+</script>        
+
+<!-- This style sets the minimum size of a blurb to 260 px unless there is a
+template context variable blurb_min_height that sets it otherwise. If blurbs
+aren't all about the same size, they don't flow well when the window is
+resized.-->
+
+
+<style>
+/*This is here rather that in a .css file for a reason.*/
+    @media screen and (min-width: 767px) {
+        .blurb {
+            min-height:260px;
+        }
+    }
+</style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</script>
+
+<script>
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "/static/core/js/jquery-3.6.1.min.js";
+        document.head.appendChild(script);
+    }
+</script>
+
+
+    <script>
+        var $ = jQuery;
+        /*Store a pointer to jquery2, so I can reference it later.  Aloha loads jquery 1.7 and much
+        of bootstrap 3 is not compatible. This comment is deprecated. */
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/be44b7e05d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Exo;}
+    </style>
+
+
+
+
+
+
+
+     
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js" integrity="sha512-lEb9Vp/rkl9g2E/LdHIMFTqz21+LA79f84gqP75fbimHqVTu6483JG1AwJlWLLQ8ezTehty78fObKupq3HSHPQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="/static/virtual/js/virtual.js"></script>
+    
+
+    <title>NIPS 2013</title>
+    
+
+    <title>NIPS 2013 Workshops</title>
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="noprint">
+    
+        
+<!--Navbar start-->
+<nav id="id_navbar" class="navbar navbar-expand-sm navbar-dark" style="background-color:#212529">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="/"><img src="/static/core/img/nips-navbar-logo.svg" height="40px"></a></div>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NeurIPS
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2023/EthicsGuidelines">
+                    <span >
+                        Code of Ethics
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2023/CodeOfConduct">
+                    <span >
+                        Code of Conduct
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Profile/create">
+                    <span >
+                        Create Profile
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/JournalToConference">
+                    <span >
+                        Journal To Conference Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/DiversityInclusion">
+                    <span >
+                        Diversity &amp; Inclusion
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://proceedings.neurips.cc/">
+                    <span >
+                        Proceedings
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/FutureMeetings">
+                    <span >
+                        Future Meetings
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2023/Press">
+                    <span >
+                        Press
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Exhibitors/exhibitorinfo">
+                    <span >
+                        Exhibitor Information
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Help/Contact">
+                    <span >
+                        Contact NeurIPS
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/FAQ">
+                    <span >
+                        Help/FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/PrivacyPolicy">
+                    <span >
+                        Privacy Policy
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Downloads">
+                    <span >
+                        Downloads
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/MyStuff">
+                    <span >
+                        My Stuff
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+
+                <form class="d-flex" role="search" action="/search">
+                    <div class="input-group" role="search">
+                        <input type="text" class="form-control" placeholder="Search" name="q"
+                               value=""
+                               aria-label="Search" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn-primary" id="btnGroupAddon">
+                            <button style="border: none; background-color: transparent; padding: 0;" type="submit">
+                                <i class="fa-solid fa-magnifying-glass" ></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                &nbsp;
+                
+                    <a href="/accounts/login?nextp=/Conferences/2013/Awards " class="navbar-brand"><span
+                            class="fa-solid fa-right-to-bracket"></span> Login</a>
+                
+
+            </div>
+        </div>
+    </nav>
+<!--Navbar end-->
+    
+</div><!--noprint div-->
+
+
+<!--This holds the whole page including the navbar-->
+
+<main id="main">
+    <div class="container-fluid">
+        <!--Navbar start-->
+
+<div class="dropdown">
+    <nav class="align-middle navbar navbar-expand-md mx-4 border border-3 border-top-0 rounded-bottom"
+         style="min-height: 57px; background-color: #F6f6f6;">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler759" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler759">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle border-3  btn btn-primary text-white p-1" style= "background-color: #070bff; font-size: 1.2 em;"
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Year: (2013)
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2024">2024
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2023">2023
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2022">2022
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2021">2021
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2020">2020
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2019">2019
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2018">2018
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2017">2017
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2016">2016
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2015">2015
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2014">2014
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2013">2013
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2012">2012
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2011">2011
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2010">2010
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2009">2009
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2008
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2007">2007
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2006">2006
+                </a>
+            </li>
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/Dates">
+                    <span >
+                        Dates
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Calls
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/CallForPapers">
+                    <span >
+                        Call for Papers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/CallForWorkshops">
+                    <span >
+                        Call for Workshops
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/CallForDemonstrations">
+                    <span >
+                        Call for Demonstrations
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/PaperInformation/ReviewerInstructions">
+                    <span >
+                        Reviewer Instructions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Program Books
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://media.nips.cc/Conferences/2013/NIPS-2013-Conference-Book.pdf">
+                    <span >
+                        Conference
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="http://media.nips.cc/Conferences/2013/NIPS-2013-Workshop-Book.pdf">
+                    <span >
+                        Workshop
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/Schedule">
+                    <span >
+                        Schedule
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Organization
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/Board">
+                    <span >
+                        Board
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/Committees">
+                    <span >
+                        Organizers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2013/Awards">
+                    <span >
+                        Awards
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    <!--Navbar end-->
+    </div>
+    <br><br>
+    
+<div class="container-fluid">
+
+    
+
+    
+
+    <br>
+
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="title-centered" style="text-align:center">Workshops</div>
+            
+        </div>
+
+
+    
+
+        
+
+        <div class="row">  
+            <div class="col-sm-12">
+
+                
+                    <div style="max-width: 1500px; margin:auto; border">
+                        <div class="grid-displaycards">
+
+                                
+                                    <div class="displaycards touchup-date" id="event-3707">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3707">Extreme Classification: Multi-Class &amp; Multi-Label Learning with Millions of Categories</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Manik Varma &middot; John Langford</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3707"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Fallen+Marla ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3707" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3707" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3707">
+                Abstract <i id="caret-3707" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3707">
+    <div class="abstract-display">
+        <p>Extreme classification, where one needs to deal with multi-class and multi-label problems involving a very large number of categories, has opened up a new research frontier in machine learning. Many challenging applications, such as photo and video annotation and web page categorization, can benefit from being formulated as supervised learning tasks with millions, or even billions, of categories. Extreme classification can also give a fresh perspective on core learning problems such as ranking and recommendation by reformulating them as multi-class/label tasks where each item to be ranked or recommended is a separate category.
+<br>
+<br>Extreme classification raises a number of interesting research questions including those related to:
+<br>
+<br>* Large scale learning and distributed and parallel training
+<br>* Efficient sub-linear prediction and prediction on a test-time budget
+<br>* Crowd sourcing and other efficient techniques for harvesting training data 
+<br>* Dealing with training set biases and label noise
+<br>* Fine-grained classification 
+<br>* Tackling label polysemy, synonymy and correlations
+<br>* Structured output prediction and multi-task learning
+<br>* Learning from highly imbalanced data
+<br>* Learning from very few data points per category
+<br>* Learning from missing and incorrect labels
+<br>* Feature extraction, feature sharing, lazy feature evaluation, etc.
+<br>* Performance evaluation
+<br>* Statistical analysis and …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3729">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3729">Probabilistic Models for Big Data</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Neil D Lawrence &middot; Joaquin Quiñonero-Candela &middot; Tianshi Gao &middot; James Hensman &middot; Zoubin Ghahramani &middot; Max Welling &middot; David Blei &middot; Ralf Herbrich</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3729"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3729" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3729" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3729">
+                Abstract <i id="caret-3729" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3729">
+    <div class="abstract-display">
+        <p>Processing of web scale data sets has proven its worth in a range of applications, from ad-click prediction to large recommender systems. In most cases, learning needs to happen real-time, and the latency allowance for predictions is restrictive. Probabilistic predictions are critical in practice on web applications because optimizing the user experience requires being able to compute the expected utilities of mutually exclusive pieces of content. The quality of the knowledge extracted from the information available is restricted by complexity of the model. 
+<br>
+<br>One framework that enables complex modelling of data is probabilistic modelling. However, its applicability to big data is restricted by the difficulties of inference in complex probabilistic models, and by computational constraints.
+<br>
+<br>This workshop will focus on applying probabilistic models to big data. Of interest will be algorithms that allow for inference in probabilistic models for big data such as stochastic variational inference and stochastic Monte Carlo. A particular focus will be on existing applications in big data and future applications that would benefit from such approaches.
+<br>
+<br>This workshop brings together leading academic and industrial researchers in probabilistic modelling and large scale data sets.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3726">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3726">NIPS 2013 Workshop on Causality: Large-scale Experiment Design and Inference of Causal Mechanisms</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Isabelle Guyon &middot; Leon Bottou &middot; Bernhard Schölkopf &middot; Alexander Statnikov &middot; Evelyne Viegas &middot; james m robins</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3726"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Glenbrook+Emerald ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3726" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3726" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3726">
+                Abstract <i id="caret-3726" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3726">
+    <div class="abstract-display">
+        <p>The goal of this workshop is to discuss new methods of large scale experiment design and their application to the inference of causal mechanisms and promote their evaluation via a series of challenges. Emphasis will be put on capitalizing on massive amounts of available observational data to cut down the number of experiments needed, pseudo- or quasi-experiments, iterative designs, and the on-line acquisition of data with minimal perturbation of the system under study. The participants of the cause-effect pairs challenge http://www.causality.inf.ethz.ch/cause-effect.php will be encouraged to submit papers.
+<br>
+<br>The problem of attributing causes to effects is pervasive in science, medicine, economy and almost every aspects of our everyday life involving human reasoning and decision making. What affects your health? the economy? climate changes? The gold standard to establish causal relationships is to perform randomized controlled experiments. However, experiments are costly while non-experimental "observational" data collected routinely around the world are readily available. Unraveling potential cause-effect relationships from such observational data could save a lot of time and effort by allowing us to prioritize confirmatory experiments. This could be complemented by new strategies of incremental experimental design combining observational and experimental data.
+<br>
+<br>Much of machine learning has been so far concentrating on …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3700">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3700">Randomized Methods for Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">David Lopez-Paz &middot; Quoc V Le &middot; Alexander Smola</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3700"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3700" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3700" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3700">
+                Abstract <i id="caret-3700" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3700">
+    <div class="abstract-display">
+        <p>As we enter the era of “big-data”, Machine Learning algorithms that resort in heavy optimization routines rapidly become prohibitive. Perhaps surprisingly, randomization (Raghavan and Motwani, 1995) arises as a computationally cheaper, simpler alternative to optimization that in many cases leads to smaller and faster models with little or no loss in performance. Although randomized algorithms date back to the probabilistic method (Erdős, 1947, Alon &amp; Spencer, 2000), these techniques only recently started finding their way into Machine Learning. The most notable exceptions being stochastic methods for optimization, and Markov Chain Monte Carlo methods, both of which have become well-established in the past two decades. This workshop aims to accelerate this process by bringing together researchers in this area and exposing them to recent developments.
+<br>
+<br>The targeted audience are researchers and practitioners looking for scalable, compact and fast solutions to learn in the large-scale setting.
+<br>
+<br>Specific questions of interest include, but are not limited to:
+<br>
+<br>  - Randomized projections: locality sensitive hashing, hash kernels, counter braids, count sketches, optimization.
+<br>  - Randomized function classes: Fourier features, Random Kitchen Sinks, Nystrom methods, Fastfood, Random Basis Neural networks.
+<br>  - Sparse reconstructions: compressed sensing, error correcting output codes, reductions of inference problems to binary.
+<br>  - Compressive …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3730">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3730">MLINI-13: Machine Learning and Interpretation in Neuroimaging (Day 1)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Georg Langs &middot; Brian Murphy &middot; Kai-min K Chang &middot; Paolo Avesani &middot; James Haxby &middot; Nikolaus Kriegeskorte &middot; Susan Whitfield-Gabrieli &middot; Irina Rish &middot; Guillermo Cecchi &middot; Raif Rustamov &middot; Marius Kloft &middot; Jonathan Young &middot; Sina Ghiassian &middot; Michael Coen</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3730"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Sierra ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3730" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3730" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3730">
+                Abstract <i id="caret-3730" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3730">
+    <div class="abstract-display">
+        <p>Aim of the workshop
+<br>
+<br>We propose a two-day workshop on the topic of machine learning approaches in neuroscience, neuroimaging, with a specific extension to behavioral experiments and psychology. We believe that machine learning has a prominent role in shaping how questions in neuroscience are framed, and that the machine-learning mind set is now entering modern psychology and behavioral studies. It is also equally important  that  practical applications in these fields motivate a rapidly evolving line or research in the machine learning community. In this context, many controversies and open questions exist.
+<br>
+<br>The goal of the workshop is to pinpoint the most pressing issues and common challenges across the fields, and to sketch future directions and open questions in the light of novel methodology. The proposed workshop is aimed at offering a forum that joins machine learning, neuroscience, and psychology community, and should facilitate formulating and discussing the issues at their interface.
+<br>
+<br>Motivated by two previous workshops, MLINI ‘11 and MLINI’12, we will center this workshop around invited talks, and two panel discussions. Triggered by these discussions, this year we plan to adapt the workshop topics to a less traditional scope that investigates the role of machine learning in neuroimaging of …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3723">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3723">Planning with Information Constraints for Control, Reinforcement Learning, Computational Neuroscience, Robotics and Games.</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Hilbert J Kappen &middot; Naftali Tishby &middot; Jan Peters &middot; Evangelos Theodorou &middot; David H Wolpert &middot; Pedro Ortega</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3723"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe D ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3723" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3723" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3723">
+                Abstract <i id="caret-3723" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3723">
+    <div class="abstract-display">
+        <p>How do you make decisions when there are way more possibilities than you can analyze? How do you decide under such information constraints?
+<br>
+<br>Planning and decision-making with information constraints is at the heart of adaptive control, reinforcement learning, robotic path planning, experimental design, active learning, computational neuroscience and games. In most real-world problems, perfect planning is either impossible (computational intractability, lack of information, diminished control) or sometimes even undesirable (distrust, risk sensitivity, level of cooperation of the others). Recent developments have shown that a single method, based on the free energy functional borrowed from thermodynamics, provides a principled way of designing systems with information constraints that parallels Bayesian inference. This single method -known in the literature under various labels such as KL-control, path integral control, linearly-solvable stochastic control, information-theoretic bounded rationality- is proving itself very general and powerful as a foundation for a novel class of probabilistic planning problems.
+<br>
+<br>The goal of this workshop is twofold:
+<br>
+<br>1) Give a comprehensive introduction to planning with information constraints targeted to a wide audience with machine learning background. Invited speakers will give an overview of the theoretical results and talk about their experience in applications to control, reinforcement learning, computational neuroscience and robotics. …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3720">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3720">Modern Nonparametric Methods in Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Arthur Gretton &middot; Mladen Kolar &middot; Samory Kpotufe &middot; John Lafferty &middot; Han Liu &middot; Bernhard Schölkopf &middot; Alexander Smola &middot; Rob Nowak &middot; Mikhail Belkin &middot; Lorenzo Rosasco &middot; peter bickel &middot; Yue Zhao</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3720"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Zephyr ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3720" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3720" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3720">
+                Abstract <i id="caret-3720" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3720">
+    <div class="abstract-display">
+        <p>Modern data acquisition routinely produces massive and complex datasets. Examples are data from high throughput genomic experiments, climate data from worldwide data centers, robotic control data collected overtime in adversarial settings, user-behavior data from social networks, user preferences on online markets, and so forth. Modern pattern recognition problems arising in such disciplines are characterized by large data sizes, large number of observed variables, and increased pattern complexity. Therefore, nonparametric methods which can handle generally complex patterns are ever more relevant for modern data analysis. However, the larger data sizes and number of variables constitute new challenges for nonparametric methods in general. The aim of this workshop is to bring together both theoretical and applied researchers to discuss these modern challenges in detail, share insight on existing solutions, and lay out some of the important future directions. 
+<br>
+<br>Through a number of invited and contributed talks and a focused panel discussion, we plan to emphasize the importance of nonparametric methods and present challenges for modern nonparametric methods. In particular, we focus on the following aspect of nonparametric methods:
+<br>
+<br>A. General motivations for nonparametric methods:
+<br>
+<br>*  the abundance of modern applications where little is known about data generating mechanisms (e.g., robotics, biology, social …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3716">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3716">Perturbations, Optimization, and Statistics</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Tamir Hazan &middot; George Papandreou &middot; Sasha Rakhlin &middot; Danny Tarlow</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3716"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3716" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3716" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3716">
+                Abstract <i id="caret-3716" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3716">
+    <div class="abstract-display">
+        <p>In nearly all machine learning tasks, decisions must be made given current knowledge (e.g., choose which label to predict). Perhaps surprisingly, always making the best decision is not always the best strategy, particularly while learning. Recently, there is an emerging body of work on learning under different rules that apply perturbations to the decision procedure. These works provide simple and efficient learning rules with improved theoretical guarantees. This workshop will bring together the growing community of researchers interested in different aspects of this area, and it will broaden our understanding of why and how perturbation methods can be useful.
+<br>
+<br>Last year, at the highly successful NIPS workshop on Perturbations, Optimization, and Statistics, we looked at how injecting perturbations (whether it be random or adversarial “noise”) into learning and inference procedures can be beneficial. The focus was on two angles: first, on how stochastic perturbations can be used to construct new types of probability models for structured data; and second, how deterministic perturbations affect the regularization and the generalization properties of learning algorithms. 
+<br>
+<br>The goal of this workshop is to expand the scope of last year and also explore different ways to apply perturbations within optimization and statistics to enhance and …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3711">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3711">Advances in Machine Learning for Sensorimotor Control</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Thomas Walsh &middot; Alborz Geramifard &middot; Marc Deisenroth &middot; Jonathan How &middot; Jan Peters</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3711"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 1 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3711" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3711" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3711">
+                Abstract <i id="caret-3711" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3711">
+    <div class="abstract-display">
+        <p>Closed-loop control of systems based on sensor readings in uncertain domains is a hallmark of research in the Control, Artificial Intelligence, and Neuroscience communities. Various sensorimotor frameworks have been effective at controlling physical and biological systems, from flying airplanes to moving artificial limbs, but many techniques rely on accurate models or other concrete domain knowledge to derive useful policies. In systems where such specifications are not available, the task of generating usable models or even directly deriving controllers from data often falls in the purview of machine learning algorithms. 
+<br> 
+<br>Advances in machine learning, including non-parametric Bayesian modeling/inference  and reinforcement learning have increased the range, accuracy, and speed of deriving models and policies from data. However, incorporating modern machine learning techniques into real-world sensorimotor control systems can still be challenging due to the learner's underlying assumptions, the need to model uncertainty, and the scale of such problems. More specifically, many advanced machine learning algorithms rely either on strong distributional assumptions or random access to all possible data points, neither of which may be guaranteed when used with a specific control algorithm on a physical or biological system.  In addition, planners need to consider, and learners need to indicate, uncertainty in the …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3713">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3713">What Difference Does Personalization Make?</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Dilan Gorur &middot; Romer Rosales &middot; Olivier Chapelle &middot; Dorota Glowacka</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3713"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3713" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3713" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3713">
+                Abstract <i id="caret-3713" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3713">
+    <div class="abstract-display">
+        <p>Location: Harvey's Emerald Bay 4
+<br>
+<br>---------------------------------------------------
+<br>Morning Session
+<br>---------------------------------------------------
+<br>07:30 - 07:40 Welcome and introduction
+<br>
+<br>07:40 - 08:20 Kilian Weinberger - Feature Hashing for Large Scale Classifier Personalization
+<br>
+<br>08:20 - 08:45 Laurent Charlin - Leveraging user libraries to bootstrap collaborative filtering
+<br>
+<br>08:45 - 09:00 Poster spotlight presentations
+<br>
+<br>09:00 - 09:30 Coffee break and poster session
+<br>
+<br>09:30 - 10:10 Susan Dumais - Personalized Search: Potential and Pitfalls
+<br>
+<br>10:10 - 10:30 Discussion, followed by poster session
+<br>
+<br>---------------------------------------------------
+<br>10:30 – 15:30 Lunch + Skiing
+<br>---------------------------------------------------
+<br>
+<br>---------------------------------------------------
+<br>Afternoon Session
+<br>---------------------------------------------------
+<br>15:30 - 16:10 Deepak Agarwal - Personalization and Computational Advertising at LinkedIn
+<br>
+<br>16:10 - 16:35 Jason Weston - Nonlinear Latent Factorization by Embedding Multiple User Interests
+<br>
+<br>16:35 - 17:05 Impromptu talks (new discussion topics and ideas encouraged)
+<br>
+<br>17:05 - 17:45 Coffee break + Posters
+<br>
+<br>17:45 - 18:25 Nando de Freitas - Recommendation and personalization: A startup perspective
+<br>
+<br>18:25 - 19:00 Panel Discussion and wrap up
+<br>
+<br>---------------------------------------------------
+<br>---------------------------------------------------
+<br>
+<br>
+<br>Personalization has become an important research topic in machine learning fueled in part by its major significance in e-comerce and other businesses that try to tailor to user-specific preferences. Online products, news, search, media, and advertisement are some of the areas that have depended on some form …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3714">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3714">Output Representation Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Yuhong Guo &middot; Dale Schuurmans &middot; Richard Zemel &middot; Samy Bengio &middot; Yoshua Bengio &middot; Li Deng &middot; Dan Roth &middot; Kilian Q Weinberger &middot; Jason Weston &middot; Kihyuk Sohn &middot; Florent Perronnin &middot; Gabriel Synnaeve &middot; Pablo R Strasser &middot; julien audiffren &middot; Carlo Ciliberto &middot; Dan Goldwasser</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3714"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Sand Harbor III ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3714" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3714" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3714">
+                Abstract <i id="caret-3714" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3714">
+    <div class="abstract-display">
+        <p>Modern data analysis is increasingly facing prediction problems that have complex and high dimensional output spaces.  For example, document tagging problems regularly consider large (and sometimes hierarchical) sets of output tags; image tagging problems regularly consider tens of thousands of possible output labels; natural language processing tasks have always considered complex output spaces.  In such complex and high dimensional output spaces the candidate labels are often too specialized---leading to sparse data for individual labels---or too generalized---leading to complex prediction maps being required.  In such cases, it is essential to identify an alternative output representation that can provide latent output categories that abstract overly specialized labels, specialize overly abstract labels, or reveal the latent dependence between labels.
+<br>
+<br>There is a growing body of work on learning output representations, distinct from current work on learning input representations.  For example, in machine learning, work on multi-label learning, and particularly output dimensionality reduction in high dimensional label spaces, has begun to address the specialized label problem, while work on output kernel learning has begun to address the abstracted label problem.  In computer vision, work on image categorization and tagging has begun to investigate simple forms of latent output representation learning to cope with abstract …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3704">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3704">Discrete Optimization in Machine Learning: Connecting Theory and Practice</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Stefanie Jegelka &middot; Andreas Krause &middot; Pradeep Ravikumar &middot; Kazuo Murota &middot; Jeffrey A Bilmes &middot; Yisong Yue &middot; Michael Jordan</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3704"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Sand Harbor I ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3704" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3704" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3704">
+                Abstract <i id="caret-3704" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3704">
+    <div class="abstract-display">
+        <p>Solving optimization problems with ultimately discrete solutions is becoming increasingly important in machine learning. At the core of statistical machine learning is to make inferences from data, and when the variables underlying the data are discrete, both the tasks of inferring the model from data as well as performing predictions using the estimated model are inherently discrete optimization problems. Many of these optimization problems are notoriously hard. As a result, abundant and steadily increasing amounts of data -- despite being statistically beneficial -- quickly render standard off-the-shelf optimization procedures either intractable, or at the very least impractical.
+<br>
+<br>However, while many problems are hard in the worst case, the problems of practical interest are often much more well-behaved, or are well modeled by assuming properties that make them so. Indeed, many discrete problems in machine learning can possess beneficial structure; such structure has been an important ingredient in many successful (approximate) solution strategies. Examples include the marginal polytope, which is determined by the graph structure of the model, or sparsity that makes it possible to handle high dimensions. Symmetry and exchangeability are further exploitable characteristics. In addition, functional properties such as submodularity, a discrete analog of convexity, are proving to be …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3701">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3701">Deep Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Yoshua Bengio &middot; Hugo Larochelle &middot; Russ Salakhutdinov &middot; Tomas Mikolov &middot; Matthew D Zeiler &middot; David Mcallester &middot; Nando de Freitas &middot; Josh Tenenbaum &middot; Jian Zhou &middot; Volodymyr Mnih</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3701"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Sand Harbor II ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3701" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3701" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3701">
+                Abstract <i id="caret-3701" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3701">
+    <div class="abstract-display">
+        <p>Deep Learning algorithms attempt to discover good representations, at multiple levels of abstraction. There has been rapid progress in this area in recent years, both in terms of algorithms and in terms of applications, but many challenges remain. The workshop aims at bringing together researchers in that field and discussing these challenges, brainstorming about new solutions.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3702">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3702">Frontiers of Network Analysis: Methods, Models, and Applications</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Edo M Airoldi &middot; David S Choi &middot; Aaron Clauset &middot; Khalid El-Arini &middot; Jure Leskovec</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3702"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3702" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3702" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3702">
+                Abstract <i id="caret-3702" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3702">
+    <div class="abstract-display">
+        <p>Modern technology, including the World Wide Web, telecommunication devices and services, and large-scale data storage, has completely transformed the scale and concept of data in the sciences. Modern data sets are often enormous in size, detail, and heterogeneity, and are often best represented as highly annotated sequences of graphs. Although much progress has been made on developing rigorous tools for analyzing and modeling some types of large, complex, real-world networks, much work still remains and a principled, coherent framework remains elusive, in part because the analysis of networks is a growing and highly cross-disciplinary field.
+<br>
+<br>This workshop aims to bring together a diverse and cross-disciplinary set of researchers in order to both describe recent advances and to discuss future directions for developing new network methods in statistics and machine learning. By network methods, we broadly include those models and algorithms whose goal is to learn the patterns of interaction, flow of information, or propagation of effects in social, biological, and economic systems. We will also welcome empirical studies in applied domains such as the social sciences, biology, medicine, neuroscience, physics, finance, social media, and economics.
+<br>
+<br>While this research field is already broad and diverse, there are emerging signs of convergence, …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3699">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3699">High-dimensional Statistical Inference in the Brain</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Alyson Fletcher &middot; Dmitri B Chklovskii &middot; Fritz Sommer &middot; Ian H Stevenson</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3699"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 6 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3699" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3699" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3699">
+                Abstract <i id="caret-3699" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3699">
+    <div class="abstract-display">
+        <p>High-dimensional Statistical Inference in the Brain
+<br>
+<br>Overview:
+<br>Understanding high-dimensional phenomena is at the heart of many fundamental questions in neuroscience. How does the brain process sensory data? How can we model the encoding of the richness of the inputs, and how do these representations lead to perceptual capabilities and higher level cognitive function? Similarly, the brain itself is a vastly complex nonlinear, highly-interconnected network and neuroscience requires tractable, generalizable models for these inherently high-dimensional neural systems.
+<br>
+<br>Recent years have seen tremendous progress in high-dimensional statistics and methods for ``big data" that may shed light on these fundamental questions. This workshop seeks to leverage these advances and bring together researchers in mathematics, machine learning, computer science, statistics and neuroscience to explore the roles of dimensionality reduction and machine learning in neuroscience.
+<br>
+<br>Call for Papers
+<br>We invite high quality submissions of extended abstracts on topics including, but not limited to, the following fundamental questions:
+<br>
+<br>-- How is high-dimensional sensory data encoded in neural systems? What insights can be gained from statistical methods in dimensionality reduction including sparse and overcomplete representations?  How do we understand the apparent dimension expansion from thalamic to cortical representations from a machine learning and statistical perspective?
+<br>
+<br>-- What …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3706">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3706">Large Scale Matrix Analysis and Inference</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Reza Zadeh &middot; Gunnar Carlsson &middot; Michael Mahoney &middot; Manfred K. Warmuth &middot; Wouter M Koolen &middot; Nati Srebro &middot; Satyen Kale &middot; Malik Magdon-Ismail &middot; Ashish Goel &middot; Matei A Zaharia &middot; David Woodruff &middot; Ioannis Koutis &middot; Benjamin Recht</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3706"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Tallac ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3706" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3706" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3706">
+                Abstract <i id="caret-3706" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3706">
+    <div class="abstract-display">
+        <p>Much of Machine Learning is based on Linear Algebra.
+<br>Often, the prediction is a function of a dot product between
+<br>the parameter vector and the feature vector. This essentially
+<br>assumes some kind of independence between the features.
+<br>In contrast matrix parameters can be used to learn interrelations
+<br>between features: The (i,j)th entry of the parameter matrix
+<br>represents how feature i is related to feature j. 
+<br>
+<br>This richer modeling has become very popular. In some applications,
+<br>like PCA and collaborative filtering, the explicit goal is inference
+<br>of a matrix parameter. Yet in others, like direction learning and
+<br>topic modeling, the matrix parameter instead pops up in the algorithms
+<br>as the natural tool to represent uncertainty.
+<br>
+<br>The emergence of large matrices in many applications has
+<br>brought with it a slew of new algorithms and tools. 
+<br>Over the past few years, matrix analysis and numerical linear
+<br>algebra on large matrices has become a thriving field.
+<br>Also manipulating such large matrices makes it necessary to
+<br>to think about computer systems issues.
+<br>
+<br>This workshop aims to bring closer researchers in large
+<br>scale machine learning and large scale numerical linear
+<br>algebra to foster cross-talk between the two fields. The
+<br>goal is to encourage machine learning researchers …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3698">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3698">Big Learning : Advances in Algorithms and Data Management</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Xinghao Pan &middot; Haijie Gu &middot; Joseph Gonzalez &middot; Sameer Singh &middot; Yucheng Low &middot; Joseph Hellerstein &middot; Derek G Murray &middot; Raghu Ramakrishnan &middot; Michael Jordan &middot; Christopher Ré</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3698"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3698" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3698" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3698">
+                Abstract <i id="caret-3698" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3698">
+    <div class="abstract-display">
+        <p>Explosive growth in data and availability of cheap computing resources has sparked increasing interest in Big Learning within the Machine Learning community. Researchers are now taking on the challenge of parallelizing richly structured models with inherently serial dependencies and do not admit straightforward solutions. 
+<br>
+<br>Database researchers, however, have a history of developing high performance systems that allow concurrent access while providing theoretical guarantees on correctness. In recent years, database systems have been developed specifically to tackle Big Learning tasks.
+<br>
+<br>This workshop aims to bring together the two communities and facilitate the cross-pollination of ideas. Rather than passively using DB systems, ML researchers can apply major DB concepts to their work; DB researchers stand to gain an understanding of the ML challenges and better guide the development of their Big Learning systems.
+<br>
+<br>The goals of the workshop are
+<br>- Identify challenges faced by ML practitioners in Big Learning setting
+<br>- Showcase recent and ongoing progress towards parallel ML algorithms
+<br>- Highlight recent and significant DB research in addressing Big Learning problems
+<br>- Introduce DB implementations of Big Learning systems, and the principle considerations and concepts underlying their designs
+<br>
+<br>Focal points for discussions and solicited submissions include but are not limited to: …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3705">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3705">Crowdsourcing: Theory, Algorithms and Applications</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Jennifer Wortman Vaughan &middot; Greg Stoddard &middot; Chien-Ju Ho &middot; Adish Singla &middot; Michael Bernstein &middot; Devavrat Shah &middot; Arpita Ghosh &middot; Evgeniy Gabrilovich &middot; Denny Zhou &middot; Nikhil Devanur &middot; Xi Chen &middot; Alexander Ihler &middot; Qiang Liu &middot; Genevieve Patterson &middot; Ashwinkumar Badanidiyuru Varadaraja &middot; Hossein Azari Soufiani &middot; Jacob Whitehill</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3705"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe A+B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3705" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3705" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3705">
+                Abstract <i id="caret-3705" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3705">
+    <div class="abstract-display">
+        <p>All machine learning systems are an integration of data that store human or physical knowledge, and algorithms that discover knowledge patterns and make predictions to new instances. Even though most research attention has been focused on developing more efficient learning algorithms,  it is the quality and amount of training data that predominately govern the performance of real-world systems. This is only amplified by the recent popularity of large scale and complicated learning systems such as deep networks, which require millions to billions of training data to perform well. Unfortunately, the traditional methods of collecting data from specialized workers are usually expensive and slow. In recent years, however, the situation has dramatically changed with the emergence of crowdsourcing, where huge amounts of labeled data are collected from large groups of (usually online) workers for low or no cost. Many machine learning tasks, such as computer vision and natural language processing are increasingly benefitting from data crowdsourced platforms such as Amazon Mechanical Turk and CrowdFlower. On the other hand, tools in machine learning, game theory and mechanism design can help to address many challenging problems in crowdsourcing systems, such as making them more reliable, efficient and less expensive. 
+<br> 
+<br>In this workshop, we …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3731">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3731">OPT2013: Optimization for Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Suvrit Sra &middot; Alekh Agarwal</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3731"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe C ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3731" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3731" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3731">
+                Abstract <i id="caret-3731" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3731">
+    <div class="abstract-display">
+        <p>Dear NIPS Workshop Chairs,
+<br>
+<br>We propose to organize the workshop
+<br>
+<br>   OPT2013: Optimization for Machine Learning.
+<br>
+<br>As the sixth in its series, OPT 2013 stands on significant precedent established by OPT 2008--OPT 2012 which were all very well-received NIPS workshops.
+<br>
+<br>The previous OPT workshops enjoyed packed (to overpacked) attendance, and this enthusiastic reception underscores the strong interest, relevance, and importance enjoyed by optimization in the ML community.
+<br>
+<br>This interest has grown remarkably strongly every year, no wonder, since optimization lies at the heart of most ML algorithms. Although classical textbook algorithms might sometimes suffice, the majority of ML problems require tailored methods based on a deeper understanding of learning task. Indeed, ML applications and researchers are driving some of the most cutting-edge developments in optimization today. This intimate relation of optimization with ML is the key motivation for our workshop, which aims to foster discussion, discovery, and dissemination of the state-of-the-art in optimization as relevant to machine learning.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3732">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3732">Knowledge Extraction from Text (KET)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Marko Grobelnik &middot; Blaz Fortuna &middot; Estevam Hruschka &middot; Michael J Witbrock</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3732"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 2 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3732" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3732" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3732">
+                Abstract <i id="caret-3732" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3732">
+    <div class="abstract-display">
+        <p>Text understanding is an old yet-unsolved AI problem consisting of a number of nontrivial steps. The critical step in solving the problem is knowledge acquisition from text, i.e. a transition from a non-formalized text into a formalized actionable language (i.e. capable of reasoning). Other steps in the text understanding pipeline include linguistic processing, reasoning, text generation, search, question answering etc. which are more or less solved to the degree which allows composition of a text understanding service. On the other hand, we know that knowledge acquisition, as the key bottleneck, can be done by humans, while automating of the process is still out of reach in its full breadth.
+<br>
+<br>After failed attempts in the past (due to a lack of theoretical and technological prerequisites), in the recent years the interest for the text understanding and knowledge acquisition form text is growing. There is a number of AI research groups dealing with the various aspects in the areas of computational linguistics, machine learning, probabilistic &amp; logical reasoning, and semantic web. The commonality among all the newer approaches is the use of machine learning to deal with representational change. To list some of the groups working in the area:
+<br>
+<br>•   Carnegie Mellon …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3703">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3703">Acquiring and Analyzing the Activity of Large Neural Ensembles</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Srinivas C Turaga &middot; Lars Buesing &middot; Maneesh Sahani &middot; Jakob H Macke</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3703"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 4 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3703" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3703" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3703">
+                Abstract <i id="caret-3703" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3703">
+    <div class="abstract-display">
+        <p>For many years, measurements of neural activity have either been restricted to recordings from single neurons or a very small number of neurons, and anatomical reconstructions to very sparse and incomplete neural circuits. Major advances in optical imaging (e.g. 2-photon and light-sheet microscopic imaging of calcium signals) and new electrode array technologies are now beginning to provide measurements of neural activity at an unprecedented scale. High-profile initiatives such as  BRAIN (Brain Research through Advancing Innovative Neurotechnologies) will fuel the development of ever more powerful techniques for mapping the structure and activity of neural circuits. 
+<br>
+<br>Computational tools will be important to both the high-throughput acquisition of these large-scale datasets and in the analysis. Acquiring, analyzing and integrating these sources of data raises major challenges and opportunities for computational neuroscience and machine learning:
+<br>
+<br>i) What kind of data will be generated by large-scale functional measurements in the next decade? How will it be quantitatively or qualitatively different to the kind of data we have had previously? 
+<br>
+<br>ii) Algorithmic methods have played an important role in data acquisition, e.g. spike-sorting algorithms or spike-inference algorithms from calcium traces. In the future,  what role will computational tools play in the process of high-throughput data acquistion? …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3727">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3727">Topic Models: Computation, Application, and Evaluation</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">David Mimno &middot; Amr Ahmed &middot; Jordan Boyd-Graber &middot; Ankur Moitra &middot; Hanna Wallach &middot; Alexander Smola &middot; David Blei &middot; Anima Anandkumar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3727"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3727" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3727" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3727">
+                Abstract <i id="caret-3727" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3727">
+    <div class="abstract-display">
+        <p>Since the most recent NIPS topic model workshop in 2010, interest in statistical topic modeling has continued to grow in a wide range of research areas, from theoretical computer science to English literature. The goal of this workshop, which marks the 10th anniversary of the original LDA NIPS paper, is to bring together researchers from the NIPS community and beyond to share results, ideas, and perspectives.
+<br>
+<br>We will organize the workshop around the following three themes:
+<br>
+<br>Computation: The computationally intensive process of training topic models has been a useful testbed for novel inference methods in machine learning, such as stochastic variational inference and spectral inference. Theoretical computer scientists have used LDA as a test case to begin to establish provable bounds in unsupervised machine learning. This workshop will provide a forum for researchers developing new inference methods and theoretical analyses to present work in progress, as well as for practitioners to learn about state of the art research in efficient and provable computing.
+<br>
+<br>Applications: Topic models are now commonly used in a broad array of applications to solve real-world problems, from questions in digital humanities and computational social science to e-commerce and government science policy. This workshop will share new …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3709">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3709">Machine Learning for Sustainability</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Edwin Bonilla &middot; Thomas Dietterich &middot; Theodoros Damoulas &middot; Andreas Krause &middot; Daniel Sheldon &middot; Iadine Chades &middot; J. Zico Kolter &middot; Bistra Dilkina &middot; Carla Gomes &middot; Hugo P Simao</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3709"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Glenbrook+Emerald ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3709" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3709" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3709">
+                Abstract <i id="caret-3709" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3709">
+    <div class="abstract-display">
+        Sustainability encompasses the balance of environmental, economic and societal demands. There is strong evidence suggesting that more actions need to be taken in order to achieve this balance. For example, Edward O. Wilson said in his 2002 Book The Future of Life that  "at the current rates of human destruction of natural ecosystems, 50% of all species of life on earth will be extinct in 100 years". More recently, a 2012 review in Nature has stated that, similarly to  localized ecological systems, "the global ecosystem as a whole can react in the same way and is approaching a planetary-scale critical transition as a result of human influence". <br><br>While the significance of the problem is apparent, more involvement from the machine learning community in sustainability problems is required. Not surprisingly, sustainability problems bring along interesting challenges and opportunities for machine learning in terms of complexity, scalability and impact in areas such as prediction, modeling and control. This workshop aims at bringing together scientists in machine learning, operations research, applied mathematics and statistics with a strong interest in sustainability to discuss how to use existing techniques and how to develop novel methods in order to address such challenges.<br><br>There are many application …
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3724">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3724">Data Driven Education</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Jonathan Huang &middot; Sumit Basu &middot; Kalyan Veeramachaneni</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3724"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe D ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3724" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3724" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3724">
+                Abstract <i id="caret-3724" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3724">
+    <div class="abstract-display">
+        <p>Given the incredible technological leaps that have changed so many aspects of our lives in the last hundred years, it’s surprising that our approach to education today is much the same as it was a century ago.  While successful educational technologies have been developed and deployed in some areas, we have yet to see a widespread disruption in teaching methods at the primary, secondary, or post-secondary levels. However, as more and more people gain access to broadband internet, and new technology-based learning opportunities are introduced, we may be witnessing the beginnings of a revolution in educational methods.  With college tuitions rising, school funding dropping, test scores falling, and a steadily increasing world population desiring high-quality education at low cost, the impact of educational technology seems more important than ever.
+<br>
+<br>With these technology-based learning opportunities, the rate at which educational data is being collected has also exploded in recent years as an increasing number of students have turned to online resources, both at traditional universities as well as massively open-access online courses (MOOCs) for formal or informal learning. This change raises exciting challenges and possibilities particularly for the machine learning and data sciences communities. 
+<br>
+<br>These trends and changes are the inspiration …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3725">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3725">Neural Information Processing Scaled for Bioacoustics : NIPS4B</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Hervé GLOTIN &middot; Yann LeCun &middot; Thierry Artières &middot; Stephane Mallat &middot; Ofer Tchernichovski &middot; Xanadu Halkias</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3725"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe C ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3725" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3725" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3725">
+                Abstract <i id="caret-3725" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3725">
+    <div class="abstract-display">
+        <p>Bioacoustic data science aims at modeling animal sounds for neuroethology and biodiversity assessment. It has received increasing attention due to its diverse potential benefits. It is steadily required by regulatory agencies for timely monitoring of environmental impacts from human activities. Given the complexity of the collected data along with the numerous species and environmental contexts, bioacoustics requires robust information processing.
+<br>
+<br>The features and biological significance of animal sounds, are constrained by the physics of sound production and propagation, and evolved through the processes of natural selection. This yields to new paradigms such as curriculum song learning, predator-prey acoustic loop, etc. NIPS4B solidifies an innovative computational framework by focusing on the principles of information processing, if possible in an inheretly hierarchical manner or with physiological parallels: Deep Belief Networks (DBN), Sparse Auto Encoders (SAE), Convolutional Networks (ConNet), Scattering transforms etc. It  encourages interdisciplinary, scientific exchanges and foster collaborations, bringing together experts from machine learning and computational auditory scene analysis, within animal sound and communication systems. 
+<br>
+<br>One challenge concerns bird classification (on Kaggle): identify 87 species of Provence (recordings Biotope SA). It is the biggest bird song challenge according to our knowledge, more complex than ICML4B (sabiod.org/ICML4B2013<em>proceedings.pdf). A second challenge concerns …</em></p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3708">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3708">Machine Learning in Computational Biology</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Jean-Philippe Vert &middot; Anna Goldenberg &middot; Sara Mostafavi &middot; Oliver Stegle</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3708"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Zephyr ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3708" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3708" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3708">
+                Abstract <i id="caret-3708" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3708">
+    <div class="abstract-display">
+        <p>The field of computational biology has seen dramatic growth over the past few years, both in terms of new available data, new scientific questions, and new challenges for learning and inference. In particular, biological data are often relationally structured and highly diverse, well-suited to approaches that combine multiple weak evidence from heterogeneous sources. These data may include sequenced genomes of a variety of organisms, gene expression data from multiple technologies, protein expression data, protein sequence and 3D structural data, protein interactions, gene ontology and pathway databases, genetic variation data (such as SNPs), and an enormous amount of textual data in the biological and medical literature. Furthermore, next generation sequencing technologies and high-throughput imaging techniques are yielding terabyte scale data sets that require novel algorithmic solutions. New types of scientific and clinical problems require the development of novel supervised and unsupervised learning methods that can use these growing resources. 
+<br>
+<br>   The goal of this workshop is to present emerging problems and innovative machine learning techniques in computational biology. We will invite several speakers from the biology/bioinformatics community who will present current research problems in computational biology, and we will invite contributed talks on novel learning approaches in computational biology. We encourage contributions …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3718">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3718">Learning Faster From Easy Data</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Peter Grünwald &middot; Wouter M Koolen &middot; Sasha Rakhlin &middot; Nati Srebro &middot; Alekh Agarwal &middot; Karthik Sridharan &middot; Tim van Erven &middot; Sebastien Bubeck</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3718"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3718" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3718" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3718">
+                Abstract <i id="caret-3718" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3718">
+    <div class="abstract-display">
+        <p>Most existing theory in both online and statistical learning is centered around a worst-case analysis. For instance, in online learning data are assumed to be generated by an adversary and the goal is to minimize regret. In statistical learning the majority of theoretical results consider risk bounds for the worst-case i.i.d. data generating distribution. In both cases the worst case convergence rates (for regret/n and risk) for 0/1-type and absolute loss functions are O(1/sqrt{n}). Yet in practice simple heuristics like Follow-the-Leader (FTL) often empirically exhibit faster rates.
+<br>
+<br>It has long been known that under Vovk's (1990) mixability condition on the loss function, faster rates are possible. Even without mixability or the closely related exp-concavity (Cesa-Bianchi and Lugosi 2006), in the statistical setting there exist conditions on the distribution under which faster learning rates can be obtained; the main example being Tsybakov's (2004) margin condition, which was recently shown to be intimately connected to mixability (Van Erven et al., 2012).
+<br>
+<br>In practice, even if the loss is not mixable and no distributional assumptions apply, the data are nevertheless often easy enough to allow accelerated learning. Initial promising steps in this direction have been made recently, including parameterless algorithms that combine worst-case …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3721">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3721">New Directions in Transfer and Multi-Task: Learning Across Domains and Tasks</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Urun Dogan &middot; Marius Kloft &middot; Tatiana Tommasi &middot; Francesco Orabona &middot; Massimiliano Pontil &middot; Sinno Jialin Pan &middot; Shai Ben-David &middot; Arthur Gretton &middot; Fei Sha &middot; Marco Signoretto &middot; Rajhans Samdani &middot; Yun-Qian Miao &middot; Mohammad Gheshlaghi azar &middot; Ruth Urner &middot; Christoph Lampert &middot; Jonathan How</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3721"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Fallen+Marla ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3721" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3721" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3721">
+                Abstract <i id="caret-3721" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3721">
+    <div class="abstract-display">
+        <p>The main objective of the workshop is to document and discuss the recent rise of new research questions on the general problem of learning across domains and tasks. This includes the main topics of transfer [1,2,3] and multi-task learning [4], together with several related variants as domain adaptation [5,6] and dataset bias [7].
+<br>
+<br>In the last years there has been an increasing boost of activity in these areas, many of them driven by practical applications, such as object categorization. Different solutions were studied for the considered topics, mainly separately and without a joint theoretical framework. On the other hand, most of the existing theoretical formulations model regimes that are rarely used in practice (e.g. adaptive methods that store all the source samples).
+<br>
+<br>The workshop will focus on closing this gap by providing an opportunity for theoreticians and practitioners to get together in one place, to share and debate over current theories and empirical results. The goal is to promote a fruitful exchange of ideas and methods between the different communities, leading to a global advancement of the field.
+<br>
+<br>Transfer Learning - Transfer Learning (TL) refers to the problem of retaining and applying the knowledge available for one or more source …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3728">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3728">Greedy Algorithms, Frank-Wolfe and Friends - A modern perspective</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Martin Jaggi &middot; Zaid Harchaoui &middot; Federico Pierucci</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3728"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 6 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3728" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3728" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3728">
+                Abstract <i id="caret-3728" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3728">
+    <div class="abstract-display">
+        <p>Greedy algorithms and projection-free first-order optimization algorithms are at the core of many of the state of the art sparse methods in machine learning, signal processing, harmonic analysis, statistics and other seemingly unrelated areas, with different goals at first sight. Examples include matching pursuit, boosting, greedy methods for sub-modular optimization, with applications ranging from large-scale structured prediction to recommender systems. In the field of optimization, the recent renewed interest in Frank-Wolfe/conditional gradient algorithms opens up an interesting perspective towards a unified understanding of these methods, with a big potential to translate the rich existing knowledge about the respective greedy methods between the different fields.
+<br>
+<br>The goal of this workshop is to take a step towards building a modern and consistent perspective on these related algorithms. The workshop will gather renowned experts working on those algorithms in machine learning, optimization, signal processing, statistics and harmonic analysis, in order to engender a fruitful exchange of ideas and discussions and to push further the boundaries of scalable and efficient optimization for learning problems.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3722">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3722">Workshop on Spectral Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Byron Boots &middot; Daniel Hsu &middot; Borja Balle</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3722"></div>
+
+
+    <p style="font-size:.9em;">[ Harrah&#x27;s Tahoe B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3722" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3722" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3722">
+                Abstract <i id="caret-3722" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3722">
+    <div class="abstract-display">
+        <p>Many problems in machine learning involve collecting high-dimensional multivariate observations or sequences of observations, and then fitting a compact model which explains these observations. Recently, linear algebra techniques have given a fundamentally different perspective on how to fit and perform inference in these models. Exploiting the underlying spectral properties of the model parameters has led to fast, provably consistent methods for parameter learning that stand in contrast to previous approaches, such as Expectation Maximization, which suffer from bad local optima and slow convergence. 
+<br>
+<br>In the past several years, these Spectral Learning algorithms have become increasingly popular. They have been applied to learn the structure and parameters of many models including predictive state representations, finite state transducers, hidden Markov models, latent trees, latent junction trees, probabilistic context free grammars, and mixture/admixture models. Spectral learning algorithms have also been applied to a wide range of application domains including system identification, video modeling, speech modeling, robotics, and natural language processing.
+<br>
+<br>The focus of this workshop will be on spectral learning algorithms, broadly construed as any method that fits a model by way of a spectral decomposition of moments of (features of) observations. We would like the workshop to be as inclusive as possible …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3717">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3717">Resource-Efficient Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Yevgeny Seldin &middot; Yasin Abbasi Yadkori &middot; Yacov Crammer &middot; Ralf Herbrich &middot; Peter Bartlett</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3717"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 3 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3717" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3717" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3717">
+                Abstract <i id="caret-3717" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3717">
+    <div class="abstract-display">
+        <p>Resource efficiency is key for making ideas practical. It is crucial in many tasks, ranging from large-scale learning ("big data'') to small-scale mobile devices. Understanding resource efficiency is also important for understanding of biological systems, from individual cells to complex learning systems, such as the human brain. The goal of this workshop is to improve our fundamental theoretical understanding and link between various applications of learning under constraints on the resources, such as computation, observations, communication, and memory. While the founding fathers of machine learning were mainly concerned with characterizing the sample complexity of learning (the observations resource) [VC74] it now gets realized that fundamental understanding of other resource requirements, such as computation, communication, and memory is equally important for further progress [BB11].
+<br>
+<br>The problem of resource-efficient learning is multidimensional and we already see some parts of this puzzle being assembled. One question is the interplay between the requirements on different resources. Can we use more of one resource to save on a different resource? For example, the dependence between computation and observations requirements was studied in [SSS08,SSST12,SSB12]. Another question is online learning under various budget constraints [AKKS12,BKS13,CKS04,DSSS05,CBG06]. One example that Badanidiyuru et al. provide is dynamic pricing with limited …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3715">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3715">Machine Learning for Clinical Data Analysis and Healthcare</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Jenna Wiens &middot; Finale P Doshi-Velez &middot; Can Ye &middot; Madalina Fiterau &middot; Shipeng Yu &middot; Le Lu &middot; Balaji R Krishnapuram</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3715"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Tallac ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3715" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3715" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3715">
+                Abstract <i id="caret-3715" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3715">
+    <div class="abstract-display">
+        <p>Advances in medical information technology have resulted in enormous warehouses of data that are at once overwhelming and sparse. A single patient visit may result in tens to thousands of measurements and structured information, including clinical factors, diagnostic imaging, lab tests, genomic and proteomic tests. Hospitals may see thousands of patients each year. However, each patient may have relatively few visits to any particular medical provider. The resulting data are a heterogeneous amalgam of patient demographics, vital signs, diagnoses, records of treatment and medication receipt and annotations made by nurses or doctors, each with its own idiosyncrasies. <br />
+<br>
+<br>The objective of this workshop is to discuss how advanced machine learning techniques can derive clinical and scientific impact from these messy, incomplete, and partial data.  We will bring together machine learning researchers and experts in medical informatics who are involved in the development of algorithms or intelligent systems designed to improve quality of healthcare.  Relevant areas include health monitoring systems, clinical data labeling and clustering, clinical outcome prediction, efficient and scalable processing of medical records, feature selection or dimensionality reduction in clinical data, tools for personalized medicine, and time-series analysis with medical applications.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3710">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3710">Machine Learning Open Source Software: Towards Open Workflows</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Antti Honkela &middot; Cheng Soon Ong</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3710"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 5 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3710" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3710" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3710">
+                Abstract <i id="caret-3710" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3710">
+    <div class="abstract-display">
+        <p>Machine learning open source software (MLOSS) is one of the cornerstones of open science and reproducible research. Along with open access and open data, it enables free reuse and extension of current developments in machine learning. The mloss.org site exists to support a community creating a comprehensive open source machine learning environment, mainly by promoting new software implementations. This workshop aims to enhance the environment by fostering collaboration with the goal of creating tools that work with one another. Far from requiring integration into a single package, we believe that this kind of interoperability can also be achieved in a collaborative manner, which is especially suited to open source software development practices.
+<br>
+<br>The workshop is aimed at all machine learning researchers who wish to have their algorithms and implementations included as a part of the greater open source machine learning environment. Continuing the tradition of well received workshops on MLOSS at NIPS 2006, NIPS 2008 and ICML 2010, we will have a workshop that is a mix of invited speakers, contributed talks and demos as well as a discussion session. For 2013, we focus on workflows and pipelines. Many algorithms and tools have reached a level of maturity which allows …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-4251">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/4251">MLINI-13: Machine Learning and Interpretation in Neuroimaging (Day 2)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Georg Langs &middot; Brian Murphy &middot; Kai-min K Chang &middot; Paolo Avesani &middot; James Haxby &middot; Nikolaus Kriegeskorte &middot; Susan Whitfield-Gabrieli &middot; Irina Rish &middot; Guillermo Cecchi &middot; Raif Rustamov &middot; Marius Kloft &middot; Jonathan Young &middot; Sina Ghiassian &middot; Michael Coen</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-4251"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Sierra ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-4251" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-4251" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-4251">
+                Abstract <i id="caret-4251" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-4251">
+    <div class="abstract-display">
+        <p>Aim of the workshop</p>
+
+<p>We propose a two-day workshop on the topic of machine learning approaches in neuroscience, neuroimaging, with a specific extension to behavioral experiments and psychology. We believe that machine learning has a prominent role in shaping how questions in neuroscience are framed, and that the machine-learning mind set is now entering modern psychology and behavioral studies. It is also equally important  that  practical applications in these fields motivate a rapidly evolving line or research in the machine learning community. In this context, many controversies and open questions exist.</p>
+
+<p>The goal of the workshop is to pinpoint the most pressing issues and common challenges across the fields, and to sketch future directions and open questions in the light of novel methodology. The proposed workshop is aimed at offering a forum that joins machine learning, neuroscience, and psychology community, and should facilitate formulating and discussing the issues at their interface.</p>
+
+<p>Motivated by two previous workshops, MLINI ‘11 and MLINI’12, we will center this workshop around invited talks, and two panel discussions. Triggered by these discussions, this year we plan to adapt the workshop topics to a less traditional scope that investigates the role of machine learning in neuroimaging of …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3712">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3712">Constructive Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Thomas Gaertner &middot; Roman Garnett &middot; Andrea Passerini</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3712"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay 1 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3712" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3712" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3712">
+                Abstract <i id="caret-3712" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3712">
+    <div class="abstract-display">
+        <p>In many real-world applications, machine learning algorithms are employed as a tool in a “constructive process”. These processes are similar to the general knowledge-discovery process but have a more specific goal: the construction of one-or-more domain elements with particular properties. The most common use of machine learning algorithms in this context is to predict the properties of candidate domain elements.
+<br>
+<br>In this workshop we want to bring together domain experts employing machine learning tools in constructive processes and machine learners investigating novel approaches or theories concerning constructive processes as a whole. The concerned machine learning approaches are typically interactive (e.g., online- or active-learning algorithms) and have to deal with huge, relational in- and/or output spaces.
+<br>
+<br>Interesting applications include but are not limited to: de novo drug design, generation of art (e.g., music composition), construction of game levels, generation of novel food recipes, proposal of travel itineraries, etc.  Interesting approaches include but are not limited to: active approaches to structured output learning, transfer or multi-task learning of generative models, active search or online optimisation over relational domains, and learning with constraints.
+<br>
+<br>Many of the applications of constructive machine learning, including the ones mentioned above, are primarily considered in their respective application …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3719">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2013/workshop/3719">Bayesian Optimization in Theory and Practice</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Matthew Hoffman &middot; Jasper Snoek &middot; Nando de Freitas &middot; Michael A Osborne &middot; Ryan Adams &middot; Sebastien Bubeck &middot; Philipp Hennig &middot; Remi Munos &middot; Andreas Krause</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3719"></div>
+
+
+    <p style="font-size:.9em;">[ Harvey&#x27;s Emerald Bay A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3719" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3719" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3719">
+                Abstract <i id="caret-3719" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3719">
+    <div class="abstract-display">
+        <p>There have been many recent advances in the development of machine learning approaches for active decision making and optimization. These advances have occurred in seemingly disparate communities, each referring to the problem using different terminology: Bayesian optimization, experimental design, bandits, active sensing, automatic algorithm configuration, personalized recommender systems, etc. Recently, significant progress has been made in improving the methodologies used to solve high-dimensional problems and applying these techniques to challenging optimization tasks with limited and noisy feedback. This progress is particularly apparent in areas that seek to automate machine learning algorithms and website analytics. Applying these approaches to increasingly harder problems has also revealed new challenges and opened up many interesting research directions both in developing theory and in practical application.
+<br>
+<br>Following on last year's NIPS workshop, "Bayesian Optimization &amp; Decision Making", the goal of this workshop is to bring together researchers and practitioners from these diverse subject areas to facilitate cross-fertilization by discussing challenges, findings, and sharing data. This year we plan to focus on the intersection of "Theory and Practice". Specifically, we would like to carefully examine the types of problems where Bayesian optimization performs well and ask what theoretical guarantees can be made to explain this performance? …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                        </div>
+                    </div>
+                
+            </div>
+
+
+        
+        <script>
+            function listmode(){
+                $(".cards_img").hide();
+                $(".pp-card").addClass("pp-mode-list").removeClass("pp-mode-compact");
+            }
+            function compactmode(){
+                $(".cards_img").show();
+                $(".pp-card").removeClass("pp-mode-list").addClass("pp-mode-compact");
+            }
+        </script>
+
+
+    
+
+<script>
+
+
+    $(document).ready(function() {
+        $(".abstract-link").on('click', function(e){
+            var target = $(e.target).find("i")
+            target.toggleClass("fa-caret-right");
+            target.toggleClass("fa-caret-up");
+        })
+        touchup();
+        /* touchup events currently adds dates to cached virtualcards for events */
+    })
+
+</script>
+
+
+    
+        </div>
+    
+
+</main>
+<!--END BLOCK CONTENT-->
+
+
+<!--Footer for the edit button-->
+
+
+<script>
+
+    $(function () {
+        if ($(".editable").length == 0) {
+            $("#editFooter").hide();
+        }
+    })
+</script>
+
+<script src="/static/core/js/fastclick.min.js" type="text/javascript"></script>
+
+<!--We don't know if there are editable tags on the page until after the django template engine has rendered the page. So,
+test in javascript for "editable" tags and if present, load the ckeditor engine dynamically. -->
+
+<script>
+  if (document.getElementsByClassName('editable').length > 0) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "/static/core/ckeditor/4.18/ckeditor.js";    // use this for linked script
+    script.text = "alert('voila!');"               // use this for inline script
+    document.body.appendChild(script);
+  }
+
+</script>
+
+
+<script>
+  function fetchContent() {
+    $(".editable").each(function (index) {
+    var myself = this;
+    var docvID = this.getAttribute('documentversion');
+    var blurbtext = this.getAttribute("blurbtext");
+    $.ajax({
+       url: "/Admin/RetrieveDocumentVersion",
+       type:"POST",
+       data:{
+           docvID : docvID,
+           blurbtext : blurbtext,
+           csrfmiddlewaretoken: csrftoken,
+       },
+       success: function(data, textStatus, jqXHR) {
+           myself.setAttribute("contenteditable", "true");
+           myself.innerHTML = data;
+           CKEDITOR.inline(myself.id);
+       },
+    });
+  })
+}
+
+$("#nopageedit").hide();
+function start_edit(){
+
+  $(".editable").addClass("warning-ring");
+
+  //At the beginning of an edit, we need to replace the content of the
+  //editable div with it's databased content in order to preserve the
+  //template tags. We want the tag, not the rendered tag.
+
+  /* You must remove any countdown.js timers on the page before replacing the page with it's
+  document version otherwise, Javascript will throw an exception.  */
+
+
+  $("[class$='-countdown']").parent().remove();
+  fetchContent();
+  $(".editable").attr("onblur", "ckeditorsave(this)");
+  window.status.bold();
+  window.status = "Click outside the editable area to save. Changes are LIVE!! Refresh page to discard changes.";
+  $("#editpage").hide();
+  $("#noeditpage").show();
+}
+
+
+  function stop_edit() {
+    ckeditorsave();
+    $("#noeditpage").hide();
+    $("#editpage").show();
+    window.location.reload();
+}
+function ckeditorsave(event){
+  for (var name in CKEDITOR.instances){
+    if ( CKEDITOR.instances[name].checkDirty() ){
+      editor = CKEDITOR.instances[name];
+      saveEditable(editor);
+    }
+  }
+}
+
+function saveEditable(editor){
+  var content = editor.getData();
+  var contentId = editor.name;
+  var pageId = window.location.pathname;
+  var originalContent = "N/A";
+  var documentversion = editor.container.getAttribute("documentversion");
+  var blurbtext = editor.container.getAttribute("blurbtext");
+  if ( contentId.match(/-aloha$/gi) ) {
+    contentId = contentId.replace( /-aloha/gi, '' );
+  }  /*I'm not sure what this does but it seems like it would matter*/
+  var request = jQuery.ajax({
+    url: "/Admin/SaveDocument",
+    type: "POST",
+    async: false,
+    data: {
+      content : content,
+      originalContent: originalContent,
+      contentId : contentId,
+      pageId : pageId,
+      documentversion:documentversion,
+      blurbtext : blurbtext,
+      csrfmiddlewaretoken: csrftoken
+    },
+    success: function(data){
+        if (data['message']){
+            alert(data['message']);
+        }
+    },
+    error: function(xqXHR, textStatus){
+        window.status = textStatus;
+        debugger;
+    }
+
+  });
+
+};
+
+
+
+
+</script>
+
+<script type="text/javascript">
+       jQuery(document).ajaxSend(function(event, xhr, settings) {
+           function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                   var cookies = document.cookie.split(';');
+                   for (var i = 0; i < cookies.length; i++) {
+                       var cookie = jQuery.trim(cookies[i]);
+                       // Does this cookie string begin with the name we want?
+                       if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                       }
+                   }
+               }
+               return cookieValue;
+           }
+           function sameOrigin(url) {
+               // url could be relative or scheme relative or absolute
+               var host = document.location.host; // host + port
+               var protocol = document.location.protocol;
+               var sr_origin = '//' + host;
+               var origin = protocol + sr_origin;
+               // Allow absolute or scheme relative URLs to same origin
+               return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                   (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                   // or any other URL that isn't scheme relative or absolute i.e relative.
+                   !(/^(\/\/|http:|https:).*/.test(url));
+           }
+           function safeMethod(method) {
+               return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+           }
+
+           if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+               xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+           }
+       });
+</script>
+
+
+
+
+
+<div id="successful-page-load" class='hidden'>Successful Page Load</div>
+
+
+
+
+
+    
+        <link href="/static/conf_gdpr/css/conf_gdpr.css" rel="stylesheet">
+        <div id="cookie-bar" style="z-index: 8">
+            <table class="gdpr-statement">
+                <col>
+                <col style="width:120px">
+                <tr>
+                    <td style="padding:5px">
+                        NeurIPS uses cookies to remember that you are logged in. By using our websites, you agree
+                        to the placement of cookies. <a href="/public/PrivacyPolicy">
+                        Our Privacy Policy &raquo;&nbsp;</a>
+                    </td>
+                    <td>
+                        <button float-end class="btn btn-light btn-sm btn btn-outline-dark" onClick="accept_cookies();">Accept
+                            Cookies
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function accept_cookies() {
+
+                $.ajax({
+                    method: "POST",
+                    url: "/conf_gdpr/accept",
+                    data: {
+                        csrfmiddlewaretoken: csrftoken,
+                    },
+                }).done(function (data) {
+                    console.log(data);
+                    $("#cookie-bar").fadeOut();
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
+                });
+            }
+        </script>
+
+    
+
+
+
+
+
+
+<br>
+<footer id="bootstrap-footer" class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-1 border-top border-dark">
+    </div>
+    <!-- Section: Links  -->
+    <section class="pt-1">
+        <div class="container text-center text-md-start mt-3">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <img src="/static/core/img/NIPS-logo.svg" alt="NeurIPS logo" height='30px'>
+                    </h6>
+                    <p>
+                        The NeurIPS Logo above may be used on presentations. Right-click and choose
+                        download. It is a vector graphic and may be used at any scale.
+                    </p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4" style="max-width: 300px;">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 text-center">
+                        Useful links
+                    </h6>
+                    <div></div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    
+                        <p>
+                            <i class="fas fa-home me-3"></i> 1269 Law Street, San Diego CA 92109
+                        </p>
+                    
+                    <p>
+                        <i class="fas fa-envelope me-3"></i> <a href="/Help/Contact">Email</a>
+                    </p>
+                    
+                        <p><i class="fas fa-phone me-3"></i> Phone: +1-858-453-4100 x 1623</p>
+                    
+                    
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div></div>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Footer -->
+
+</body>
+</html>

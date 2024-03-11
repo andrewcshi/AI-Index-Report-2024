@@ -1,0 +1,3568 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-padding-top: 70px;"> 
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/virtual/js/virtual.js"></script>
+    <meta name="google-site-verification" content="0jwPnVXIAk4FvFdT37dwMmd-kjHF86e5DKwvqlStUW0">
+
+    <title>NeurIPS 2023</title>
+    
+    <link rel="stylesheet" href="/static/core/css/core.css" type="text/css">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css" type="text/css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/core/css/custom.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      "tex2jax": {
+        "inlineMath": [["$","$"], ["\\(","\\)"]],
+        "displayMath": [["\\[","\\]"]],
+        "processEscapes": true
+      }
+    }
+    );
+    </script>
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!--This script keeps local links inside the web app rather than opening them
+in Safari, and has nothing to do with editing or Aloha.-->
+
+<script type="text/javascript">
+	(function(document,navigator,standalone) {
+		// prevents links from apps from opening in mobile safari
+		// this javascript must be the first script in your <head>
+		if ((standalone in navigator) && navigator[standalone]) {
+			var curnode, location=document.location, stop=/^(a|html)$/i;
+			document.addEventListener('click', function(e) {
+				curnode=e.target;
+				while (!(stop).test(curnode.nodeName)) {
+					curnode=curnode.parentNode;
+				}
+				// Conditions to do this only on links to your own app
+				// if you want all links, use if('href' in curnode) instead.
+				if(
+					'href' in curnode && // is a link
+					(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+					(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+						chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+				) {
+					e.preventDefault();
+					location.href = curnode.href;
+				}
+			},false);
+		}
+	})(document,window.navigator,'standalone');
+</script>        
+
+<!-- This style sets the minimum size of a blurb to 260 px unless there is a
+template context variable blurb_min_height that sets it otherwise. If blurbs
+aren't all about the same size, they don't flow well when the window is
+resized.-->
+
+
+<style>
+/*This is here rather that in a .css file for a reason.*/
+    @media screen and (min-width: 767px) {
+        .blurb {
+            min-height:260px;
+        }
+    }
+</style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</script>
+
+<script>
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "/static/core/js/jquery-3.6.1.min.js";
+        document.head.appendChild(script);
+    }
+</script>
+
+
+    <script>
+        var $ = jQuery;
+        /*Store a pointer to jquery2, so I can reference it later.  Aloha loads jquery 1.7 and much
+        of bootstrap 3 is not compatible. This comment is deprecated. */
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/be44b7e05d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Exo;}
+    </style>
+
+
+
+
+
+
+
+     
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js" integrity="sha512-lEb9Vp/rkl9g2E/LdHIMFTqz21+LA79f84gqP75fbimHqVTu6483JG1AwJlWLLQ8ezTehty78fObKupq3HSHPQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="/static/virtual/js/virtual.js"></script>
+    
+
+    <title>NeurIPS 2023</title>
+    
+
+    <title>NeurIPS 2023 Workshops</title>
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="noprint">
+    
+        
+<!--Navbar start-->
+<nav id="id_navbar" class="navbar navbar-expand-sm navbar-dark" style="background-color:#212529">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="/"><img src="/static/core/img/neurips-navbar-logo.svg" height="40px"></a></div>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NeurIPS
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2023/EthicsGuidelines">
+                    <span >
+                        Code of Ethics
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2023/CodeOfConduct">
+                    <span >
+                        Code of Conduct
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Profile/create">
+                    <span >
+                        Create Profile
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/JournalToConference">
+                    <span >
+                        Journal To Conference Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/DiversityInclusion">
+                    <span >
+                        Diversity &amp; Inclusion
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://proceedings.neurips.cc/">
+                    <span >
+                        Proceedings
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/FutureMeetings">
+                    <span >
+                        Future Meetings
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2023/Press">
+                    <span >
+                        Press
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Exhibitors/exhibitorinfo">
+                    <span >
+                        Exhibitor Information
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Help/Contact">
+                    <span >
+                        Contact NeurIPS
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/FAQ">
+                    <span >
+                        Help/FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/PrivacyPolicy">
+                    <span >
+                        Privacy Policy
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Downloads">
+                    <span >
+                        Downloads
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/MyStuff">
+                    <span >
+                        My Stuff
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+
+                <form class="d-flex" role="search" action="/search">
+                    <div class="input-group" role="search">
+                        <input type="text" class="form-control" placeholder="Search" name="q"
+                               value=""
+                               aria-label="Search" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn-primary" id="btnGroupAddon">
+                            <button style="border: none; background-color: transparent; padding: 0;" type="submit">
+                                <i class="fa-solid fa-magnifying-glass" ></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                &nbsp;
+                
+                    <a href="/accounts/login?nextp=/careers/ " class="navbar-brand"><span
+                            class="fa-solid fa-right-to-bracket"></span> Login</a>
+                
+
+            </div>
+        </div>
+    </nav>
+<!--Navbar end-->
+    
+</div><!--noprint div-->
+
+
+<!--This holds the whole page including the navbar-->
+
+<main id="main">
+    <div class="container-fluid">
+        <!--Navbar start-->
+
+<div class="dropdown">
+    <nav class="align-middle navbar navbar-expand-md  rounded-bottom"
+         style="min-height: 57px; background-image: url(/static/virtual/img/navbackground.png); background-repeat: repeat-x;">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler201" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler201">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle border-3  btn btn-primary text-white p-1" style= "background-color: #070bff; font-size: 1.2 em;"
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Year: (2023)
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2024">2024
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2023">2023
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2022">2022
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2021">2021
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2020">2020
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2019">2019
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2018">2018
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2017">2017
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2016">2016
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2015">2015
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2014">2014
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2013">2013
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2012">2012
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2011">2011
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2010">2010
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2009">2009
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2008
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2007">2007
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2006">2006
+                </a>
+            </li>
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/index.html">
+                    <span >
+                        Getting Started
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/calendar">
+                    <span >
+                        Schedule
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/tutorial">
+                    <span >
+                        Tutorials
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Main Conference
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/eventlistwithbios/Invited%20Talk">
+                    <span >
+                        Invited Talks
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/eventlistwithbios/panel_configuration_2024">
+                    <span >
+                        Panels
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/oral">
+                    <span >
+                        Orals
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/papers.html">
+                    <span >
+                        Papers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/Competition">
+                    <span >
+                        Competitions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/datasets-benchmarks-2023">
+                    <span >
+                        Datasets &amp; Benchmarks
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/journal_track_2023">
+                    <span >
+                        Journal Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/creative-ai-2023">
+                    <span >
+                        Creative AI Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/awards_detail">
+                    <span >
+                        Outstanding Paper Awards
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/events/workshop">
+                    <span >
+                        Workshops
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Community
+        </a>
+        <ul class="dropdown-menu">
+            
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/sponsor_list">
+                    <span >
+                        Sponsors
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/search">
+                    <span >
+                        <i class="fas fa-search"></i>
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Help
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://wiki.eventhosts.cc/en/topics/draft-conference-website">
+                    <span >
+                        What is a Draft Website
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://wiki.eventhosts.cc/en/reference/presenter-instructions">
+                    <span >
+                        Presenters Instructions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://wiki.eventhosts.cc/en/reference/moderator-instructions">
+                    <span >
+                        Moderators Instructions
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://wiki.eventhosts.cc/en/faq">
+                    <span >
+                        FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="https://chat.neurips.cc/channel/HelpDesk">
+                    <span >
+                        Helpdesk in RocketChat
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2023/organizers">
+                    <span >
+                        Organizers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    <!--Navbar end-->
+    </div>
+    <br><br>
+    
+<div class="container-fluid">
+
+    
+
+    
+
+    <br>
+
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="title-centered" style="text-align:center">Workshops</div>
+            
+        </div>
+
+
+    
+
+        
+
+        <div class="row">  
+            <div class="col-sm-12">
+
+                
+                    <div style="max-width: 1500px; margin:auto; border">
+                        <div class="grid-displaycards">
+
+                                
+                                    <div class="displaycards touchup-date" id="event-66535">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66535">Information-Theoretic Principles in Cognitive Systems (InfoCog)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Noga Zaslavsky &middot; Rava Azeredo da Silveira &middot; Ronit Bustin &middot; Ron M. Hecht</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66535"></div>
+
+
+    <p style="font-size:.9em;">[ Room 215 - 216 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Information theory provides a mathematical framework allowing to formulate and quantify the basic limitations of data compression and communication. The notions of data compression and communication, based in analog and digital communication, are also relevant toother domains; as such, information theory spans a number of research fields. Aiming to formulate, understand, and quantify the storage and processing of information is a thread that ties together these disparate fields, and especially the study of cognition in humans and machines. Specifically, the desire to reach an integrative computational theory of human and artificial cognition, is attempted by leveraging information-theoretic principles as bridges between various cognitive functions and neural representations. Insights from information theoretic formalization have also led to tangible outcomes which have influenced the operation of artificial intelligent systems. One example is the information bottleneck (IB) approach, yielding insights on learning in neural networks (NN), as well as tools for slow feature analysis and speech recognition. A central application of the IB approach on NN, is through the view of data transfer between layers as an autoencoder. The approach then uses a variational approximation of the IB to produce an objective for minimization that is feasible and results in efficient training (a.k.a. …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66518">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66518">NeurIPS 2023 Workshop: Machine Learning and the Physical Sciences</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Brian Nord &middot; Atilim Gunes Baydin &middot; Adji Bousso Dieng &middot; Emine Kucukbenli &middot; Siddharth Mishra-Sharma &middot; Benjamin Nachman &middot; Kyle Cranmer &middot; Gilles Louppe &middot; Savannah Thais</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66518"></div>
+
+
+    <p style="font-size:.9em;">[ Hall B2 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Physical sciences and machine learning: more than the sum of their parts. Join us to discuss research at the convergence of these fields!</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66525">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66525">Foundation Models for Decision Making</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Sherry Yang &middot; Ofir Nachum &middot; Yilun Du &middot; Stephen McAleer &middot; Igor Mordatch &middot; Linxi Fan &middot; Jeannette Bohg &middot; Dale Schuurmans</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66525"></div>
+
+
+    <p style="font-size:.9em;">[ Hall E2 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Foundation models pretrained on diverse vision and language datasets have demonstrated exceptional capabilities in performing a wide range of downstream vision and language tasks. As foundation models are deployed in real-world applications such as dialogue, autonomous driving, healthcare, and robotics, they inevitably face new challenges such as learning from external feedback, adapting to different task modalities, and performing long-term reasoning and planning. Such challenges have traditionally been at the core of sequential decision making, encompassing areas such as reinforcement learning, imitation learning, planning, search, and optimal control. These research fields have traditionally focused on task-specific settings with limited prior knowledge, and yet there has been significant research progress in surpassing human performance in tasks like playing board games and Atari video games, as well as operating robots to complete navigation and manipulation tasks. However, since these methods generally learn to solve a specific task from scratch without broad knowledge from vision and language, they can struggle with generalization and sample efficiency. The goal of this workshop is to bring together the sequential decision making community including planning, search, RL, and optimal control, together with the foundation models community in vision and language to confront the challenges in decision making at …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66494">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66494">UniReps: Unifying Representations in Neural Models</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Marco Fumero &middot; Emanuele Rodolà &middot; Francesco Locatello &middot; Gintare Karolina Dziugaite &middot; Mathilde Caron &middot; Clémentine Dominé</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66494"></div>
+
+
+    <p style="font-size:.9em;">[ Great Hall (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Neural models tend to learn similar representations when subject to similar stimuli; this behavior has been observed both in biological and artificial settings.The emergence of these similar representations is igniting a growing interest in the fields of neuroscience and artificial intelligence. To gain a theoretical understanding of this phenomenon, promising directions include: analyzing the learning dynamics and studying the problem of identifiability in the functional and parameter space. This has strong consequences in unlocking a plethora of applications in ML from model fusion, model stitching, to model reuse and in improving the understanding of biological and artificial neural models. The objective of the workshop is to discuss theoretical findings, empirical evidence and practical applications of this phenomenon, benefiting from the cross-pollination of different fields (ML, Neuroscience, Cognitive Science) to foster the exchange of ideas and encourage collaborations.Overall the questions we aim to investigate are when, why and how internal representations of distinct neural models can be unified into a common representation.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66495">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66495">Deep Generative Models for Health</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Emanuele Palumbo &middot; Laura Manduchi &middot; Sonia Laguna &middot; Melanie F. Pradier &middot; Vincent Fortuin &middot; Stephan Mandt &middot; Julia Vogt</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66495"></div>
+
+
+    <p style="font-size:.9em;">[ Room 260 - 262 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Deep generative models have recently gained increasing attention in machine learning research with recent breakthroughs, such as Stable Diffusion, DALL-E, and Chat-GPT, among others.    Despite significant advancements, the potential of generative AI in the health sector is yet not fully exploited.    To address this gap, our workshop serves as a forum for presenting the latest research trends in generative models tailored for health applications. By bringing together a diversified pool of experts, we aim to investigate the methodological requirements and clinical implications of generative AI for health applications, thus shedding light on the challenges that lie ahead. Through this collaborative effort, we aspire to unlock the potential of generative models for groundbreaking advancements in the health sector.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66541">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66541">AI for Accelerated Materials Design (AI4Mat-2023)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Santiago Miret &middot; Benjamin Sanchez-Lengeling &middot; Jennifer Wei &middot; Vineeth Venugopal &middot; Marta Skreta &middot; N M Anoop Krishnan</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66541"></div>
+
+
+    <p style="font-size:.9em;">[ Room 228 - 230 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>The AI for Accelerated Materials Discovery (AI4Mat) Workshop 2023 provides an inclusive and collaborative platform where AI researchers and material scientists converge to tackle the cutting-edge challenges in AI-driven materials discovery and development. Our goal is to foster a vibrant exchange of ideas, breaking down barriers between disciplines and encouraging insightful discussions among experts from diverse disciplines and curious newcomers to the field. The workshop embraces a broad definition of materials design encompassing matter in various forms, such as crystalline and amorphous solid-state materials, glasses, molecules, nanomaterials, and devices. By taking a comprehensive look at automated materials discovery spanning AI-guided design, synthesis and automated material characterization, we hope to create an opportunity for deep, thoughtful discussion among researchers working on these interdisciplinary topics, and highlight ongoing challenges in the field.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66497">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66497">Causal Representation Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Sara Magliacane &middot; Atalanti Mastakouri &middot; Yuki Asano &middot; Claudia Shi &middot; Cian Eastwood &middot; Sébastien Lachapelle &middot; Bernhard Schölkopf &middot; Caroline Uhler</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66497"></div>
+
+
+    <p style="font-size:.9em;">[ Room 243 - 245 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Can we learn causal representations from raw data, e.g. images? This workshop connects research in causality and representation learning.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66547">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66547">Generative AI for Education (GAIED): Advances, Opportunities, and Challenges</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Paul Denny &middot; Sumit Gulwani &middot; Neil Heffernan &middot; Tanja Käser &middot; Steven Moore &middot; Anna Rafferty &middot; Adish Singla</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66547"></div>
+
+
+    <p style="font-size:.9em;">[ Room 265 - 268 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>GAIED (pronounced "guide") aims to bring together researchers, educators, and practitioners to explore the potential of generative AI for enhancing education.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66504">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66504">New Frontiers of AI for Drug Discovery and Development</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Animashree Anandkumar &middot; Ilija Bogunovic &middot; Ti-chiun Chang &middot; Quanquan Gu &middot; Jure Leskovec &middot; Michelle Li &middot; Chong Liu &middot; Nataša Tagasovska &middot; Mengdi Wang &middot; Wei Wang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66504"></div>
+
+
+    <p style="font-size:.9em;">[ Room 242 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>We will facilitate interdisciplinary discussions to identify gaps and opportunities for AI in the drug discovery and development pipeline.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66524">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66524">Associative Memory &amp; Hopfield Networks in 2023</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Parikshit Ram &middot; Hilde Kuehne &middot; Daniel Lee &middot; Cengiz Pehlevan &middot; Mohammed Zaki &middot; Lenka Zdeborová</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66524"></div>
+
+
+    <p style="font-size:.9em;">[ Room 223 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>This workshop will discuss the latest multidisciplinary developments in Associative Memory and Hopfield Networks. A number of leading researchers in this research area from around the world have already agreed to attend and present their latest results.  We anticipate sharing their presentations and outlining future research directions in this emerging field with the rest of the NeurIPS community.
+<br>
+<br><strong>Tagline:</strong> We will discuss recent multidisciplinary developments in Hopfield Networks and outline future research directions in this emerging field.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66515">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66515">Touch Processing: a new Sensing Modality for AI</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Roberto Calandra &middot; Haozhi Qi &middot; Mike Lambeta &middot; Perla Maiolino &middot; Yasemin Bekiroglu &middot; Jitendra Malik</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66515"></div>
+
+
+    <p style="font-size:.9em;">[ Room 214 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>This workshop aims to seed foundations of using AI/ML dedicated to studying touch and enable future applications such as robotics and AR/VR.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66546">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66546">Table Representation Learning Workshop</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Madelon Hulsebos &middot; Bojan Karlaš &middot; Haoyu Dong &middot; Gael Varoquaux &middot; Laurel Orr &middot; Pengcheng Yin</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66546"></div>
+
+
+    <p style="font-size:.9em;">[ Room 235 - 236 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Tables are a promising modality for representation learning with too much application potential to ignore. However, tables have long been overlooked despite their dominant presence in the data landscape, e.g. data management and analysis pipelines. The majority of datasets in Google Dataset Search, for example, resembles typical tabular file formats like CSVs. Similarly, the top-3 most-used database management systems are all relational (RDBMS). Representation learning over tables (TRL), possibly combined with other modalities such as text or SQL, has shown impressive performance for tasks like table-based question answering, table understanding, and data preparation. More recently, TRL was shown to be effective for tabular ML as well, while researchers also started exploring the impressive capabilities of LLMs for table encoding and data manipulation. Follow our Twitter feed for updates: <a href="https://twitter.com/TrlWorkshop">https://twitter.com/TrlWorkshop</a>.
+<br>
+<br>The first edition of the Table Representation Learning (TRL) workshop at NeurIPS 2022 gathered an enthusiastic community and stimulated new research and collaborations, which we aim to continue in 2023. The TRL workshop has three main goals:
+<br>
+<br>(1) Motivate tables as a primary modality for representation and generative learning and advance the area further.
+<br>(2) Showcase impactful applications of pretrained table models and discussing future opportunities.
+<br>(3) Foster discussion and …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66498">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66498">Instruction Tuning and Instruction Following</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Qinyuan Ye &middot; Yizhong Wang &middot; Shayne Longpre &middot; Yao Fu &middot; Daniel Khashabi</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66498"></div>
+
+
+    <p style="font-size:.9em;">[ Room 220 - 222 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Recent advancements in training large language models (LLMs) to follow “instructions” have significantly increased their ability to comprehend open-ended language commands, encompassing a wide range of needs, preferences, and values.
+<br>
+<br>This remarkable transformation has led to the creation of remarkable industrial models such as GPT-4 and Bard, as well as an increased focus within the open-source and research communities: creating new benchmark and resources, developing new training methods, and understanding the limitations of these methods. Furthermore, instruction following powered by LLMs has proven to be effective in multi-modal settings, with applications in image editing and robotic command execution.
+<br>
+<br>We organize this workshop to facilitate discussions on advancing instruction tuning methodologies and constructing general-purpose instruction-following models. We believe it is crucial to organize this workshop due to the prevalence of proprietary models with restricted access, thereby creating the need for an open platform to encourage discussions. Moreover, we aim to foster interdisciplinary collaboration by bringing together researchers from diverse fields such as natural language processing, computer vision, robotics, human-computer interaction, AI safety, among others, to share their latest findings and explore potential avenues for future research.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66513">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66513">Machine Learning in Structural Biology Workshop</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Hannah Wayment-Steele &middot; Roshan Rao &middot; Ellen Zhong &middot; Sergey Ovchinnikov &middot; Gabriele Corso &middot; Gina El Nesr</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66513"></div>
+
+
+    <p style="font-size:.9em;">[ Room 208 - 210 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Structural biology, the study of the 3D structure or shape of proteins and other biomolecules, has been transformed by breakthroughs from machine learning algorithms. While methods such as AlphaFold2 have made exponential progress in certain areas, many active and open challenges for the field remain, including modeling protein dynamics, predicting the structure of other classes of biomolecules such as RNA, and ultimately relating the structure of isolated proteins to the in vivo and contextual nature of their underlying function. These challenges are diverse and require interdisciplinary collaboration between ML and structural biology researchers. The 4th edition of the Machine Learning in Structural Biology (MLSB) workshop focuses on these challenges and opportunities. In a unique commitment of support, PRX Life journal has committed to waiving publication fees for accepted papers in a special collection for interested authors. We anticipate this workshop will be of significant interest to both ML researchers as well as computational / experimental biologists and will stimulate continued problem-solving and new directions in the field.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66523">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66523">Computational Sustainability: Promises and Pitfalls from Theory to Deployment</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Suzanne Stathatos &middot; Christopher Yeh &middot; Laura Greenstreet &middot; Tarun Sharma &middot; Katelyn Morrison &middot; Yuanqi Du &middot; Chenlin Meng &middot; Sherrie Wang &middot; Fei Fang &middot; Pietro Perona &middot; Yoshua Bengio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66523"></div>
+
+
+    <p style="font-size:.9em;">[ Room 238 - 239 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Computational sustainability (CompSust) is an interdisciplinary research area that uses compu- tational methods to help address the 17 United Nations Sustainable Development Goals (UN SDGs), including but not limited to hunger and poverty reduction, infrastructure development, and environmental conservation. Computational sustainability is a two-way street: sustain- ability domains benefit from computational tools and methods and computational research areas benefit from the unique challenges that arise in attempting to address sustainability problems, including noisy and biased data, complex multi-agent systems, and multi-objective problems. Previous computational sustainability problems have led to new approaches in computer vision, reinforcement learning, multi-agent systems, and decision-focused learning. While computational sustainability problems span many domains, they share common challenges. This workshop will bring the community together to focus on two topics:1. The path from theory to deployment: Many challenges arise on the path from theory to deployment. This workshop will help researchers navigate this path by bringing together participants and speakers from academia, industry, and non-profits, highlighting successes going from theory to deployment, and facilitating collaboration.2. Promises and pitfalls: Advances on ML benchmarks do not always translate to improvements in computational sustainability problems, with contributing factors including low- signal-to-noise ratios, ever changing conditions, and biased or imbalanced …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66528">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66528">AI meets Moral Philosophy and Moral Psychology: An Interdisciplinary Dialogue about Computational Ethics</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Sydney Levine &middot; Liwei Jiang &middot; Jared Moore &middot; Zhijing Jin &middot; Yejin Choi</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66528"></div>
+
+
+    <p style="font-size:.9em;">[ Room 255 - 257 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Be it in advice from a chatbot, suggestions on how to administer resources, or which content to highlight, AI systems increasingly make value-laden decisions. However, researchers are becoming increasingly concerned about whether AI systems are making the right decisions. These emerging issues in the AI community have been long-standing topics of study in the fields of moral philosophy and moral psychology. Philosophers and psychologists have for decades (if not centuries) been interested in the systematic description and evaluation of human morality and the sub-problems that come up when attempting to describe and prescribe answers to moral questions. For instance, philosophers and psychologists have long debated the merits of utility-based versus rule-based theories of morality, their various merits and pitfalls, and the practical challenges of implementing them in resource-limited systems. They have pondered what to do in cases of moral uncertainty, attempted to enumerate all morally relevant concepts, and argued about what counts as a moral issue at all.In some isolated cases, AI researchers have slowly started to adopt the theories, concepts, and tools developed by moral philosophers and moral psychologists. For instance, we use the "trolley problem" as a tool, adopt philosophical moral frameworks to tackle contemporary AI problems, and …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66496">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66496">Attributing Model Behavior at Scale (ATTRIB)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Tolga Bolukbasi &middot; Logan Engstrom &middot; Kelvin Guu &middot; Andrew Ilyas &middot; Sam Park &middot; Ellie Pavlick &middot; Anders Søgaard</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66496"></div>
+
+
+    <p style="font-size:.9em;">[ Room 271 - 273 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Recently-developed algorithmic innovations (e.g., transformers, diffusion models ) and large-scale datasets (e.g., Common Crawl, LAION) have given rise to machine learning models with impressive capabilities. However, there is much left to understand in how these different factors combine to give rise to observed behaviors.  For example, we still do not fully understand how the composition of training datasets influence downstream model capabilities  (e.g., which data sources within LAION-5B are important for training high-quality CLIP embeddings?), how to attribute model capabilities to subcomponents inside the model(e.g., can we identify which subnetwork of a LLM implements addition ?), and which algorithmic choices really drive performance (e.g., is RL necessary to align language models?).A common theme underlying all these challenges is <em>model behavior attribution</em>. That is, the need to tie model behavior back to factors in the machine learning pipeline---such as the choice of training dataset or particular training algorithm---that we can control or reason about. This workshop aims to bring together researchers and practitioners that advance our understanding of model behavior attribution in the contexts that span: data, models, and learning algorithms.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66517">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66517">Workshop on robustness of zero/few-shot learning in foundation models (R0-FoMo)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Ananth Balashankar &middot; Saurabh Garg &middot; Jindong Gu &middot; Amrith Setlur &middot; Yao Qin &middot; Aditi Raghunathan &middot; Ahmad Beirami</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66517"></div>
+
+
+    <p style="font-size:.9em;">[ La Nouvelle Orleans Ballroom A+B (level 2) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Recent advances in the capabilities of large foundation models have been catalyzed by repurposing pretrained models to domain specific use cases through few-shot learning methods like prompt-tuning, in-context-learning; and zero-shot learning based on task descriptions. Given a few labeled examples that outline a new task [T5, GPT2, T0, DALL-E, CLIP], these large foundation models have demonstrably improved upon previous few-shot learning benchmarks [T-few, LAION]. We are closer than ever to learn from very few examples; and recent works [Frozen, Flamingo] have proposed methods to use large language and vision transformer models directly on these few examples, instead of human annotation to create large datasets for fine-tuning. The lessons learned from past-work in counterfactual reasoning, domain adaptation, meta-learning, continual learning, and adversarial training have to be revisited with a new lens towards improving robustness of few-shot learning methods or learning from no supervision (i.e., unlabeled data) that scale to multiple tasks in a safe and responsible manner. In addition to leveraging few-shot learning methods with labeled examples, there is also significant potential in harnessing the power of unlabeled data. When labeled and unlabeled data are from the same distribution, semi-supervised learning methods can be modified to now utilize large foundation models …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66539">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66539">NeurIPS 2023 Workshop on Diffusion Models</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Bahjat Kawar &middot; Valentin De Bortoli &middot; Charlotte Bunne &middot; James Thornton &middot; Jiaming Song &middot; Jong Chul Ye &middot; Chenlin Meng</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66539"></div>
+
+
+    <p style="font-size:.9em;">[ Hall B1 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Over the past three years, diffusion models have established themselves as a new generative modeling paradigm. Their empirical successes have broadened the applications of generative modeling to image, video, audio, 3D synthesis, science applications, and more. As diffusion models become more and more popular and are applied to extremely diverse problems, it also becomes harder to follow the key contributions in the field. This workshop aims to keep track of recent advances and identify guidelines for future research. By bringing together practice, methodology, and theory actors we aim to identify unexplored areas, foster collaboration, and push the frontier of diffusion model research.<br><br>Link to website: https://diffusionworkshop.github.io/<br><br>Ask questions to our panelists here: https://docs.google.com/forms/d/e/1FAIpQLSeTRsWFvKlsFg31K8Vq6hHGOydmvd7YNMuOLOCcKgqSqO8mXw/viewform</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66502">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66502">Algorithmic Fairness through the Lens of Time</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Awa Dieng &middot; Miriam Rateike &middot; Golnoosh Farnadi &middot; Ferdinando Fioretto &middot; Jessica Schrouff</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66502"></div>
+
+
+    <p style="font-size:.9em;">[ Room 252 - 254 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            We are proposing the Algorithmic Fairness through the Lens of Time (AFLT) workshop, which isthe fourth edition of this workshop series on algorithmic fairness. Previous editions have looked atcausal approaches to fairness and the intersection of fairness with other fields of trustworthy machinelearning namely interpretability, robustness and privacy.The aim of this year’s workshop is to provide a venue to discuss foundational work on fairness,challenge existing static definitions of fairness (group, individual, causal) and explore the long-termeffects of fairness methods. More importantly, the workshop aims to foster an open discussion on howto reconcile existing fairness frameworks with the development and proliferation of large generativemodels.$$$$Topic $$$$Fairness has been predominantly studied under the static regime, assuming an unchangingdata generation process [Hardt et al., 2016a, Dwork et al., 2012, Agarwal et al., 2018, Zafar et al.,2017]. However, these approaches neglect the dynamic interplay between algorithmic decisions andthe individuals they impact, which have shown to be prevalent in practical settings [Chaney et al.,2018, Fuster et al., 2022]. Such observation has highlighted the need to study the long term effectof fairness mitigation strategies and incorporate dynamic systems within the development of fairalgorithms.Despite prior research identifying several impactful scenarios where such dynamics can occur,including bureaucratic processes [Liu …
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66550">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66550">Backdoors in Deep Learning: The Good, the Bad, and the Ugly</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Khoa D Doan &middot; Aniruddha Saha &middot; Anh Tran &middot; Yingjie Lao &middot; Kok-Seng Wong &middot; Ang Li &middot; HARIPRIYA HARIKUMAR &middot; Eugene Bagdasaryan &middot; Micah Goldblum &middot; Tom Goldstein</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66550"></div>
+
+
+    <p style="font-size:.9em;">[ Room 203 - 205 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Deep neural networks (DNNs) are revolutionizing almost all AI domains and have become the core of many modern AI systems. While having superior performance compared to classical methods, DNNs are also facing new security problems, such as adversarial and backdoor attacks, that are hard to discover and resolve due to their black-box-like property. Backdoor attacks, particularly, are a brand-new threat that was only discovered in 2017 but has gained attention quickly in the research community. The number of backdoor-related papers grew from 21 to around 110 after only one year (2019-2020). In 2022 alone, there were more than 200 papers on backdoor learning, showing a high research interest in this domain.Backdoor attacks are possible because of insecure model pretraining and outsourcing practices. Due to the complexity and the tremendous cost of collecting data and training models, many individuals/companies just employ models or training data from third parties. Malicious third parties can add backdoors into their models or poison their released data before delivering it to the victims to gain illegal benefits. This threat seriously damages the safety and trustworthiness of AI development. Lately, many studies on backdoor attacks and defenses have been conducted to prevent this critical vulnerability.While most works …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66549">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66549">OPT 2023: Optimization for Machine Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Cristóbal Guzmán &middot; Courtney Paquette &middot; Katya Scheinberg &middot; Aaron Sidford &middot; Sebastian Stich</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66549"></div>
+
+
+    <p style="font-size:.9em;">[ Hall D2 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Optimization lies at the heart of many machine learning algorithms and enjoys great interest in our community. Indeed, this intimate relation of optimization with ML is the key motivation for the OPT series of workshops. We aim to foster discussion, discovery, and dissemination of state-of-the-art research in optimization relevant to ML.
+<br>
+<br>To foster the spirit of innovation and collaboration, a goal of this workshop, OPT 2023 will focus the contributed talks on research in "Optimization in the Wild"; this title is meant to encompass the new challenges that traditional optimization theory and algorithms face with the growth and variety of novel ML applications.
+<br>
+<br>Successful applications of both theory and algorithms from optimization to ML frequently require a profound redesign or even entirely new approaches. This becomes apparent in settings where the classical (empirical) risk minimization approach is no longer sufficient to address the challenges of learning. As motivating examples, we consider the case of learning under (group or individual) fairness in distributed scenarios, learning under differential privacy, robustness, multi-task and transfer learning, as well as sampling from log-concave distributions. On the other hand, novel neural network architectures (such as transformers) require exploiting its structures for efficient optimization in crucial ways. …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66530">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66530">Heavy Tails in ML: Structure, Stability, Dynamics</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Mert Gurbuzbalaban &middot; Stefanie Jegelka &middot; Michael Mahoney &middot; Umut Simsekli</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66530"></div>
+
+
+    <p style="font-size:.9em;">[ Room R02-R05 (level 2) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Heavy-tails and chaotic behavior naturally appear in many ways in ML. We aim to understand how they emerge and how they affect the properties of ML methods.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66527">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66527">Agent Learning in Open-Endedness Workshop</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Minqi Jiang &middot; Mikayel Samvelyan &middot; Jack Parker-Holder &middot; Mayalen Etcheverry &middot; Yingchen Xu &middot; Michael Dennis &middot; Roberta Raileanu</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66527"></div>
+
+
+    <p style="font-size:.9em;">[ Room 211 - 213 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Open-ended learning (OEL) is receiving rapidly growing attention in recent years, as deep learning models become ever more adept at learning meaningful and useful behaviors from web-scale data. Improving the performance and generality of such models depends greatly on our ability to continue to collect new and useful training data. OEL systems co-evolve the learning agent (e.g. the model) with its environment or other sources of training data, resulting in the continued, active generation of new training data specifically useful for the current agent or model. Conceivably such OEL processes, if designed appropriately, can lead to models exhibiting increasingly general capabilities. However, it remains an open problem to produce a truly open-ended system in practice, one that endlessly generates meaningfully novel data. We hope our workshop provides a forum both for bridging knowledge across a diverse set of relevant fields as well as sparking new insights that can enable truly open-ended learning systems.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66519">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66519">Goal-Conditioned Reinforcement Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Benjamin Eysenbach &middot; Ishan Durugkar &middot; Jason Ma &middot; Andi Peng &middot; Tongzhou Wang &middot; Amy Zhang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66519"></div>
+
+
+    <p style="font-size:.9em;">[ Room 206 - 207 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Learning goal-directed behavior is one of the classical problems in AI, one that has received renewed interest in recent years and currently sits at the crossroads of many seemingly-disparate research threads: self-supervised learning , representation learning, probabilistic inference, metric learning, and duality.
+<br>
+<br>Our workshop focuses on these goal-conditioned RL (GCRL) algorithms and their connections to different areas of machine learning. Goal-conditioned RL is exciting not just because of these theoretical connections with different fields, but also because it promises to lift some of the practical challenges with applying RL algorithms: users can specify desired outcomes with a single observation, rather than a mathematical reward function. As such, GCRL algorithms may be applied to problems varying from robotics to language models tuning to molecular design to instruction following.
+<br>
+<br>Our workshop aims to bring together researchers studying the theory, methods, and applications of GCRL, researchers who might be well posed to answer questions such as:
+<br>
+<br>1. How does goal-directed behavior in animals inform better GCRL algorithmic design?
+<br>2. How can GCRL enable more precise and customizable molecular generation?
+<br>3. Do GCRL algorithms provide an effective mechanism for causal reasoning?
+<br>4. When and how should GCRL algorithms be applied to precision medicine?</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66509">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66509">Workshop on Distribution Shifts: New Frontiers with Foundation Models</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Rebecca Roelofs &middot; Fanny Yang &middot; Hongseok Namkoong &middot; Masashi Sugiyama &middot; Jacob Eisenstein &middot; Pang Wei Koh &middot; Shiori Sagawa &middot; Tatsunori Hashimoto &middot; Yoonho Lee</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66509"></div>
+
+
+    <p style="font-size:.9em;">[ Room R06-R09 (level 2) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Tagline: This workshop focuses on distribution shifts in the context of foundation models.Distribution shifts---where a model is deployed on a data distribution different from what it was trained on---pose significant robustness challenges in real-world ML applications. Such shifts are often unavoidable in the wild and have been shown to substantially degrade model performance in a wide range of applications. For example, models can systematically fail when tested on patients from different hospitals or people from different demographics. Training models that are robust to such distribution shifts is a rapidly growing area of interest in the ML community, and the goal of our workshop is to foster discussions and further research on distribution shifts. In the context of distribution shifts, our workshop this year focuses on foundation models: large pretrained models that can be adapted for a wide range of tasks. Foundation models open up an exciting new frontier in the study of distribution shifts, raising open research questions such as how pre-training improves robustness, how to finetune foundation models for increased robustness, how to leverage foundation models’ generative capabilities for robustness, and how to handle discrepancies between standard pre-training distributions and downstream distributions of interest. We aim to facilitate discussions …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66508">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66508">6th Workshop on Artificial Intelligence for Humanitarian Assistance and Disaster Response</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Ritwik Gupta &middot; Thomas Manzini &middot; Robin Murphy &middot; Eric Heim &middot; Bertrand Saux &middot; Katie Picchione</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66508"></div>
+
+
+    <p style="font-size:.9em;">[ Room 240 - 241 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Natural disasters are one of the oldest threats to both individuals and the societies they co-exist in. As a result, humanity has ceaselessly sought way to provide assistance to people in need after disasters have struck. Further, natural disasters are but a single, extreme example of the many possible humanitarian crises. Disease outbreak, famine, and oppression against disadvantaged groups can pose even greater dangers to people that have less obvious solutions. In this proposed workshop, we seek to bring together the Artificial Intelligence (AI) and Humanitarian Assistance and Disaster Response (HADR) communities in order to bring AI to bear on real-world humanitarian crises. Through this workshop, we intend to establish meaningful dialogue between the communities.By the end of the workshop, the NeurIPS research community can come to understand the practical challenges of aiding those who are experiencing crises, while the HADR community can understand the landscape that is the state of art and practice in AI. Through this, we seek to begin establishing a pipeline of transitioning the research created by the NeurIPS community to real-world humanitarian issues.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66500">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66500">New Frontiers in Graph Learning (GLFrontiers)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Jiaxuan You &middot; Rex Ying &middot; Hanjun Dai &middot; Ge Liu &middot; Azalia Mirhoseini &middot; Smita Krishnaswamy &middot; Chaoran Cheng</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66500"></div>
+
+
+    <p style="font-size:.9em;">[ Hall C2 (level 1 gate 9 south of food court) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p><strong>Overview:</strong> Graph learning has grown into an established sub-field of machine learning in recent years. Researchers have been focusing on developing novel model architectures, theoretical understandings, scalable algorithms and systems, and successful applications across industry and science regarding graph learning. With the success of the New Frontiers in Graph Learning (GLFrontiers) Workshop in NeurIPS 2022, we hope to continue to promote the exchange of discussions and ideas regarding the future of graph learning in NeurIPS 2023.<strong>Challenges:</strong> Despite the success of graph learning in various applications, the recent machine learning research trends, especially the research towards foundation models and large language models, have posed challenges for the graph learning field. For example, regarding the model architecture, Transformer-based models have been shown to be superior to graph neural networks in certain small graph learning benchmarks. In terms of usability, with language as a generic user interface, it is still a research frontier to explore whether natural language can also interact with ubiquitous graph-structured data and whether it is feasible to build generic foundation models for graphs. Lastly, while graph learning has achieved recent exciting results in molecule and protein design, exploring how graph learning can accelerate scientific discoveries in other disciplines …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66522">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66522">MATH-AI: The 3rd Workshop on Mathematical Reasoning and AI</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Zhenwen Liang &middot; Albert Q. Jiang &middot; Katie Collins &middot; Pan Lu &middot; Kaiyu Yang &middot; Sean Welleck &middot; James McClelland</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66522"></div>
+
+
+    <p style="font-size:.9em;">[ Room 217 - 219 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Mathematical reasoning is a fundamental aspect of human cognition that has been studied by scholars ranging from philosophers to cognitive scientists and neuroscientists. Mathematical reasoning involves analyzing complex information, identifying patterns and relationships, and drawing logical conclusions from evidence. It is central to many applications in science, engineering, finance, and everyday contexts. Recent advancements in large language models (LLMs) have unlocked new opportunities at the intersection of artificial intelligence and mathematical reasoning, ranging from new methods that solve complex problems or prove theorems, to new forms of human-machine collaboration in mathematics and beyond. Our proposed workshop is centered on the intersection of deep learning and mathematical reasoning, with an emphasis on, but not limited to, large language models. Our guiding theme is: "To what extent can machine learning models comprehend mathematics, and what applications could arise from this capability?'' To address this question, we aim to bring together a diverse group of scholars from different backgrounds, institutions, and disciplines in our workshop. By hosting this workshop, we hope to stimulate insightful discussions that will guide future research and applications in this rapidly expanding field.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66544">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66544">Temporal Graph Learning Workshop @ NeurIPS 2023</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Shenyang Huang &middot; Farimah Poursafaei &middot; Kellin Pelrine &middot; Julia Gastinger &middot; Emanuele Rossi &middot; Michael Bronstein &middot; Reihaneh Rabbany</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66544"></div>
+
+
+    <p style="font-size:.9em;">[ Room 203 - 205 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Temporal graph learning is an emerging area of research in graph representation learning, motivated by the prevalence of evolving and dynamic interconnected data in different domains and applications. In this workshop, which will be the second workshop on temporal graph learning, we plan to bring together researchers working on relevant areas to exchange ideas on different aspects of temporal graph learning including datasets for discrete and continuous time graphs, evaluation strategies, theoretical foundations, as well as using temporal graph learning paradigms in real-world applications.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66537">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66537">Gaze Meets ML</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Amarachi Blessing Mbakwe &middot; Joy T Wu &middot; Dario Zanca &middot; Elizabeth Krupinski &middot; Satyananda Kashyap &middot; Alexandros Karargyris</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66537"></div>
+
+
+    <p style="font-size:.9em;">[ Room 240 - 241 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Eye gaze has proven to be a cost-efficient way to collect large-scale physiological data that can reveal the underlying human attentional patterns in real-life workflows, and thus has long been explored as a signal to directly measure human-related cognition in various domains. Physiological data (including but not limited to eye gaze) offer new perception capabilities, which could be used in several ML domains, e.g., egocentric perception, embodied AI, NLP, etc. They can help infer human perception, intentions, beliefs, goals, and other cognition properties that are much needed for human-AI interactions and agent coordination. In addition, large collections of eye-tracking data have enabled data-driven modeling of human visual attention mechanisms, both for saliency or scan path prediction, with twofold advantages: from the neuro-scientific perspective to understand biological mechanisms better, and from the AI perspective to equip agents with the ability to mimic or predict human behavior and improve interpretability and interactions.
+<br>
+<br>The Gaze meets ML workshop aims at bringing together an active research community to collectively drive progress in defining and addressing core problems in gaze-assisted machine learning. This year the workshop will run its 2nd edition at NeurIPS again and it attracts a diverse group of researchers from academia and …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66542">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66542">Generalization in Planning (GenPlan &#x27;23)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Pulkit Verma &middot; Siddharth Srivastava &middot; Aviv Tamar &middot; Felipe Trevizan</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66542"></div>
+
+
+    <p style="font-size:.9em;">[ Room 238 - 239 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>This workshop aims to bridge highly active but largely parallel research communities, addressing the problem of generalizable and transferrable learning for all forms of sequential decision making (SDM), including reinforcement learning and AI planning. We expect that this workshop will play a key role in accelerating the speed of foundational innovation in SDM with a synthesis of the best ideas for learning generalizable representations of learned knowledge and for reliably utilizing the learned knowledge across different sequential decision-making problems. NeurIPS presents an ideal, inclusive venue for dialog and technical interaction among researchers spanning the vast range of research communities that focus on these topics.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66532">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66532">Third Workshop on Efficient Natural Language and Speech Processing (ENLSP-III): Towards the Future of Large Language Models and their Emerging Descendants</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Mehdi Rezagholizadeh &middot; Peyman Passban &middot; Yue Dong &middot; Yu Cheng &middot; Soheila Samiee &middot; Lili Mou &middot; Qun Liu &middot; Boxing Chen</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66532"></div>
+
+
+    <p style="font-size:.9em;">[ Room 206 - 207 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>The third version of the Efficient Natural Language and Speech Processing (ENLSP-III) workshop will focus on the future of large language and speech foundation models; and how to make them more efficient in terms of Data, Model, Training, and Inference for real-world applications as well as academic research. The workshop program offers an interactive platform for gathering different experts and talents from academia and industry through invited talks, panel discussion, paper submissions, reviews, interactive posters, oral presentations and a mentorship program. This will be a unique opportunity to discuss and share challenging problems, build connections, exchange ideas and brainstorm solutions, and foster future collaborations. The topics of this workshop can be of interest for people working on general machine learning, deep learning, optimization, theory and NLP &amp; Speech applications.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66543">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66543">NeurIPS 2023 Workshop on Tackling Climate Change with Machine Learning: Blending New and Existing Knowledge Systems</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Rasika Bhalerao &middot; Mark Roth &middot; Kai Jeggle &middot; Jorge Montalvo Arvizu &middot; Shiva Madadkhani &middot; Yoshua Bengio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66543"></div>
+
+
+    <p style="font-size:.9em;">[ Great Hall (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Climate change is a complex, multifaceted, and far-reaching challenge with increasingly severe consequences for humanity as natural disasters multiply, sea levels rise, and ecosystems falter. Actions to address climate change take many forms, from designing smart electric grids to tracking greenhouse gas emissions through satellite imagery. Machine learning is emerging as one necessary aspect to mitigating and adapting to climate change via a wide array of techniques. Using machine learning to address climate change, a subset of the "AI for society" research area, requires close interdisciplinary collaboration among various fields with diverse practitioners. This workshop is intended to form connections and foster cross-pollination between researchers in machine learning and experts in complementary climate-relevant fields, in addition to providing a forum for those in the machine learning community who wish to tackle climate change.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66545">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66545">NeurIPS 2023 Workshop on Machine Learning for Creativity and Design</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Yingtao Tian &middot; Tom White &middot; Lia Coleman &middot; Hannah Johnston</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66545"></div>
+
+
+    <p style="font-size:.9em;">[ Room 252 - 254 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Machine co-creativity grows continually and exponentially with machine learning, especially with the recent surge of generative models on multiple domains. This workshop, as a continuation of a long series, explores these topics, including state-of-the-art algorithms for the creation, accessibility of these models for artists, social and cultural impact, as well as actual artistic applications. This workshop is consistent of Presentations by invited speakers, presentation of selected papers and artworks, two panels and an art showcase (collaborating with the chairs of the NeurIPS Creative AI track). The goal of this workshop is to bring together researchers and artists interested in exploring the intersection of human creativity and machine learning, and to look beyond technical issues to better understand the needs of artists and creators.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66534">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66534">Intrinsically Motivated Open-ended Learning (IMOL) Workshop</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Cédric Colas &middot; Laetitia Teodorescu &middot; Nadia Ady &middot; Cansu Sancaktar &middot; Junyi Chu</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66534"></div>
+
+
+    <p style="font-size:.9em;">[ Room 260 - 262 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>How do humans develop broad and flexible repertoires of knowledge and skills? How can we design autonomous lifelong learning machines with the same abilities? The field of IMOL explores these questions through integrating research on the motivational forces, learning architectures, and developmental and environmental constraints supporting the acquisition of open-ended repertoires of skill and knowledge.</p>
+
+<p>At this full-day in-person NeurIPS workshop, we will gather speakers from a wide diversity of scientific traditions, showcase on-going research via contributed talks and poster sessions, and provide networking opportunities for research and mentorship discussions.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66505">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66505">Generative AI and Biology (GenBio@NeurIPS2023)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Minkai Xu &middot; Regina Barzilay &middot; Jure Leskovec &middot; Wenxian Shi &middot; Menghua Wu &middot; Zhenqiao Song &middot; Lei Li &middot; Fan Yang &middot; Stefano Ermon</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66505"></div>
+
+
+    <p style="font-size:.9em;">[ Room 265 - 268 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Advancing biological discovery, therapeutic design, and pharma development through generative AI.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66493">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66493">Workshop on Advancing Neural Network Training (WANT): Computational Efficiency, Scalability, and Resource Optimization</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Julia Gusak &middot; Jean Kossaifi &middot; Alena Shilova &middot; Rocco Sedona &middot; Cristiana Bentes &middot; Animashree Anandkumar &middot; Olivier Beaumont</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66493"></div>
+
+
+    <p style="font-size:.9em;">[ Room 243 - 245 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Unlock neural network training's potential for good and science! Enhance computational efficiency, scalability, and resource optimization. Join HPC and AI experts to tackle challenges in theory and applications.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66499">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66499">Adaptive Experimental Design and Active Learning in the Real World</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Willie Neiswanger &middot; Mojmir Mutny &middot; Ilija Bogunovic &middot; Ava Amini &middot; Zi Wang &middot; Stefano Ermon &middot; Andreas Krause</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66499"></div>
+
+
+    <p style="font-size:.9em;">[ Room 208 - 210 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Join us for an insightful workshop on adaptive experimental design and active learning. Dive into their use in fields like computational biology, materials discovery, chip design, and more.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66548">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66548">AI for Science: from Theory to Practice</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Yuanqi Du &middot; Max Welling &middot; Yoshua Bengio &middot; Marinka Zitnik &middot; Carla Gomes &middot; Jure Leskovec &middot; Maria Brbic &middot; Wenhao Gao &middot; Kexin Huang &middot; Ziming Liu &middot; Rocío Mercado &middot; Miles Cranmer &middot; Shengchao Liu &middot; Lijing Wang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66548"></div>
+
+
+    <p style="font-size:.9em;">[ Hall C2 (level 1 gate 9 south of food court) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>AI is being increasingly integrated into scientific discovery to augment and accelerate research, helping scientists to generate hypotheses, design experiments, collect and interpret large datasets, and gain new insights that might not have been possible using traditional scientific methods alone. It has solved scientific challenges that were unimaginable before, e.g., predicting 3D protein structures, simulating molecular systems, forecasting global climate, and discovering new scientific laws. Despite this promise, several critical gaps stifle algorithmic and scientific innovation in "AI for Science," and the overarching goal of this workshop is to grow AI for Science by closing these gaps: * Gap 1: Science of science. The principles of scientific methods have remained unchanged since the 17th century. How AI can facilitate the practice of scientific discovery itself often remains undiscussed. For example, instead of the numerous hypothesis-experiment cycles to make sense of a scientific phenomenon, can AI reason and output natural laws directly?* Gap 2: Limited exploration at the intersections of multiple disciplines. Solutions to grand challenges stretch across various disciplines. For example, protein structure prediction requires collaboration across physics, chemistry, and biology, and single-cell imaging of whole tumors can be approached by cosmology algorithms that connect cells as stars.* Gap 3: …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66511">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66511">6th Robot Learning Workshop: Pretraining, Fine-Tuning, and Generalization with Large Scale Models</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Dhruv Shah &middot; Paula Wulkop &middot; Claas Voelcker &middot; Georgia Chalvatzaki &middot; Alex Bewley &middot; Hamidreza Kasaei &middot; Ransalu Senanayake &middot; Julien PEREZ &middot; Jonathan Tompson</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66511"></div>
+
+
+    <p style="font-size:.9em;">[ Hall B2 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>The proposed workshop focuses on the intersection of machine learning (ML) and robotics, under this year’s focus topic: “Pretraining, Fine-Tuning, and Generalization with Large Scale Models.” Embodied AI and robotics pose unique challenges and opportunities for utilizing large pre-trained models. We seek to host a diverse set of views and approaches from across the robotics domain and dive deep into questions such as: What sources of data can be used for training large models in robotics? What role should pre-training play in robotics pipelines? How far can pre-trained models generalize when faced with novel tasks and environments? What is currently missing to the pre-training paradigm for embodied systems?</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66516">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66516">Machine Learning for Audio</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Brian Kulis &middot; Sadie Allen &middot; Sander Dieleman &middot; Shrikanth Narayanan &middot; Rachel Manzelli &middot; Alice Baird &middot; Alan Cowen</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66516"></div>
+
+
+    <p style="font-size:.9em;">[ Room 228 - 230 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>The Machine Learning for Audio Workshop at NeurIPS 2023 will bring together audio practitioners and machine learning researchers to a venue focused on various problems in audio, including music information retrieval, acoustic event detection, computational paralinguistics, speech transcription, multimodal modeling, and generative modeling of speech and other sounds. Our team has previously held multiple audio-related workshops at top machine learning venues, and both the organizing team and invited speakers represent broad diversity in terms of gender identity, affiliation, seniority, and geography.  We also plan to solicit workshop papers on the topic.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66531">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66531">Workshop on Federated Learning in the Age of Foundation Models in Conjunction with NeurIPS 2023 (FL@FM-NeurIPS&#x27;23)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Jinghui Chen &middot; Lixin Fan &middot; Gauri Joshi &middot; Sai Praneeth Karimireddy &middot; Stacy Patterson &middot; Shiqiang Wang &middot; Han Yu</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66531"></div>
+
+
+    <p style="font-size:.9em;">[ Hall D2 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>An exciting forum for researchers to exchange the recent developments in federated learning in the modern age of foundation models.</p>
+
+<p>Please visit our workshop webpage for full details: https://federated-learning.org/fl@fm-neurips-2023/</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66526">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66526">Socially Responsible Language Modelling Research (SoLaR)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Usman Anwar &middot; David Krueger &middot; Samuel Bowman &middot; Jakob Foerster &middot; Su Lin Blodgett &middot; Roberta Raileanu &middot; Alan Chan &middot; Laura Ruis &middot; Robert Kirk &middot; Yawen Duan &middot; Xin Chen &middot; Kawin Ethayarajh</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66526"></div>
+
+
+    <p style="font-size:.9em;">[ Room R06-R09 (level 2) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>The inaugural Socially Responsible Language Modelling Research (SoLaR) workshop at NeurIPS 2023 is an interdisciplinary gathering that aims to foster responsible and ethical research in the field of language modeling. Recognizing the significant risks and harms [33-37] associated with the development, deployment, and use of language models, the workshop emphasizes the need for researchers to focus on addressing these risks starting from the early stages of development. The workshop brings together experts and practitioners from various domains and academic fields with a shared commitment to promoting fairness, equity, accountability, transparency, and safety in language modeling research. In addition to technical works on socially responsible language modeling research, we also encourage sociotechnical submissions from other disciplines such as philosophy, law, and policy, in order to foster an interdisciplinary dialogue on the societal impacts of LMs.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66521">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66521">Optimal Transport and Machine Learning</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Anna Korba &middot; Aram-Alexandre Pooladian &middot; Charlotte Bunne &middot; David Alvarez-Melis &middot; Marco Cuturi &middot; Ziv Goldfeld</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66521"></div>
+
+
+    <p style="font-size:.9em;">[ Room 220 - 222 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Over the last decade, optimal transport (OT) has evolved from a prize-winning research area in pure mathematics to a recurring theme bursting across many areas of machine learning (ML). Advancements in OT theory, computation, and statistics have fueled breakthroughs in a wide range of applications, from single-cell genomics \cite{schiebinger2019optimal} to generative modeling \cite{arjovsky2017wasserstein} and optimization of over-parametrized neural nets \cite{chizat2018global,de2021diffusion}, among many others. The OTML workshop series (in '14,~'17,~'19, and '21) has been instrumental in shaping this influential research thread. For~this new OTML installment, we aim even higher by hosting two exceptional plenary speakers: Luis Caffarelli, who received the 2023 Abel Prize for his seminal contributions to regularity theory for the Monge–Amp{`e}re equation and OT, and Felix Otto, the 2006 Leibniz Prize awardee and 2017 Blaise Pascal medalist, who made profound contributions to the theory of Wasserstein gradient flows. The OTML workshop will provide a unique platform to federate, disseminate, and advance current knowledge in this rapidly growing field. This, in turn, will facilitate cross-field fertilization and drive the community towards future groundbreaking discoveries.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66538">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66538">The Symbiosis of Deep Learning and Differential Equations -- III</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Luca Herranz-Celotti &middot; Martin Magill &middot; Ermal Rrapaj &middot; Winnie Xu &middot; Qiyao Wei &middot; Archis Joglekar &middot; Michael Poli &middot; Animashree Anandkumar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66538"></div>
+
+
+    <p style="font-size:.9em;">[ Room 255 - 257 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>In the deep learning community, a remarkable trend is emerging, where powerful architectures are created by leveraging classical mathematical modeling tools from diverse fields like differential equations, signal processing, and dynamical systems. Differential equations are a prime example: research on neural differential equations has expanded to include a large zoo of related models with applications ranging from time series analysis to robotics control. Score-based diffusion models are among state-of-the-art tools for generative modelling, drawing connections between diffusion models and neural differential equations. Other examples of deep architectures with important ties to classical fields of mathematical modelling include normalizing flows, graph neural diffusion models, Fourier neural operators, architectures exhibiting domain-specific equivariances, and latent dynamical models (e.g., latent NDEs, H3, S4, Hyena). The previous two editions of the Workshop on the Symbiosis of Deep Learning and Differential Equations have promoted the bidirectional exchange of ideas at the intersection of classical mathematical modelling and modern deep learning. On the one hand, this includes the use of differential equations and similar tools to create neural architectures, accelerate deep learning optimization problems, or study theoretical problems in deep learning. On the other hand, the Workshop also explores the use of deep learning methods to improve …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66506">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66506">I Can’t Believe It’s Not Better (ICBINB): Failure Modes in the Age of Foundation Models</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Estefany Kelly Buchanan &middot; Fan Feng &middot; Andreas Kriegler &middot; Ian Mason &middot; Tobias Uelwer &middot; Yubin Xie &middot; Rui Yang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66506"></div>
+
+
+    <p style="font-size:.9em;">[ Room R02-R05 (level 2) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>In the past year, tools such as <a href="https://openai.com/chatgpt">ChatGPT</a>, <a href="https://stability.ai/stablediffusion">Stable Diffusion</a> and <a href="https://segment-anything.com">SegmentAnything</a> have had an immediate impact on our everyday lives.  Many of these tools have been built using foundation models, that is, very large models (having billions or trillions of parameters) trained on vast amounts of data (<a href="https://arxiv.org/abs/2108.07258">Bommasani et al., 2021</a>). The excitement around these foundation models and their capabilities might suggest that all the interesting problems have been solved and artificial general intelligence is just around the corner (<a href="https://arxiv.org/abs/2206.07682">Wei et al., 2022</a>; <a href="https://arxiv.org/abs/2303.12712">Bubeck et al., 2023</a>). 
+<br>
+<br>At this year’s I Can’t Believe It’s Not Better workshop we invite papers to cooly reflect on this optimism and to demonstrate that there are in fact many difficult and interesting open questions. The workshop will specifically focus on failure modes of foundation models, especially unexpected negative results. In addition, we invite contributions that will help us understand current and future disruptions of machine learning subfields as well as instances where these powerful methods merely remain complementary to another subfield of machine learning. 
+<br>
+<br>Contributions on the failure modes of foundation models might consider: 
+<br>  - Domain-specific areas where the application of foundation models did not work as …</p>
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66529">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66529">XAI in Action:  Past, Present, and Future Applications</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Chhavi Yadav &middot; Michal Moshkovitz &middot; Nave Frost &middot; Suraj Srinivas &middot; Bingqing Chen &middot; Valentyn Boreiko &middot; Himabindu Lakkaraju &middot; J. Zico Kolter &middot; Dotan Di Castro &middot; Kamalika Chaudhuri</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66529"></div>
+
+
+    <p style="font-size:.9em;">[ Room 271 - 273 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Transparency is vital for AI’s growth. This led to the design of new methods inexplainable AI. We aim to explore the current state of applied XAI and identifyfuture directions.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66507">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66507">Mathematics of Modern Machine Learning (M3L)</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Zhiyuan Li &middot; Tengyu Ma &middot; Surbhi Goel &middot; Kaifeng Lyu &middot; Christina Baek &middot; Bingbin Liu &middot; Alex Damian &middot; Aditi Raghunathan</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66507"></div>
+
+
+    <p style="font-size:.9em;">[ Room 242 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>This workshop explores theory for understanding and advancing modern ML practices: optimization, generalization, and foundation models.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66512">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66512">Regulatable ML: Towards Bridging the Gaps between Machine Learning Research and Regulations</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Jiaqi Ma &middot; Chirag Agarwal &middot; Sarah Tan &middot; Himabindu Lakkaraju &middot; Usha Bhalla &middot; Zana Bucinca &middot; Zixi Chen &middot; Junwei Deng &middot; Xudong Shen &middot; Varshini Subhash</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66512"></div>
+
+
+    <p style="font-size:.9em;">[ Room 215 - 216 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>This workshop brings together ML and policy experts to identify and address various technical and policy challenges that arise when regulating ML models.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66501">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66501">Machine Learning for Systems</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Xinlei XU &middot; Dan Zhang &middot; Mangpo Phothilimthana &middot; Beidi Chen &middot; Yawen Wang &middot; Divya Mahajan</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66501"></div>
+
+
+    <p style="font-size:.9em;">[ Room 211 - 213 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Machine Learning (ML) for Systems describes the application of machine learning techniques to problems related to computer systems. By leveraging supervised learning and reinforcement learning (RL) approaches, machine learning can replace longstanding heuristics that currently drive many of these systems. This includes a wide range of topics, including multi-objective tasks such as designing new data structures, integrated circuits, or design verification, as well as implementing control algorithms for applications such as compilers, databases, memory management, or ML frameworks. While the systems community increasingly recognizes the importance of ML in solving a variety of different systems problems, ML for Systems remains an emerging area without widely established best practices, methods and strategies for the application of state-of-the-art machine learning techniques. The goal of this workshop is to provide an interdisciplinary venue for ML and Systems experts to push this boundary and start new directions within the ML for Systems area.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66514">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66514">4th Workshop on Self-Supervised Learning: Theory and Practice</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Tengda Han &middot; Ishan Misra &middot; Pengtao Xie &middot; Mathilde Caron &middot; Hilde Kuehne &middot; Xingjian Bai &middot; Vadim Tschernezki</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66514"></div>
+
+
+    <p style="font-size:.9em;">[ Room 217 - 219 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>The 4th Workshop on "Self-Supervised Learning: Theory and Practice" aims to discuss the theory and practice of self-supervised learning across multiple research areas like vision, NLP \&amp; robotics.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66540">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66540">Synthetic Data Generation with Generative AI</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Sergul Aydore &middot; Zhaozhi Qian &middot; Mihaela van der Schaar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66540"></div>
+
+
+    <p style="font-size:.9em;">[ Hall E2 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Synthetic data (SD) is data that has been generated by a mathematical model to solve downstream data science tasks. SD can be used to address three key problems: 1/ private data release, 2/ data de-biasing and fairness, 3/ data augmentation for boosting the performance of ML models. While SD offers great opportunities for these problems, SD generation is still a developing area of research. Systematic frameworks for SD deployment and evaluation are also still missing. Additionally, despite the substantial advances in Generative AI, the scientific community still lacks a unified understanding of how generative AI can be utilized to generate SD for different modalities.The goal of this workshop is to provide a platform for vigorous discussion from all these different perspectives with research communities in the hope of progressing the ideal of using SD for better and trustworthy ML training. Through submissions and facilitated discussions, we aim to characterize and mitigate the common challenges of SD generation that span numerous application domains. The workshop is jointly organized by academic researchers (University of Cambridge) and industry partners from tech (Amazon AI).</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66503">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66503">Symmetry and Geometry in Neural Representations</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Sophia Sanborn &middot; Christian A Shewmake &middot; Simone Azeglio &middot; Nina Miolane</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66503"></div>
+
+
+    <p style="font-size:.9em;">[ La Nouvelle Orleans Ballroom A+B (level 2) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>In recent years, there has been a growing appreciation for the importance of respecting the topological, algebraic, or geometric structure of data in machine learning models. In parallel, an emerging set of findings in computational neuroscience suggests that the preservation of this kind of mathematical structure may be a fundamental principle of neural coding in biology. The goal of this workshop is to bring together researchers from applied mathematics and deep learning with neuroscientists whose work reveals the elegant implementation of mathematical structure in biological neural circuitry. Group theory and differential geometry were instrumental in unifying the models of 20th-century physics. Likewise, they have the potential to unify our understanding of how neural systems form useful representations of the world.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66520">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66520">Multi-Agent Security: Security as Key to AI Safety</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Christian Schroeder de Witt &middot; Hawra Milani &middot; Klaudia Krawiecka &middot; Swapneel Mehta &middot; Carla Cremer &middot; Martin Strohmeier</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66520"></div>
+
+
+    <p style="font-size:.9em;">[ Room 223 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>This workshop proposal builds on the observation that the AI and cyber security communities are currently not sufficiently interconnected to navigate risks and opportunities in our multi-agent world. Through a series of discussions involving experts and audiences, provocation and intervention keynotes, and contributed content, we aim to compare, contrast, and synthesize near- and long-term perspectives of AI deployment across society. The fundamental goal of this workshop is to bring together researchers, practitioners, and activists across AI and cyber security in order to create a blueprint for the future of AI security in a multi-agent world, and to define, explore, and challenge the nascent field of multi-agent security (MASEC).
+<br>
+<br>Submission deadline:  September 25, 2023
+<br>Acceptance Notification:  October 27, 2023
+<br>Workshop date:  December 16, 2023</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66536">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66536">Medical Imaging meets NeurIPS</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Daniel Moyer &middot; DOU QI &middot; Yuankai Huo &middot; Konstantinos Kamnitsas &middot; Andrea Lara &middot; Xiaoxiao Li &middot; Islem Rekik</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66536"></div>
+
+
+    <p style="font-size:.9em;">[ Hall B1 (level 1) ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>“Medical Imaging meets NeurIPS” aims to bring researchers together from the medical imaging and machine learning communities to create a cutting-edge venue for discussing the major challenges in the field and opportunities for research and novel applications. The proposed event will be the continuation of a successful workshop organized for the past 6 years. It will feature a series of invited speakers (all confirmed) from academia, medical sciences, and industry to present their latest work, and to present reviews of recent technological advances and remaining major challenges. This year we aim to have all keynotes presented in person (to facilitate speaker interaction and discourse), an extended number of submitted talks (approximately double from previous years), and an updated call that highlights changes occurring in our interdisciplinary field.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66533">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66533">Machine Learning with New Compute Paradigms</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Jannes Gladrow &middot; Benjamin Scellier &middot; Eric Xing &middot; Babak Rahmani &middot; Francesca Parmigiani &middot; Paul Prucnal &middot; Cheng Zhang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66533"></div>
+
+
+    <p style="font-size:.9em;">[ Room 235 - 236 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>As GPU computing comes closer to a plateau in terms of efficiency and cost due to Moore’s law reaching its limit, there is a growing need to explore alternative computing paradigms, such as (opto-)analog, neuromorphic, and low-power computing. This NeurIPS workshop aims to unite researchers from machine learning and alternative computation fields to establish a new hardware-ML feedback loop.By co-designing models with specialized accelerators, we can leverage the benefits of increased throughput or lower per-flop power consumption. Novel devices hold the potential to further accelerate standard deep learning or even enable efficient inference and training of hitherto compute-constrained model classes. However, new compute paradigms typically present challenges such as intrinsic noise, restricted sets of compute operations, or limited bit-depth, and thus require model-hardware co-design. This workshop’s goal is to foster cross-disciplinary collaboration to capitalize on the opportunities offered by emerging AI accelerators.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-66510">
+                                        
+
+                                        
+
+<div class="virtual-card">
+    <a class="small-title text-underline-hover" href="/virtual/2023/workshop/66510">Learning-Based Solutions for Inverse Problems</a>
+</div>
+<div class="type_display_name_virtual_card">Workshop</div>
+<div class="author-str">Shirin Jalali &middot; Chris Metzler &middot; Ajil Jalal &middot; Jon Tamir &middot; Reinhard Heckel &middot; Paul Hand &middot; Arian Maleki &middot; Richard Baraniuk</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-66510"></div>
+
+
+    <p style="font-size:.9em;">[ Room 214 ]</p>
+
+
+
+
+<details>
+<summary>Abstract</summary>
+    
+        <div class="text-start p-4">
+            <p>Inverse problems are ubiquitous in science, medicine, and engineering,and research in this area has produced real-world impact in medical tomography, seismic imaging, computational photography, and other domains. The recent rapid progress in learning-based image generation raises exciting opportunities in inverse problems, and this workshop seeks to gather a diverse set of participants who apply machine learning to inverse problems, from mathematicians and computer scientists to physicists and biologists. This gathering will facilitate new collaborations and will help develop more effective, reliable, and trustworthy learning-based solutions to inverse problems.</p>
+
+        </div>
+
+    
+</details>
+
+
+
+                                    </div>
+                                
+                        </div>
+                    </div>
+                
+            </div>
+
+
+        
+        <script>
+            function listmode(){
+                $(".cards_img").hide();
+                $(".pp-card").addClass("pp-mode-list").removeClass("pp-mode-compact");
+            }
+            function compactmode(){
+                $(".cards_img").show();
+                $(".pp-card").removeClass("pp-mode-list").addClass("pp-mode-compact");
+            }
+        </script>
+
+
+    
+
+<script>
+
+
+    $(document).ready(function() {
+        $(".abstract-link").on('click', function(e){
+            var target = $(e.target).find("i")
+            target.toggleClass("fa-caret-right");
+            target.toggleClass("fa-caret-up");
+        })
+        touchup();
+        /* touchup events currently adds dates to cached virtualcards for events */
+    })
+
+</script>
+
+
+    
+        </div>
+    
+
+</main>
+<!--END BLOCK CONTENT-->
+
+
+<!--Footer for the edit button-->
+
+
+<script>
+
+    $(function () {
+        if ($(".editable").length == 0) {
+            $("#editFooter").hide();
+        }
+    })
+</script>
+
+<script src="/static/core/js/fastclick.min.js" type="text/javascript"></script>
+
+<!--We don't know if there are editable tags on the page until after the django template engine has rendered the page. So,
+test in javascript for "editable" tags and if present, load the ckeditor engine dynamically. -->
+
+<script>
+  if (document.getElementsByClassName('editable').length > 0) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "/static/core/ckeditor/4.18/ckeditor.js";    // use this for linked script
+    script.text = "alert('voila!');"               // use this for inline script
+    document.body.appendChild(script);
+  }
+
+</script>
+
+
+<script>
+  function fetchContent() {
+    $(".editable").each(function (index) {
+    var myself = this;
+    var docvID = this.getAttribute('documentversion');
+    var blurbtext = this.getAttribute("blurbtext");
+    $.ajax({
+       url: "/Admin/RetrieveDocumentVersion",
+       type:"POST",
+       data:{
+           docvID : docvID,
+           blurbtext : blurbtext,
+           csrfmiddlewaretoken: csrftoken,
+       },
+       success: function(data, textStatus, jqXHR) {
+           myself.setAttribute("contenteditable", "true");
+           myself.innerHTML = data;
+           CKEDITOR.inline(myself.id);
+       },
+    });
+  })
+}
+
+$("#nopageedit").hide();
+function start_edit(){
+
+  $(".editable").addClass("warning-ring");
+
+  //At the beginning of an edit, we need to replace the content of the
+  //editable div with it's databased content in order to preserve the
+  //template tags. We want the tag, not the rendered tag.
+
+  /* You must remove any countdown.js timers on the page before replacing the page with it's
+  document version otherwise, Javascript will throw an exception.  */
+
+
+  $("[class$='-countdown']").parent().remove();
+  fetchContent();
+  $(".editable").attr("onblur", "ckeditorsave(this)");
+  window.status.bold();
+  window.status = "Click outside the editable area to save. Changes are LIVE!! Refresh page to discard changes.";
+  $("#editpage").hide();
+  $("#noeditpage").show();
+}
+
+
+  function stop_edit() {
+    ckeditorsave();
+    $("#noeditpage").hide();
+    $("#editpage").show();
+    window.location.reload();
+}
+function ckeditorsave(event){
+  for (var name in CKEDITOR.instances){
+    if ( CKEDITOR.instances[name].checkDirty() ){
+      editor = CKEDITOR.instances[name];
+      saveEditable(editor);
+    }
+  }
+}
+
+function saveEditable(editor){
+  var content = editor.getData();
+  var contentId = editor.name;
+  var pageId = window.location.pathname;
+  var originalContent = "N/A";
+  var documentversion = editor.container.getAttribute("documentversion");
+  var blurbtext = editor.container.getAttribute("blurbtext");
+  if ( contentId.match(/-aloha$/gi) ) {
+    contentId = contentId.replace( /-aloha/gi, '' );
+  }  /*I'm not sure what this does but it seems like it would matter*/
+  var request = jQuery.ajax({
+    url: "/Admin/SaveDocument",
+    type: "POST",
+    async: false,
+    data: {
+      content : content,
+      originalContent: originalContent,
+      contentId : contentId,
+      pageId : pageId,
+      documentversion:documentversion,
+      blurbtext : blurbtext,
+      csrfmiddlewaretoken: csrftoken
+    },
+    success: function(data){
+        if (data['message']){
+            alert(data['message']);
+        }
+    },
+    error: function(xqXHR, textStatus){
+        window.status = textStatus;
+        debugger;
+    }
+
+  });
+
+};
+
+
+
+
+</script>
+
+<script type="text/javascript">
+       jQuery(document).ajaxSend(function(event, xhr, settings) {
+           function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                   var cookies = document.cookie.split(';');
+                   for (var i = 0; i < cookies.length; i++) {
+                       var cookie = jQuery.trim(cookies[i]);
+                       // Does this cookie string begin with the name we want?
+                       if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                       }
+                   }
+               }
+               return cookieValue;
+           }
+           function sameOrigin(url) {
+               // url could be relative or scheme relative or absolute
+               var host = document.location.host; // host + port
+               var protocol = document.location.protocol;
+               var sr_origin = '//' + host;
+               var origin = protocol + sr_origin;
+               // Allow absolute or scheme relative URLs to same origin
+               return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                   (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                   // or any other URL that isn't scheme relative or absolute i.e relative.
+                   !(/^(\/\/|http:|https:).*/.test(url));
+           }
+           function safeMethod(method) {
+               return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+           }
+
+           if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+               xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+           }
+       });
+</script>
+
+
+
+
+
+<div id="successful-page-load" class='hidden'>Successful Page Load</div>
+
+
+
+
+
+    
+        <link href="/static/conf_gdpr/css/conf_gdpr.css" rel="stylesheet">
+        <div id="cookie-bar" style="z-index: 8">
+            <table class="gdpr-statement">
+                <col>
+                <col style="width:120px">
+                <tr>
+                    <td style="padding:5px">
+                        NeurIPS uses cookies to remember that you are logged in. By using our websites, you agree
+                        to the placement of cookies. <a href="/public/PrivacyPolicy">
+                        Our Privacy Policy &raquo;&nbsp;</a>
+                    </td>
+                    <td>
+                        <button float-end class="btn btn-light btn-sm btn btn-outline-dark" onClick="accept_cookies();">Accept
+                            Cookies
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function accept_cookies() {
+
+                $.ajax({
+                    method: "POST",
+                    url: "/conf_gdpr/accept",
+                    data: {
+                        csrfmiddlewaretoken: csrftoken,
+                    },
+                }).done(function (data) {
+                    console.log(data);
+                    $("#cookie-bar").fadeOut();
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
+                });
+            }
+        </script>
+
+    
+
+
+
+
+
+
+<br>
+<footer id="bootstrap-footer" class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-1 border-top border-dark">
+    </div>
+    <!-- Section: Links  -->
+    <section class="pt-1">
+        <div class="container text-center text-md-start mt-3">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <img src="/static/core/img/NeurIPS-logo.svg" alt="NeurIPS logo" height='30px'>
+                    </h6>
+                    <p>
+                        The NeurIPS Logo above may be used on presentations. Right-click and choose
+                        download. It is a vector graphic and may be used at any scale.
+                    </p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4" style="max-width: 300px;">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 text-center">
+                        Useful links
+                    </h6>
+                    <div></div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    
+                        <p>
+                            <i class="fas fa-home me-3"></i> 1269 Law St, San Diego CA 92109
+                        </p>
+                    
+                    <p>
+                        <i class="fas fa-envelope me-3"></i> <a href="/Help/Contact">Email</a>
+                    </p>
+                    
+                    
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div></div>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Footer -->
+
+</body>
+</html>

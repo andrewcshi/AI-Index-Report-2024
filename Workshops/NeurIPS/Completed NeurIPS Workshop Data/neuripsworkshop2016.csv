@@ -1,0 +1,11 @@
+link,category,title,abstract,keywords,ccs_concepts,author_names,author_affiliations,author_countries
+https://neurips.cc/virtual/2016/workshop/6254,Transparency & Explainability,"""What If?"" Inference and Learning of Hypothetical and Counterfactual Interventions in Complex Systems",,[],[],"['Ricardo Silva', 'John Shawe-Taylor', 'Adith Swaminathan', 'Thorsten Joachims']",[],[]
+https://neurips.cc/virtual/2016/workshop/6232,Transparency & Explainability,Towards an Artificial Intelligence for Data Science,,[],[],"['Charles Sutton', 'James Geddes', 'Zoubin Ghahramani', 'Padhraic Smyth', 'Chris Williams']",[],[]
+https://neurips.cc/virtual/2016/workshop/6236,Transparency & Explainability,Machine Learning in Computational Biology,,[],[],"['Gerald Quon', 'Sara Mostafavi', 'James Y Zou', 'Barbara Engelhardt', 'Oliver Stegle', 'Nicolo Fusi']",[],[]
+https://neurips.cc/virtual/2016/workshop/6243,Fairness & Bias,Imperfect Decision Makers: Admitting Real-World Rationality,,[],[],"['Miroslav Karny', 'David H Wolpert', 'David Rios Insua', 'Tatiana V. Guy']",[],[]
+https://neurips.cc/virtual/2016/workshop/6292,Fairness & Bias,"People and machines: Public views on machine learning, and what this means for machine learning researchers",,[],[],"['Susannah Odell', 'Peter Donnelly', 'Jessica Montgomery', 'Sabine Hauert', 'Zoubin Ghahramani', 'Katherine Gorman']",[],[]
+https://neurips.cc/virtual/2016/workshop/6248,Fairness & Bias,Machine Learning Systems,,[],[],"['Aparna Lakshmiratan', 'Li Erran Li', 'Siddhartha Sen', 'Sarah Bird', 'Hussein Mehanna']",[],[]
+https://neurips.cc/virtual/2016/workshop/6250,Security,Private Multi-Party Machine Learning,,[],[],"['Borja Balle', 'Aurélien Bellet', 'David Evans', 'Adrià Gascón']",[],[]
+https://neurips.cc/virtual/2016/workshop/6244,Security,Adaptive Data Analysis,,[],[],"['Vitaly Feldman', 'Aaditya Ramdas', 'Aaron Roth', 'Adam Smith']",[],[]
+https://neurips.cc/virtual/2016/workshop/6225,Security,3D Deep Learning,,[],[],"['Fisher Yu', 'Joseph Lim', 'Matthew D Fisher', 'Qixing Huang', 'Jianxiong Xiao']",[],[]
+https://neurips.cc/virtual/2016/workshop/6230,Security,Learning with Tensors: Why Now and How?,,[],[],"['Anima Anandkumar', 'Rong Ge', 'Yan Liu', 'Maximilian Nickel', 'Qi (Rose) Yu']",[],[]

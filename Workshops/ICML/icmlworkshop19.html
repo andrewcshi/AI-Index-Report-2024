@@ -1,0 +1,2490 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-padding-top: 70px;"> 
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/virtual/js/virtual.js"></script>
+    <meta name="google-site-verification" content="0jwPnVXIAk4FvFdT37dwMmd-kjHF86e5DKwvqlStUW0">
+
+    <title>ICML 2019</title>
+    
+    <link rel="stylesheet" href="/static/core/css/core.css" type="text/css">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css" type="text/css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/core/css/custom.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      "tex2jax": {
+        "inlineMath": [["$","$"], ["\\(","\\)"]],
+        "displayMath": [["\\[","\\]"]],
+        "processEscapes": true
+      }
+    }
+    );
+    </script>
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!--This script keeps local links inside the web app rather than opening them
+in Safari, and has nothing to do with editing or Aloha.-->
+
+<script type="text/javascript">
+	(function(document,navigator,standalone) {
+		// prevents links from apps from opening in mobile safari
+		// this javascript must be the first script in your <head>
+		if ((standalone in navigator) && navigator[standalone]) {
+			var curnode, location=document.location, stop=/^(a|html)$/i;
+			document.addEventListener('click', function(e) {
+				curnode=e.target;
+				while (!(stop).test(curnode.nodeName)) {
+					curnode=curnode.parentNode;
+				}
+				// Conditions to do this only on links to your own app
+				// if you want all links, use if('href' in curnode) instead.
+				if(
+					'href' in curnode && // is a link
+					(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+					(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+						chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+				) {
+					e.preventDefault();
+					location.href = curnode.href;
+				}
+			},false);
+		}
+	})(document,window.navigator,'standalone');
+</script>        
+
+<!-- This style sets the minimum size of a blurb to 260 px unless there is a
+template context variable blurb_min_height that sets it otherwise. If blurbs
+aren't all about the same size, they don't flow well when the window is
+resized.-->
+
+
+<style>
+/*This is here rather that in a .css file for a reason.*/
+    @media screen and (min-width: 767px) {
+        .blurb {
+            min-height:260px;
+        }
+    }
+</style>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</script>
+
+<script>
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "/static/core/js/jquery-3.6.1.min.js";
+        document.head.appendChild(script);
+    }
+</script>
+
+
+    <script>
+        var $ = jQuery;
+        /*Store a pointer to jquery2, so I can reference it later.  Aloha loads jquery 1.7 and much
+        of bootstrap 3 is not compatible. This comment is deprecated. */
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/be44b7e05d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Exo;}
+    </style>
+
+
+
+
+
+
+
+     
+
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/virtual/css/virtual.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js" integrity="sha512-lEb9Vp/rkl9g2E/LdHIMFTqz21+LA79f84gqP75fbimHqVTu6483JG1AwJlWLLQ8ezTehty78fObKupq3HSHPQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/static/core/js/ajax-csrf-snippet.js" type="text/javascript"></script>
+    <script src="/static/virtual/js/virtual.js"></script>
+    
+
+    <title>ICML 2019</title>
+    
+
+    <title>ICML 2019 Workshops</title>
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="noprint">
+    
+        
+<!--Navbar start-->
+<nav id="id_navbar" class="navbar navbar-expand-sm navbar-dark" style="background-color:#212529">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="/"><img src="/static/core/img/icml-navbar-logo.svg" height="40px"></a></div>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle  p-1" 
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ICML
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/FAQ">
+                    <span >
+                        Help/FAQ
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Downloads">
+                    <span >
+                        Downloads
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/CodeOfConduct">
+                    <span >
+                        Code of Conduct
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/JournalToConference">
+                    <span >
+                        Journal To Conference Track
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Profile/create">
+                    <span >
+                        Create Profile
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/public/PrivacyPolicy">
+                    <span >
+                        Privacy Policy
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Conferences/2024/Press">
+                    <span >
+                        Press
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/careers">
+                    <span >
+                        Careers
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/Help/Contact">
+                    <span >
+                        Contact ICML
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/MyStuff">
+                    <span >
+                        My Stuff
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+
+                <form class="d-flex" role="search" action="/search">
+                    <div class="input-group" role="search">
+                        <input type="text" class="form-control" placeholder="Search" name="q"
+                               value=""
+                               aria-label="Search" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn-primary" id="btnGroupAddon">
+                            <button style="border: none; background-color: transparent; padding: 0;" type="submit">
+                                <i class="fa-solid fa-magnifying-glass" ></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                &nbsp;
+                
+                    <a href="/accounts/login?nextp=/Conferences/2019 " class="navbar-brand"><span
+                            class="fa-solid fa-right-to-bracket"></span> Login</a>
+                
+
+            </div>
+        </div>
+    </nav>
+<!--Navbar end-->
+    
+</div><!--noprint div-->
+
+
+<!--This holds the whole page including the navbar-->
+
+<main id="main">
+    <div class="container-fluid">
+        <!--Navbar start-->
+
+<div class="dropdown">
+    <nav class="align-middle navbar navbar-expand-lg  rounded-bottom"
+         style="min-height: 57px; background-image: url(/static/virtual/img/navbackground.png); background-repeat: repeat-x;">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggler1142" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler1142">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    
+
+
+    <li class="dropdown-item dropdown pe-3">
+        <a class="nav-link dropdown-toggle border-3  btn btn-primary text-white p-1" style= "background-color: #070bff; font-size: 1.2 em;"
+           href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Year: (2019)
+        </a>
+        <ul class="dropdown-menu">
+            
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2024">2024
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2023">2023
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2022">2022
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2021/index.html">2021
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2020/">2020
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2019/">2019
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2018">2018
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2017">2017
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2016">2016
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2015">2015
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2014">2014
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2013">2013
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2012">2012
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2011">2011
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2010">2010
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2009">2009
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2008
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2008">2007
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2007">2006
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2005">2005
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2005">2004
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/2002">2002
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="/Conferences/1996">1996
+                </a>
+            </li>
+        
+
+    
+
+    
+        <hr class="dropdown-divider" aria-hidden="true">
+    
+
+    
+        
+            <li class="dropdown-item " >
+                <a class="dropdown-item p-1"
+                   href="http://www.machinelearning.org/archive.html">IMLS Archives
+                </a>
+            </li>
+        
+
+    
+
+    
+
+        </ul>
+    </li>
+    
+
+
+
+    
+        
+            <li class="dropdown-item  pe-2" >
+                <a class="nav-link p-1"  href="/virtual/2019/index.html">
+                    <span >
+                        Getting Started
+                    </span>
+                </a>
+            </li>
+
+        
+
+    
+
+    
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    <!--Navbar end-->
+    </div>
+    <br><br>
+    
+<div class="container-fluid">
+
+    
+
+    
+
+    <br>
+
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="title-centered" style="text-align:center">Workshops</div>
+            
+        </div>
+
+
+    
+
+        
+
+        <div class="row">  
+            <div class="col-sm-12">
+
+                
+                    <div style="max-width: 1500px; margin:auto; border">
+                        <div class="grid-displaycards">
+
+                                
+                                    <div class="displaycards touchup-date" id="event-3525">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3525">ICML 2019 Time Series Workshop</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Vitaly Kuznetsov &middot; Scott Yang &middot; Rose Yu &middot; Cheng Tang &middot; Yuyang Wang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3525"></div>
+
+
+    <p style="font-size:.9em;">[ 102 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3525" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3525" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3525">
+                Abstract <i id="caret-3525" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3525">
+    <div class="abstract-display">
+        <p>Time series data is both quickly growing and already ubiquitous. In domains spanning as broad a range as climate, robotics, entertainment, finance, healthcare, and transportation, there has been a significant shift away from parsimonious, infrequent measurements to nearly continuous monitoring and recording. Rapid advances in sensing technologies, ranging from remote sensors to wearables and social sensing, are generating rapid growth in the size and complexity of time series data streams. Thus, the importance and impact of time series analysis and modelling techniques only continues to grow. <br><br>At the same time, while time series analysis has been extensively studied by econometricians and statisticians, modern time series data often pose significant challenges for the existing techniques both in terms of their structure (e.g., irregular sampling in hospital records and spatiotemporal structure in climate data) and size. Moreover, the focus on time series in the machine learning community has been comparatively much smaller. In fact, the predominant methods in machine learning often assume i.i.d. data streams, which is generally not appropriate for time series data. Thus, there is both a great need and an exciting opportunity for the machine learning community to develop theory, models and algorithms specifically for the purpose of processing …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3531">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3531">Theoretical Physics for Deep Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Jaehoon Lee &middot; Jeffrey Pennington &middot; Yasaman Bahri &middot; Max Welling &middot; Surya Ganguli &middot; Joan Bruna</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3531"></div>
+
+
+    <p style="font-size:.9em;">[ 104 C ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3531" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3531" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3531">
+                Abstract <i id="caret-3531" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3531">
+    <div class="abstract-display">
+        <p>Though the purview of physics is broad and includes many loosely connected subdisciplines, a unifying theme is the endeavor to provide concise, quantitative, and predictive descriptions of the often large and complex systems governing phenomena that occur in the natural world. While one could debate how closely deep learning is connected to the natural world, it is undeniably the case that deep learning systems are large and complex; as such, it is reasonable to consider whether the rich body of ideas and powerful tools from theoretical physicists could be harnessed to improve our understanding of deep learning. The goal of this workshop is to investigate this question by bringing together experts in theoretical physics and deep learning in order to stimulate interaction and to begin exploring how theoretical physics can shed light on the theory of deep learning.<br><br>We believe ICML is an appropriate venue for this gathering as members from both communities are frequently in attendance and because deep learning theory has emerged as a focus at the conference, both as an independent track in the main conference and in numerous workshops over the last few years. Moreover, the conference has enjoyed an increasing number of papers using physics …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3530">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3530">The Third Workshop On Tractable Probabilistic Modeling (TPM)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Pedro Domingos &middot; Daniel Lowd &middot; Tahrima Rahman &middot; Antonio Vergari &middot; Alejandro Molina &middot; Antonio Vergari</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3530"></div>
+
+
+    <p style="font-size:.9em;">[ 202 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3530" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3530" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3530">
+                Abstract <i id="caret-3530" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3530">
+    <div class="abstract-display">
+        <p>Probabilistic modeling has become the de facto framework to reason about uncertainty in Machine Learning and AI. One of the main challenges in probabilistic modeling is the trade-off between the expressivity of the models and the complexity of performing various types of inference, as well as learning them from data. <br><br>This inherent trade-off is clearly visible in powerful -- but intractable -- models like Markov random fields, (restricted) Boltzmann machines, (hierarchical) Dirichlet processes and Variational Autoencoders. Despite these models’ recent successes, performing inference on them resorts to approximate routines. Moreover, learning such models from data is generally harder as inference is a sub-routine of learning, requiring simplifying assumptions or further approximations. Having guarantees on tractability at inference and learning time is then a highly desired property in many real-world scenarios. <br><br>Tractable probabilistic modeling (TPM) concerns methods guaranteeing exactly this: performing exact (or tractably approximate) inference and/or learning. To achieve this, the following approaches have been proposed: i) low or bounded-treewidth probabilistic graphical models and determinantal point processes, that exchange expressiveness for efficiency; ii) graphical models with high girth or weak potentials, that provide bounds on the performance of approximate inference methods; and iii) exchangeable probabilistic models that exploit symmetries to …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3524">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3524">ICML 2019 Workshop on Computational Biology</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Donna Pe&#x27;er &middot; Sandhya Prabhakaran &middot; Elham Azizi &middot; Abdoulaye Baniré Diallo &middot; Anshul Kundaje &middot; Barbara Engelhardt &middot; Wajdi Dhifli &middot; Engelbert MEPHU NGUIFO &middot; Wesley Tansey &middot; Julia Vogt &middot; Jennifer Listgarten &middot; Cassandra Burdziak &middot; Workshop CompBio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3524"></div>
+
+
+    <p style="font-size:.9em;">[ 101 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3524" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3524" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3524">
+                Abstract <i id="caret-3524" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3524">
+    <div class="abstract-display">
+        <p>The workshop will showcase recent research in the field of Computational Biology. There has been significant development in genomic sequencing techniques and imaging technologies. These approaches not only generate huge amounts of data but provide unprecedented resolution of single cells and even subcellular structures. The availability of high dimensional data, at multiple spatial and temporal resolutions has made machine learning and deep learning methods increasingly critical for computational analysis and interpretation of the data. Conversely, biological data has also exposed unique challenges and problems that call for the development of new machine learning methods. This workshop aims to bring together researchers working at the intersection of Machine Learning and Biology to present recent advances and open questions in Computational Biology to the ML community. <br><br>The workshop is a sequel to the WCB workshops we organized in the last three years Joint ICML and IJCAI 2018, Stockholm, ICML 2017, Sydney and ICML 2016, New York as well as Workshop on Bioinformatics and AI at IJCAI 2015 Buenos Aires, IJCAI 2016 New York, IJCAI 2017 Melbourne which had excellent line-ups of talks and were well-received by the community. Every year, we received 60+ submissions. After multiple rounds of rigorous reviewing around 50 …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3520">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3520">Joint Workshop on On-Device Machine Learning &amp; Compact Deep Neural Network Representations (ODML-CDNNR)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Sujith Ravi &middot; Zornitsa Kozareva &middot; Lixin Fan &middot; Max Welling &middot; Yurong Chen &middot; Werner Bailer &middot; Brian Kulis &middot; Haoji Hu &middot; Jonathan Dekhtiar &middot; Yingyan Lin &middot; Diana Marculescu</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3520"></div>
+
+
+    <p style="font-size:.9em;">[ 203 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3520" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3520" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3520">
+                Abstract <i id="caret-3520" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3520">
+    <div class="abstract-display">
+        <p>This joint workshop aims to bring together researchers, educators, practitioners who are interested in techniques as well as applications of on-device machine learning and compact, efficient neural network representations. One aim of the workshop discussion is to establish close connection between researchers in the machine learning community and engineers in industry, and to benefit both academic researchers as well as industrial practitioners. The other aim is the evaluation and comparability of resource-efficient machine learning methods and compact and efficient network representations, and their relation to particular target platforms (some of which may be highly optimized for neural network inference). The research community has still to develop established evaluation procedures and metrics.<br><br>The workshop also aims at reproducibility and comparability of methods for compact and efficient neural network representations, and on-device machine learning. Contributors are thus encouraged to make their code available. The workshop organizers plan to make some example tasks and datasets available, and invite contributors to use them for testing their work. In order to provide comparable performance evaluation conditions, the use of a common platform (such as Google Colab) is intended.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3514">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3514">Uncertainty and Robustness in Deep Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Sharon Yixuan Li &middot; Dan Hendrycks &middot; Thomas Dietterich &middot; Balaji Lakshminarayanan &middot; Justin Gilmer</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3514"></div>
+
+
+    <p style="font-size:.9em;">[ Hall B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3514" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3514" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3514">
+                Abstract <i id="caret-3514" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3514">
+    <div class="abstract-display">
+        <p>There has been growing interest in rectifying deep neural network vulnerabilities. Challenges arise when models receive samples drawn from outside the training distribution. For example, a neural network tasked with classifying handwritten digits may assign high confidence predictions to cat images. Anomalies are frequently encountered when deploying ML models in the real world. Well-calibrated predictive uncertainty estimates are indispensable for many machine learning applications, such as self-driving cars and medical diagnosis systems. Generalization to unseen and worst-case inputs is also essential for robustness to distributional shift. In order to have ML models reliably predict in open environment, we must deepen technical understanding in the following areas: (1) learning algorithms that are robust to changes in input data distribution (e.g., detect out-of-distribution examples); (2) mechanisms to estimate and calibrate confidence produced by neural networks and (3) methods to improve robustness to adversarial and common corruptions, and (4) key applications for uncertainty such as in artificial intelligence (e.g., computer vision, robotics, self-driving cars, medical imaging) as well as broader machine learning tasks.<br><br>This workshop will bring together researchers and practitioners from the machine learning communities, and highlight recent work that contribute to address these challenges. Our agenda will feature contributed papers with …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3507">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3507">Climate Change: How Can AI Help?</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">David Rolnick &middot; Alexandre Lacoste &middot; Tegan Maharaj &middot; Jennifer Chayes &middot; Yoshua Bengio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3507"></div>
+
+
+    <p style="font-size:.9em;">[ 104 A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3507" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3507" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3507">
+                Abstract <i id="caret-3507" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3507">
+    <div class="abstract-display">
+        <p>Many in the machine learning community wish to take action on climate change, yet feel their skills are inapplicable.  This workshop aims to show that in fact the opposite is true: while no silver bullet, ML can be an invaluable tool both in reducing greenhouse gas emissions and in helping society adapt to the effects of climate change. Climate change is a complex problem, for which action takes many forms - from designing smart electrical grids to tracking deforestation in satellite imagery. Many of these actions represent high-impact opportunities for real-world change, as well as being interesting problems for ML research.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3511">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3511">Human In the Loop Learning (HILL)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Xin Wang &middot; Xin Wang &middot; Fisher Yu &middot; Shanghang Zhang &middot; Joseph Gonzalez &middot; Yangqing Jia &middot; Sarah Bird &middot; Kush Varshney &middot; Been Kim &middot; Adrian Weller</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3511"></div>
+
+
+    <p style="font-size:.9em;">[ 103 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3511" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3511" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3511">
+                Abstract <i id="caret-3511" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3511">
+    <div class="abstract-display">
+        <p>https://sites.google.com/view/hill2019/home<br><br>This workshop is a joint effort between the 4th ICML Workshop on Human Interpretability in Machine Learning (WHI) and the ICML 2019 Workshop on Interactive Data Analysis System (IDAS). We have combined our forces this year to run Human in the Loop Learning (HILL) in conjunction with ICML 2019!<br><br>The workshop will bring together researchers and practitioners who study interpretable and interactive learning systems with applications in large scale data processing, data annotations, data visualization, human-assisted data integration, systems and tools to interpret machine learning models as well as algorithm designs for active learning, online learning, and interpretable machine learning algorithms. The target audience for the workshop includes people who are interested in using machines to solve problems by having a human be an integral part of the process. This workshop serves as a platform where researchers can discuss approaches that bridge the gap between humans and machines and get the best of both worlds.<br><br>We welcome high-quality submissions in the broad area of human in the loop learning. A few (non-exhaustive) topics of interest include:<br><br>    Systems for online and interactive learning algorithms,<br>    Active/Interactive machine learning algorithm design, <br>    Systems for collecting, preparing, and managing machine learning data, <br>    Model understanding …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3502">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3502">Understanding and Improving Generalization in Deep Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Dilip Krishnan &middot; Hossein Mobahi &middot; Behnam Neyshabur &middot; Behnam Neyshabur &middot; Peter Bartlett &middot; Dawn Song &middot; Nati Srebro</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3502"></div>
+
+
+    <p style="font-size:.9em;">[ Grand Ballroom A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3502" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3502" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3502">
+                Abstract <i id="caret-3502" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3502">
+    <div class="abstract-display">
+        <p>The 1st workshop on Generalization in Deep Networks: Theory and Practice will be held as part of ICML 2019. Generalization is one of the fundamental problems of machine learning, and increasingly important as deep networks make their presence felt in domains with big, small, noisy or skewed data. This workshop will consider generalization from both theoretical and practical perspectives. We welcome contributions from paradigms such as representation learning, transfer learning and reinforcement learning. The workshop invites researchers to submit working papers in the following research areas: <br><br>Implicit regularization: the role of optimization algorithms in generalization<br>Explicit regularization methods<br>Network architecture choices that improve generalization<br>Empirical approaches to understanding generalization<br>Generalization bounds; empirical evaluation criteria to evaluate bounds<br>Robustness: generalizing to distributional shift a.k.a dataset shift<br>Generalization in the context of representation learning, transfer learning and deep reinforcement learning: definitions and empirical approaches</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3518">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3518">Negative Dependence: Theory and Applications in Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Mike Gartrell &middot; Jennifer Gillenwater &middot; Alex Kulesza &middot; Zelda Mariet</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3518"></div>
+
+
+    <p style="font-size:.9em;">[ 204 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3518" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3518" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3518">
+                Abstract <i id="caret-3518" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3518">
+    <div class="abstract-display">
+        <p>Models of negative dependence are increasingly important in machine learning. Whether selecting training data, finding an optimal experimental design, exploring in reinforcement learning, or making suggestions with recommender systems, selecting high-quality but diverse items has become a core challenge. This workshop aims to bring together researchers who, using theoretical or applied techniques, leverage negative dependence in their work. We will delve into the rich underlying mathematical theory, understand key applications, and discuss the most promising directions for future research.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3526">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3526">Workshop on the Security and Privacy of Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Nicolas Papernot &middot; Florian Tramer &middot; Bo Li &middot; Dan Boneh &middot; David Evans &middot; Somesh Jha &middot; Percy Liang &middot; Patrick McDaniel &middot; Jacob Steinhardt &middot; Dawn Song</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3526"></div>
+
+
+    <p style="font-size:.9em;">[ 104 B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3526" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3526" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3526">
+                Abstract <i id="caret-3526" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3526">
+    <div class="abstract-display">
+        <p>As machine learning has increasingly been deployed in critical real-world applications, the dangers of manipulation and misuse of these models has become of paramount importance to public safety and user privacy. In applications such as online content recognition to financial analytics to autonomous vehicles all have shown the be vulnerable to adversaries wishing to manipulate the models or mislead models to their malicious ends. <br>This workshop will focus on recent research and future directions about the security and privacy problems in real-world machine learning systems. We aim to bring together experts from machine learning, security, and privacy communities in an attempt to highlight recent work in these area as well as to clarify the foundations of secure and private machine learning strategies. We seek to come to a consensus on a rigorous framework to formulate adversarial attacks targeting machine learning models, and to characterize the properties that ensure the security and privacy of machine learning systems. Finally, we hope to chart out important directions for future work and cross-community collaborations.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3503">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3503">6th ICML Workshop on Automated Machine Learning (AutoML 2019)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Frank Hutter &middot; Joaquin Vanschoren &middot; Katharina Eggensperger &middot; Matthias Feurer &middot; Matthias Feurer</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3503"></div>
+
+
+    <p style="font-size:.9em;">[ Grand Ballroom B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3503" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3503" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3503">
+                Abstract <i id="caret-3503" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3503">
+    <div class="abstract-display">
+        <p>Machine learning has achieved considerable successes in recent years, but this success often relies on human experts, who construct appropriate features, design learning architectures, set their hyperparameters, and develop new learning algorithms. Driven by the demand for off-the-shelf machine learning methods from an ever-growing community, the research area of AutoML targets the progressive automation of machine learning aiming to make effective methods available to everyone. The workshop targets a broad audience ranging from core machine learning researchers in different fields of ML connected to AutoML, such as neural architecture search, hyperparameter optimization, meta-learning, and learning to learn, to domain experts aiming to apply machine learning to new types of problems.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3506">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3506">AI in Finance: Applications and Infrastructure for Multi-Agent Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Prashant Reddy &middot; Tucker Balch &middot; Michael Wellman &middot; Senthil Kumar &middot; Ion Stoica &middot; Edith Elkind</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3506"></div>
+
+
+    <p style="font-size:.9em;">[ 201 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3506" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3506" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3506">
+                Abstract <i id="caret-3506" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3506">
+    <div class="abstract-display">
+        <p>Finance is a rich domain for AI and ML research. Model-driven strategies for stock trading and risk assessment models for loan approvals are quintessential financial applications that are reasonably well-understood. However, there are a number of other applications that call for attention as well. <br><br>In particular, many finance domains involve ecosystems of interacting and competing agents. Consider for instance the detection of financial fraud and money-laundering. This is a challenging multi-agent learning problem, especially because the real world agents involved evolve their strategies constantly. Similarly, in algorithmic trading of stocks, commodities, etc., the actions of any given trading agent affects, and is affected by, other trading agents -- many of these agents are constantly learning in order to adapt to evolving market scenarios. Further, such trading agents operate at such a speed and scale that they must be fully autonomous. They have grown in sophistication to employ advanced ML strategies including deep learning, reinforcement learning, and transfer learning. <br><br>Financial institutions have a long history of investing in technology as a differentiator and have been key drivers in advancing computing infrastructure (e.g., low-latency networking). As more financial applications employ deep learning and reinforcement learning, there is consensus now on the need …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3510">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3510">Generative Modeling and Model-Based Reasoning for Robotics and AI</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Aravind Rajeswaran &middot; Emanuel Todorov &middot; Igor Mordatch &middot; William Agnew &middot; Amy Zhang &middot; Joelle Pineau &middot; Michael Chang &middot; Dumitru Erhan &middot; Sergey Levine &middot; Kimberly Stachenfeld &middot; Marvin Zhang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3510"></div>
+
+
+    <p style="font-size:.9em;">[ Hall A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3510" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3510" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3510">
+                Abstract <i id="caret-3510" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3510">
+    <div class="abstract-display">
+        <p>Workshop website: https://sites.google.com/view/mbrl-icml2019<br><br>In the recent explosion of interest in deep RL, “model-free” approaches based on Q-learning and actor-critic architectures have received the most attention due to their flexibility and ease of use. However, this generality often comes at the expense of efficiency (statistical as well as computational) and robustness. The large number of required samples and safety concerns often limit direct use of model-free RL for real-world settings.<br><br>Model-based methods are expected to be more efficient. Given accurate models, trajectory optimization and Monte-Carlo planning methods can efficiently compute near-optimal actions in varied contexts. Advances in generative modeling, unsupervised, and self-supervised learning provide methods for learning models and representations that support subsequent planning and reasoning. Against this backdrop, our workshop aims to bring together researchers in generative modeling and model-based control to discuss research questions at their intersection, and to advance the state of the art in model-based RL for robotics and AI. In particular, this workshops aims to make progress on questions related to:<br><br>1. How can we learn generative models efficiently? Role of data, structures, priors, and uncertainty.<br>2. How to use generative models efficiently for planning and reasoning? Role of derivatives, sampling, hierarchies, uncertainty, counterfactual reasoning etc. …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3515">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3515">Reinforcement Learning for Real Life</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Yuxi Li &middot; Alborz Geramifard &middot; Lihong Li &middot; Csaba Szepesvari &middot; Tao Wang</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3515"></div>
+
+
+    <p style="font-size:.9em;">[ Seaside Ballroom ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3515" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3515" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3515">
+                Abstract <i id="caret-3515" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3515">
+    <div class="abstract-display">
+        <p>Reinforcement learning (RL) is a general learning, predicting, and decision making paradigm. RL provides solution methods for sequential decision making problems as well as those can be transformed into sequential ones. RL connects deeply with optimization, statistics, game theory, causal inference, sequential experimentation, etc., overlaps largely with approximate dynamic programming and optimal control, and applies broadly in science, engineering and arts.<br><br>RL has been making steady progress in academia recently, e.g., Atari games, AlphaGo, visuomotor policies for robots. RL has also been applied to real world scenarios like recommender systems and neural architecture search. See a recent collection about RL applications at https://medium.com/@yuxili/rl-applications-73ef685c07eb. It is desirable to have RL systems that work in the real world with real benefits. However, there are many issues for RL though, e.g. generalization, sample efficiency, and exploration vs. exploitation dilemma. Consequently, RL is far from being widely deployed. Common, critical and pressing questions for the RL community are then: Will RL have wide deployments? What are the issues? How to solve them?<br><br>The goal of this workshop is to bring together researchers and practitioners from industry and academia interested in addressing practical and/or theoretical issues in applying RL to real life scenarios, review state …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3516">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3516">Real-world Sequential Decision Making: Reinforcement Learning and Beyond</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Hoang Le &middot; Yisong Yue &middot; Adith Swaminathan &middot; Byron Boots &middot; Ching-An Cheng</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3516"></div>
+
+
+    <p style="font-size:.9em;">[ Seaside Ballroom ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3516" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3516" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3516">
+                Abstract <i id="caret-3516" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3516">
+    <div class="abstract-display">
+        <p>Workshop website: <a href="https://realworld-sdm.github.io/">https://realworld-sdm.github.io/</a></p>
+
+<p>This workshop aims to bring together researchers from industry and academia in order to describe recent advances and discuss future research directions pertaining to real-world sequential decision making, broadly construed. We aim to highlight new and emerging research opportunities for the machine learning community that arise from the evolving needs for making decision making theoretically and practically relevant for realistic applications. <br><br>Research interest in reinforcement and imitation learning has surged significantly over the past several years, with the empirical successes of self-playing in games and availability of increasingly realistic simulation environments. We believe the time is ripe for the research community to push beyond simulated domains and start exploring research directions that directly address the real-world need for optimal decision making. We are particularly interested in understanding the current theoretical and practical challenges that prevent broader adoption of current policy learning and evaluation algorithms in high-impact applications, across a broad range of domains. <br><br>This workshop welcomes both theory and application contributions.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3523">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3523">ICML Workshop on Imitation, Intent, and Interaction (I3)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Nicholas Rhinehart &middot; Sergey Levine &middot; Chelsea Finn &middot; He He &middot; Ilya Kostrikov &middot; Justin Fu &middot; Siddharth Reddy</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3523"></div>
+
+
+    <p style="font-size:.9em;">[ 201 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3523" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3523" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3523">
+                Abstract <i id="caret-3523" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3523">
+    <div class="abstract-display">
+        <p><strong>Website</strong>: <a href="https://sites.google.com/view/icml-i3">https://sites.google.com/view/icml-i3</a></p>
+
+<p><strong>Abstract:</strong> A key challenge for deploying interactive machine learning systems in the real world is the ability for machines to understand human intent. Techniques such as imitation learning and inverse reinforcement learning are popular data-driven paradigms for modeling agent intentions and controlling agent behaviors, and have been applied to domains ranging from robotics and autonomous driving to dialogue systems. Such techniques provide a practical solution to specifying objectives to machine learning systems when they are difficult to program by hand. <br><br>While significant progress has been made in these areas, most research effort has concentrated on modeling and controlling single agents from dense demonstrations or feedback. However, the real world has multiple agents, and dense expert data collection can be prohibitively expensive. Surmounting these obstacles requires progress in frontiers such as: <br>1) the ability to infer intent from multiple modes of data, such as language or observation, in addition to traditional demonstrations. <br>2) the ability to model multiple agents and their intentions, both in cooperative and adversarial settings. <br>3) handling partial or incomplete information from the expert, such as demonstrations that lack dense action annotations, raw videos, etc.. <br><br>The workshop on Imitation, Intention, and Interaction (I3) seeks contributions …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3508">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3508">Coding Theory For Large-scale Machine Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Viveck Cadambe &middot; Pulkit Grover &middot; Dimitris Papailiopoulos &middot; Gauri Joshi</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3508"></div>
+
+
+    <p style="font-size:.9em;">[ 202 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3508" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3508" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3508">
+                Abstract <i id="caret-3508" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3508">
+    <div class="abstract-display">
+        <h1>Coding Theory For Large-scale Machine Learning</h1>
+
+<p>Coding theory involves the art and science of how to add redundancy to data to ensure that a desirable output is obtained at despite deviations from ideal behavior from the system components that interact with the data. Through a rich, mathematically elegant set of techniques, coding theory has come to significantly influence the design of modern data communications, compression and storage systems. The last few years have seen a rapidly growing interest in coding theory based approaches for the development of efficient machine learning algorithms towards robust, large-scale, distributed computational pipelines. </p>
+
+<p>The CodML workshop brings together researchers developing coding techniques for machine learning, as well as researchers working on systems implementations for computing, with cutting-edge presentations from both sides. The goal is to learn about non-idealities in system components as well as approaches to obtain reliable and robust learning despite these non-idealities, and identify problems of future interest.</p>
+
+<p>The workshop is co-located with ICML 2019, and will be held in Long Beach, California, USA on June 14th or 15th, 2019.</p>
+
+<p>Please see the <a href="https://sites.google.com/view/codml2019">website</a> for more details: </p>
+
+<h2>Call for Posters</h2>
+
+<h3>Scope of the Workshop</h3>
+
+<p>In this workshop we solicit research papers focused on the …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3532">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3532">The How2 Challenge: New Tasks for Vision &amp; Language</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Florian Metze &middot; Lucia Specia &middot; Desmond Elliott &middot; Loic Barrault &middot; Ramon Sanabria &middot; Shruti Palaskar</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3532"></div>
+
+
+    <p style="font-size:.9em;">[ 203 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3532" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3532" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3532">
+                Abstract <i id="caret-3532" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3532">
+    <div class="abstract-display">
+        <p>Research at the intersection of vision and language has been attracting a lot of attention in recent years. Topics include the study of multi-modal representations, translation between modalities, bootstrapping of labels from one modality into another, visually-grounded question answering, segmentation and storytelling, and grounding the meaning of language in visual data. An ever-increasing number of tasks and datasets are appearing around this recently-established field. <br><br>At NeurIPS 2018, we released the How2 data-set, containing more than 85,000 (2000h) videos, with audio, transcriptions, translations, and textual summaries. We believe it presents an ideal resource to bring together researchers working on the previously mentioned separate tasks around a single, large dataset. This rich dataset will facilitate the comparison of tools and algorithms, and hopefully foster the creation of additional annotations and tasks. We want to foster discussion about useful tasks, metrics, and labeling techniques, in order to develop a better understanding of the role and value of multi-modality in vision and language. We seek to create a venue to encourage collaboration between different sub-fields, and help establish new research directions and collaborations that we believe will sustain machine learning research for years to come. </p>
+
+<p><a href="https://srvk.github.io/how2-challenge/">Workshop Homepage</a></p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3504">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3504">Adaptive and Multitask Learning: Algorithms &amp; Systems</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Maruan Al-Shedivat &middot; Anthony Platanios &middot; Otilia Stretcu &middot; Jacob Andreas &middot; Ameet Talwalkar &middot; Rich Caruana &middot; Tom Mitchell &middot; Eric Xing</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3504"></div>
+
+
+    <p style="font-size:.9em;">[ Seaside Ballroom ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3504" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3504" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3504">
+                Abstract <i id="caret-3504" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3504">
+    <div class="abstract-display">
+        <p>Driven by progress in deep learning, the machine learning community is now able to tackle increasingly more complex problems—ranging from multi-modal reasoning to dexterous robotic manipulation—all of which typically involve solving nontrivial combinations of tasks. Thus, designing adaptive models and algorithms that can efficiently learn, master, and combine multiple tasks is the next frontier. AMTL workshop aims to bring together machine learning researchers from areas ranging from theory to applications and systems, to explore and discuss:<br><br>* advantages, disadvantages, and applicability of different approaches to learning in multitask settings,<br>* formal or intuitive connections between methods developed for different problems that help better understand the landscape of multitask learning techniques and inspire technique transfer between research lines,<br>* fundamental challenges and open questions that the community needs to tackle for the field to move forward.<br><br>Webpage: <a href="https://www.amtl-workshop.org/">www.amtl-workshop.org</a></p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3528">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3528">Workshop on Multi-Task and Lifelong Reinforcement Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Sarath Chandar &middot; Shagun Sodhani &middot; Khimya Khetarpal &middot; Tom Zahavy &middot; Daniel J. Mankowitz &middot; Shie Mannor &middot; Balaraman Ravindran &middot; Doina Precup &middot; Chelsea Finn &middot; Abhishek Gupta &middot; Amy Zhang &middot; Kyunghyun Cho &middot; Andrei A Rusu &middot; Facebook Rob Fergus</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3528"></div>
+
+
+    <p style="font-size:.9em;">[ 102 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3528" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3528" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3528">
+                Abstract <i id="caret-3528" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3528">
+    <div class="abstract-display">
+        <p>Website link: https://sites.google.com/view/mtlrl/<br><br>Significant progress has been made in reinforcement learning, enabling agents to accomplish complex tasks such as Atari games, robotic manipulation, simulated locomotion, and Go. These successes have stemmed from the core reinforcement learning formulation of learning a single policy or value function from scratch. However, reinforcement learning has proven challenging to scale to many practical real world problems due to problems in learning efficiency and objective specification, among many others. Recently, there has been emerging interest and research in leveraging structure and information across multiple reinforcement learning tasks to more efficiently and effectively learn complex behaviors. This includes:<br><br>1. curriculum and lifelong learning, where the problem requires learning a sequence of tasks, leveraging their shared structure to enable knowledge transfer<br>2. goal-conditioned reinforcement learning techniques that leverage the structure of the provided goal space to learn many tasks significantly faster<br>3. meta-learning methods that aim to learn efficient learning algorithms that can learn new tasks quickly<br>4. hierarchical reinforcement learning, where the reinforcement learning problem might entail a compositions of subgoals or subtasks with shared structure<br><br>Multi-task and lifelong reinforcement learning has the potential to alter the paradigm of traditional reinforcement learning, to provide more practical and …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3522">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3522">Identifying and Understanding Deep Learning Phenomena</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Hanie Sedghi &middot; Samy Bengio &middot; Kenji Hata &middot; Aleksander Madry &middot; Ari Morcos &middot; Behnam Neyshabur &middot; Maithra Raghu &middot; Ali Rahimi &middot; Ludwig Schmidt &middot; Ying Xiao</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3522"></div>
+
+
+    <p style="font-size:.9em;">[ Hall B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3522" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3522" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3522">
+                Abstract <i id="caret-3522" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3522">
+    <div class="abstract-display">
+        <p>Our understanding of modern neural networks lags behind their practical successes. As this understanding gap grows, it poses a serious challenge to the future pace of progress because fewer pillars of knowledge will be available to designers of models and algorithms. This workshop aims to close this understanding gap in deep learning. It solicits contributions that view the behavior of deep nets as a natural phenomenon to investigate with methods inspired from the natural sciences, like physics, astronomy, and biology. We solicit empirical work that isolates phenomena in deep nets, describes them quantitatively, and then replicates or falsifies them.<br><br>As a starting point for this effort, we focus on the interplay between data, network architecture, and training algorithms. We are looking for contributions that identify precise, reproducible phenomena, as well as systematic studies and evaluations of current beliefs such as “sharp local minima do not generalize well” or “SGD navigates out of local minima”. Through the workshop, we hope to catalogue quantifiable versions of such statements, as well as demonstrate whether or not they occur reproducibly.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3521">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3521">Invertible Neural Networks and Normalizing Flows</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Chin-Wei Huang &middot; David Krueger &middot; Rianne Van den Berg &middot; George Papamakarios &middot; Aidan Gomez &middot; Chris Cremer &middot; Aaron Courville &middot; Ricky T. Q. Chen &middot; Danilo J. Rezende</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3521"></div>
+
+
+    <p style="font-size:.9em;">[ 103 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3521" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3521" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3521">
+                Abstract <i id="caret-3521" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3521">
+    <div class="abstract-display">
+        <p>Invertible neural networks have been a significant thread of research in the ICML community for several years. Such transformations can offer a range of unique benefits: <br><br>(1) They preserve information, allowing perfect reconstruction (up to numerical limits) and obviating the need to store hidden activations in memory for backpropagation. <br>(2) They are often designed to track the changes in probability density that applying the transformation induces (as in normalizing flows). <br>(3) Like autoregressive models, normalizing flows can be powerful generative models which allow exact likelihood computations; with the right architecture, they can also allow for much cheaper sampling than autoregressive models. <br><br>While many researchers are aware of these topics and intrigued by several high-profile papers, few are familiar enough with the technical details to easily follow new developments and contribute. Many may also be unaware of the wide range of applications of invertible neural networks, beyond generative modelling and variational inference.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3505">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3505">AI For Social Good (AISG)</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Margaux Luck &middot; Kris Sankaran &middot; Tristan Sylvain &middot; Sean McGregor &middot; Jonnie Penn &middot; Girmaw Abebe Tadesse &middot; Virgile Sylvain &middot; Myriam Côté &middot; Lester Mackey &middot; Rayid Ghani &middot; Yoshua Bengio</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3505"></div>
+
+
+    <p style="font-size:.9em;">[ 104 B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3505" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3505" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3505">
+                Abstract <i id="caret-3505" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3505">
+    <div class="abstract-display">
+        <h1>AI for Social Good</h1>
+
+<h2>Important information</h2>
+
+<p><strong>Contact information:</strong> <a href="mailto:aisg2019.icml.contact@gmail.com">aisg2019.icml.contact@gmail.com</a></p>
+
+<p><strong>Submission deadline:</strong> <strong><span style="color:red"><em>EXTENDED to April 26th 2019 11:59PM ET</em></span></strong></p>
+
+<p><strong><a href="https://aiforsocialgood.github.io/icml2019/index.htm">Workshop website</a></strong></p>
+
+<p><strong><a href="https://cmt3.research.microsoft.com/AISGW2019/">Submission website</a></strong></p>
+
+<p><strong>Poster Information:</strong></p>
+
+<ul>
+<li><p>Poster Size - <strong><span style="color:red"> 36W x 48H inches or 90 x 122 cm</span></strong></p></li>
+<li><p>Poster Paper - <strong><span style="color:red">lightweight paper - not laminated</span></strong></p></li>
+</ul>
+
+<h2>Abstract</h2>
+
+<p>This workshop builds on our AI for Social Good workshop at <a href="https://aiforsocialgood.github.io/2018/">NeurIPS 2018</a> and <a href="https://aiforsocialgood.github.io/iclr2019/">ICLR 2019</a>.</p>
+
+<p><strong>Introduction:</strong> The rapid expansion of AI research presents two clear conundrums:</p>
+
+<ul>
+<li>the comparative lack of incentives for researchers to address social impact issues and</li>
+<li>the dearth of conferences and journals centered around the topic. Researchers motivated to help often find themselves without a clear idea of which fields to delve into.</li>
+</ul>
+
+<p><strong>Goals:</strong> Our workshop address both these issues by bringing together machine learning researchers, social impact leaders, stakeholders, policy leaders, and philanthropists to discuss their ideas and applications for social good. To broaden the impact beyond the convening of our workshop, we are partnering with <a href="http://www.aicommons.com">AI Commons</a> to expose accepted projects and papers to the broader community of machine learning researchers and engineers. The projects/research may be at varying degrees of development, from formulation as a data problem to detailed requirements for effective deployment. We hope that this …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3517">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3517">Machine Learning for Music Discovery</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Erik Schmidt &middot; Oriol Nieto &middot; Fabien Gouyon &middot; Katherine Kinnaird &middot; Gert Lanckriet</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3517"></div>
+
+
+    <p style="font-size:.9em;">[ 204 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3517" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3517" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3517">
+                Abstract <i id="caret-3517" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3517">
+    <div class="abstract-display">
+        <p>The ever-increasing size and accessibility of vast music libraries has created a demand more than ever for artificial systems that are capable of understanding, organizing, or even generating such complex data. While this topic has received relatively marginal attention within the machine learning community, it has been an area of intense focus within the community of Music Information Retrieval (MIR). While significant progress has been made, these problems remain far from solved. <br><br>Furthermore, the recommender systems community has made great advances in terms of collaborative feedback recommenders, but these approaches suffer strongly from the cold-start problem. As such, recommendation techniques often fall back on content-based machine learning systems, but defining musical similarity is extremely challenging as myriad features all play some role (e.g., cultural, emotional, timbral, rhythmic). Thus, for machines must actually understand music to achieve an expert level of music recommendation. <br><br>On the other side of this problem sits the recent explosion of work in the area of machine creativity. Relevant examples are both Google Magenta and the startup Jukedeck, who seek to develop algorithms capable of composing and performing completely original (and compelling) works of music. These algorithms require a similar deep understanding of music and present challenging …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3513">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3513">Stein’s Method for Machine Learning and Statistics</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Francois-Xavier Briol &middot; Lester Mackey &middot; Chris Oates &middot; Qiang Liu &middot; Larry Goldstein &middot; Larry Goldstein</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3513"></div>
+
+
+    <p style="font-size:.9em;">[ 104 A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3513" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3513" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3513">
+                Abstract <i id="caret-3513" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3513">
+    <div class="abstract-display">
+        <p>Stein's method is a technique from probability theory for bounding the distance between probability measures using differential and difference operators. Although the method was initially designed as a technique for proving central limit theorems, it has recently caught the attention of the machine learning (ML) community and has been used for a variety of practical tasks. Recent applications include generative modeling, global non-convex optimisation, variational inference, de novo sampling, constructing powerful control variates for Monte Carlo variance reduction, and measuring the quality of (approximate) Markov chain Monte Carlo algorithms. Stein's method has also been used to develop goodness-of-fit tests and was the foundational tool in one of the NeurIPS 2017 Best Paper awards. <br><br>Although Stein's method has already had significant impact in ML, most of the applications only scratch the surface of this rich area of research in probability theory. There would be significant gains to be made by encouraging both communities to interact directly, and this inaugural workshop would be an important step in this direction. More precisely, the aims are: (i) to introduce this emerging topic to the wider ML community, (ii) to highlight the wide range of existing applications in ML, and (iii) to bring together experts …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3519">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3519">Learning and Reasoning with Graph-Structured Representations</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Ethan Fetaya &middot; Zhiting Hu &middot; Thomas Kipf &middot; Yujia Li &middot; Xiaodan Liang &middot; Renjie Liao &middot; Raquel Urtasun &middot; Hao Wang &middot; Max Welling &middot; Eric Xing &middot; Richard Zemel</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3519"></div>
+
+
+    <p style="font-size:.9em;">[ Grand Ballroom B ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3519" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3519" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3519">
+                Abstract <i id="caret-3519" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3519">
+    <div class="abstract-display">
+        <p>Graph-structured representations are widely used as a natural and powerful way to encode information such as relations between objects or entities, interactions between online users (e.g., in social networks), 3D meshes in computer graphics, multi-agent environments, as well as molecular structures, to name a few. Learning and reasoning with graph-structured representations is gaining increasing interest in both academia and industry, due to its fundamental advantages over more traditional unstructured methods in supporting interpretability, causality, transferability, etc. Recently, there is a surge of new techniques in the context of deep learning, such as graph neural networks, for learning graph representations and performing reasoning and prediction, which have achieved impressive progress. However, it can still be a long way to go to obtain satisfactory results in long-range multi-step reasoning, scalable learning with very large graphs, flexible modeling of graphs in combination with other dimensions such as temporal variation and other modalities such as language and vision. New advances in theoretical foundations, models and algorithms, as well as empirical discoveries and applications are therefore all highly desirable. <br><br>The aims of this workshop are to bring together researchers to dive deeply into some of the most promising methods which are under active exploration today, …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3529">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3529">Workshop on AI for autonomous driving</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Anna Choromanska &middot; Larry Jackel &middot; Li Erran Li &middot; Juan Carlos Niebles &middot; Adrien Gaidon &middot; Wei-Lun Chao &middot; Ingmar Posner &middot; Wei-Lun (Harry) Chao</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3529"></div>
+
+
+    <p style="font-size:.9em;">[ 101 ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3529" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3529" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3529">
+                Abstract <i id="caret-3529" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3529">
+    <div class="abstract-display">
+        <p>A diverse set of methods have been devised to develop autonomous driving platforms. They range from modular systems, systems that perform manual decomposition of the problem, systems where the components are optimized independently, and a large number of rules are programmed manually, to end-to-end deep-learning frameworks. Today’s systems rely on a subset of the following: camera images, HD maps, inertial measurement units, wheel encoders, and active 3D sensors (LIDAR, radar). There is a general agreement that much of the self-driving software stack will continue to incorporate some form of machine learning in any of the above mentioned systems in the future.<br><br>Self-driving cars present one of today’s greatest challenges and opportunities for Artificial Intelligence (AI). Despite substantial investments, existing methods for building autonomous vehicles have not yet succeeded, i.e., there are no driverless cars on public roads today without human safety drivers. Nevertheless, a few groups have started working on extending the idea of learned tasks to larger functions of autonomous driving. Initial results on learned road following are very promising.<br><br>The goal of this workshop is to explore ways to create a framework that is capable of learning autonomous driving capabilities beyond road following, towards fully driverless cars. The …</p>
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3512">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3512">Synthetic Realities: Deep Learning for Detecting AudioVisual Fakes</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Battista Biggio &middot; Pavel Korshunov &middot; Thomas Mensink &middot; Giorgio Patrini &middot; Arka Sadhu &middot; Delip Rao</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3512"></div>
+
+
+    <p style="font-size:.9em;">[ 104 C ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3512" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3512" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3512">
+                Abstract <i id="caret-3512" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3512">
+    <div class="abstract-display">
+        <p>With the latest advances of deep generative models, synthesis of images and videos as well as of human voices have achieved impressive realism. In many domains, synthetic media are already difficult to distinguish from real by the human eye and ear. The potential of misuses of these technologies is seldom discussed in academic papers; instead, vocal concerns are rising from media and security organizations as well as from governments. Researchers are starting to experiment on new ways to integrate deep learning with traditional media forensics and security techniques as part of a technological solution. This workshop will bring together experts from the communities of machine learning, computer security and forensics in an attempt to highlight recent work and discuss future effort to address these challenges. Our agenda will alternate contributed papers with invited speakers. The latter will emphasize connections among the interested scientific communities and the standpoint of institutions and media organizations.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3527">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3527">Workshop on Self-Supervised Learning</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Aaron van den Oord &middot; Yusuf Aytar &middot; Carl Doersch &middot; Carl Vondrick &middot; Alec Radford &middot; Pierre Sermanet &middot; Amir Zamir &middot; Pieter Abbeel</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3527"></div>
+
+
+    <p style="font-size:.9em;">[ Grand Ballroom A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3527" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3527" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3527">
+                Abstract <i id="caret-3527" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3527">
+    <div class="abstract-display">
+        <p>Self-supervised learning is a promising alternative where proxy tasks are developed that allow models and agents to learn without explicit supervision in a way that helps with downstream performance on tasks of interest. One of the major benefits of self-supervised learning is increasing data efficiency: achieving comparable or better performance with less labeled data or fewer environment steps (in Reinforcement learning / Robotics).<br>The field of self-supervised learning (SSL) is rapidly evolving, and the performance of these methods is creeping closer to the fully supervised approaches. However, many of these methods are still developed in domain-specific sub-communities, such as Vision, RL and NLP, even though many similarities exist between them. While SSL is an emerging topic and there is great interest in these techniques, there are currently few workshops, tutorials or other scientific events dedicated to this topic.<br>This workshop aims to bring together experts with different backgrounds and applications areas to share inter-domain ideas and increase cross-pollination, tackle current shortcomings and explore new directions. The focus will be on the machine learning point of view rather than the domain side.<br><br>https://sites.google.com/corp/view/self-supervised-icml2019</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                                    <div class="displaycards touchup-date" id="event-3509">
+                                        
+
+                                        
+
+<div style="width:80%;margin:auto;">
+    <a class="small-title" href="/virtual/2019/workshop/3509">Exploration in Reinforcement Learning Workshop</a>
+</div>
+<div class="type_display_name_minus_type"></div>
+<div class="author-str">Benjamin Eysenbach &middot; Benjamin Eysenbach &middot; Surya Bhupatiraju &middot; Shixiang Gu &middot; Harrison Edwards &middot; Martha White &middot; Pierre-Yves Oudeyer &middot; Kenneth Stanley &middot; Emma Brunskill</div>
+<div class="author-str higher"></div>
+<div class="text-muted touchup-date-div" id="touchup-date-event-3509"></div>
+
+
+    <p style="font-size:.9em;">[ Hall A ]</p>
+
+
+
+
+
+<div class="abstract-section">
+    
+        <div>
+            <a id="abstract-link-3509" class="abstract-link" data-toggle="collapse"
+               href="#collapse-event-abstract-3509" role="button"
+               aria-expanded="false" aria-controls="collapse-event-abstract-3509">
+                Abstract <i id="caret-3509" class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+    
+</div>
+<div class="collapse" id="collapse-event-abstract-3509">
+    <div class="abstract-display">
+        <p>Exploration is a key component of reinforcement learning (RL). While RL has begun to solve relatively simple tasks, current algorithms cannot complete complex tasks. Our existing algorithms often endlessly dither, failing to meaningfully explore their environments in search of high-reward states. If we hope to have agents autonomously learn increasingly complex tasks, these machines must be equipped with machinery for efficient exploration. <br><br>The goal of this workshop is to present and discuss exploration in RL, including deep RL, evolutionary algorithms, real-world applications, and developmental robotics. Invited speakers will share their perspectives on efficient exploration, and researchers will share recent work in spotlight presentations and poster sessions.</p>
+
+    </div>
+</div>
+
+                                    </div>
+                                
+                        </div>
+                    </div>
+                
+            </div>
+
+
+        
+        <script>
+            function listmode(){
+                $(".cards_img").hide();
+                $(".pp-card").addClass("pp-mode-list").removeClass("pp-mode-compact");
+            }
+            function compactmode(){
+                $(".cards_img").show();
+                $(".pp-card").removeClass("pp-mode-list").addClass("pp-mode-compact");
+            }
+        </script>
+
+
+    
+
+<script>
+
+
+    $(document).ready(function() {
+        $(".abstract-link").on('click', function(e){
+            var target = $(e.target).find("i")
+            target.toggleClass("fa-caret-right");
+            target.toggleClass("fa-caret-up");
+        })
+        touchup();
+        /* touchup events currently adds dates to cached virtualcards for events */
+    })
+
+</script>
+
+
+    
+        </div>
+    
+
+</main>
+<!--END BLOCK CONTENT-->
+
+
+<!--Footer for the edit button-->
+
+
+<script>
+
+    $(function () {
+        if ($(".editable").length == 0) {
+            $("#editFooter").hide();
+        }
+    })
+</script>
+
+<script src="/static/core/js/fastclick.min.js" type="text/javascript"></script>
+
+<!--We don't know if there are editable tags on the page until after the django template engine has rendered the page. So,
+test in javascript for "editable" tags and if present, load the ckeditor engine dynamically. -->
+
+<script>
+  if (document.getElementsByClassName('editable').length > 0) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "/static/core/ckeditor/4.18/ckeditor.js";    // use this for linked script
+    script.text = "alert('voila!');"               // use this for inline script
+    document.body.appendChild(script);
+  }
+
+</script>
+
+
+<script>
+  function fetchContent() {
+    $(".editable").each(function (index) {
+    var myself = this;
+    var docvID = this.getAttribute('documentversion');
+    var blurbtext = this.getAttribute("blurbtext");
+    $.ajax({
+       url: "/Admin/RetrieveDocumentVersion",
+       type:"POST",
+       data:{
+           docvID : docvID,
+           blurbtext : blurbtext,
+           csrfmiddlewaretoken: csrftoken,
+       },
+       success: function(data, textStatus, jqXHR) {
+           myself.setAttribute("contenteditable", "true");
+           myself.innerHTML = data;
+           CKEDITOR.inline(myself.id);
+       },
+    });
+  })
+}
+
+$("#nopageedit").hide();
+function start_edit(){
+
+  $(".editable").addClass("warning-ring");
+
+  //At the beginning of an edit, we need to replace the content of the
+  //editable div with it's databased content in order to preserve the
+  //template tags. We want the tag, not the rendered tag.
+
+  /* You must remove any countdown.js timers on the page before replacing the page with it's
+  document version otherwise, Javascript will throw an exception.  */
+
+
+  $("[class$='-countdown']").parent().remove();
+  fetchContent();
+  $(".editable").attr("onblur", "ckeditorsave(this)");
+  window.status.bold();
+  window.status = "Click outside the editable area to save. Changes are LIVE!! Refresh page to discard changes.";
+  $("#editpage").hide();
+  $("#noeditpage").show();
+}
+
+
+  function stop_edit() {
+    ckeditorsave();
+    $("#noeditpage").hide();
+    $("#editpage").show();
+    window.location.reload();
+}
+function ckeditorsave(event){
+  for (var name in CKEDITOR.instances){
+    if ( CKEDITOR.instances[name].checkDirty() ){
+      editor = CKEDITOR.instances[name];
+      saveEditable(editor);
+    }
+  }
+}
+
+function saveEditable(editor){
+  var content = editor.getData();
+  var contentId = editor.name;
+  var pageId = window.location.pathname;
+  var originalContent = "N/A";
+  var documentversion = editor.container.getAttribute("documentversion");
+  var blurbtext = editor.container.getAttribute("blurbtext");
+  if ( contentId.match(/-aloha$/gi) ) {
+    contentId = contentId.replace( /-aloha/gi, '' );
+  }  /*I'm not sure what this does but it seems like it would matter*/
+  var request = jQuery.ajax({
+    url: "/Admin/SaveDocument",
+    type: "POST",
+    async: false,
+    data: {
+      content : content,
+      originalContent: originalContent,
+      contentId : contentId,
+      pageId : pageId,
+      documentversion:documentversion,
+      blurbtext : blurbtext,
+      csrfmiddlewaretoken: csrftoken
+    },
+    success: function(data){
+        if (data['message']){
+            alert(data['message']);
+        }
+    },
+    error: function(xqXHR, textStatus){
+        window.status = textStatus;
+        debugger;
+    }
+
+  });
+
+};
+
+
+
+
+</script>
+
+<script type="text/javascript">
+       jQuery(document).ajaxSend(function(event, xhr, settings) {
+           function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                   var cookies = document.cookie.split(';');
+                   for (var i = 0; i < cookies.length; i++) {
+                       var cookie = jQuery.trim(cookies[i]);
+                       // Does this cookie string begin with the name we want?
+                       if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                       }
+                   }
+               }
+               return cookieValue;
+           }
+           function sameOrigin(url) {
+               // url could be relative or scheme relative or absolute
+               var host = document.location.host; // host + port
+               var protocol = document.location.protocol;
+               var sr_origin = '//' + host;
+               var origin = protocol + sr_origin;
+               // Allow absolute or scheme relative URLs to same origin
+               return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                   (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                   // or any other URL that isn't scheme relative or absolute i.e relative.
+                   !(/^(\/\/|http:|https:).*/.test(url));
+           }
+           function safeMethod(method) {
+               return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+           }
+
+           if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+               xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+           }
+       });
+</script>
+
+
+
+
+
+<div id="successful-page-load" class='hidden'>Successful Page Load</div>
+
+
+
+
+
+    
+        <link href="/static/conf_gdpr/css/conf_gdpr.css" rel="stylesheet">
+        <div id="cookie-bar" style="z-index: 8">
+            <table class="gdpr-statement">
+                <col>
+                <col style="width:120px">
+                <tr>
+                    <td style="padding:5px">
+                        ICML uses cookies to remember that you are logged in. By using our websites, you agree
+                        to the placement of cookies. <a href="/public/PrivacyPolicy">
+                        Our Privacy Policy &raquo;&nbsp;</a>
+                    </td>
+                    <td>
+                        <button float-end class="btn btn-light btn-sm btn btn-outline-dark" onClick="accept_cookies();">Accept
+                            Cookies
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function accept_cookies() {
+
+                $.ajax({
+                    method: "POST",
+                    url: "/conf_gdpr/accept",
+                    data: {
+                        csrfmiddlewaretoken: csrftoken,
+                    },
+                }).done(function (data) {
+                    console.log(data);
+                    $("#cookie-bar").fadeOut();
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
+                });
+            }
+        </script>
+
+    
+
+
+
+
+
+
+<br>
+<footer id="bootstrap-footer" class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-1 border-top border-dark">
+    </div>
+    <!-- Section: Links  -->
+    <section class="pt-1">
+        <div class="container text-center text-md-start mt-3">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <img src="/static/core/img/ICML-logo.svg" alt="ICML logo" height='30px'>
+                    </h6>
+                    <p>
+                        The ICML Logo above may be used on presentations. Right-click and choose
+                        download. It is a vector graphic and may be used at any scale.
+                    </p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4" style="max-width: 300px;">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 text-center">
+                        Useful links
+                    </h6>
+                    <div></div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    
+                        <p>
+                            <i class="fas fa-home me-3"></i> 1269 Law Street, San Diego CA 92109
+                        </p>
+                    
+                    <p>
+                        <i class="fas fa-envelope me-3"></i> <a href="/Help/Contact">Email</a>
+                    </p>
+                    
+                    
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div></div>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Footer -->
+
+</body>
+</html>
